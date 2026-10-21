@@ -451,7 +451,32 @@ A: **1. Demo mein system galat kab hota hai? (Known Failure Modes):**
 ## M3.5 — Day 19
 **Q: Kya abstract ke teen numbers results CSV se match karte hain?**
 
-A: [Fill after report draft]
+A: **HAAN, 100% EXACT VERIFIED MATCH:** Abstract ke teeno primary numbers repo ke empirical result artifacts (`results/*.json` and `results/*.csv`) se strictly cross-reference karte hain bina kisi rounding discrepancy ke:
+
+1. **Number 1 — Word-Level LID Official Test Set Accuracy & Macro-F1:**
+   - **Report Abstract Claim:** **98.42% accuracy** and **0.9805 Macro-F1** on frozen held-out test set ($N = 135,568$ tokens across 4,446 sentences); **+10.79% net disambiguation gain** (95% Bootstrap CI: $[+6.84\%, +14.86\%]$, $p < 0.001$) across 36 pre-frozen ambiguous cross-lingual homographs.
+   - **Exact Source Files:**
+     - [`results/table_4_test_final.json`](file:///c:/Users/jayde/OneDrive/Attachments/Documents/Desktop/Projects/Hinglish_ID/results/table_4_test_final.json) (Lines 70–74):
+       `"accuracy": 0.9842`, `"macro_f1": 0.9805`, `"hi_f1": 0.9890`, `"en_f1": 0.9720`.
+     - [`results/table_3_ambiguous.json`](file:///c:/Users/jayde/OneDrive/Attachments/Documents/Desktop/Projects/Hinglish_ID/results/table_3_ambiguous.json):
+       Pooled net gain: `+10.79%` (M3: 88.62% vs M1: 77.83%), 95% Bootstrap CI: `[+6.84%, +14.86%]`.
+
+2. **Number 2 — Generic Subwords (Setup B) vs Monolingual English Baseline (Setup A):**
+   - **Report Abstract Claim:** Setup B achieves **93.06% accuracy** and **0.9308 Macro-F1** ($\pm 0.0272$), significantly outperforming Setup A's **89.82% accuracy** and **0.8975 Macro-F1** ($\pm 0.0280$) with a statistically significant mean difference of $\Delta = \mathbf{+0.0333}$ (95% Bootstrap CI: **$[+0.0184, +0.0484]$**, $p < 0.001$).
+   - **Exact Source Files:**
+     - [`results/table_7_intent_experiments.json`](file:///c:/Users/jayde/OneDrive/Attachments/Documents/Desktop/Projects/Hinglish_ID/results/table_7_intent_experiments.json) (Lines 11–21):
+       `Setup_A_Raw_Word`: `"mean_acc": 0.8982`, `"mean_macro_f1": 0.8975`.
+       `Setup_B_Generic_Char`: `"mean_acc": 0.9306`, `"mean_macro_f1": 0.9308`.
+       `Setup_B_minus_Setup_A`: `"mean_delta_f1": 0.0333`, `"bootstrap_95_ci": [0.0184, 0.0484]`.
+     - [`results/table_7_intent_experiments.csv`](file:///c:/Users/jayde/OneDrive/Attachments/Documents/Desktop/Projects/Hinglish_ID/results/table_7_intent_experiments.csv) (15 locked CV folds).
+
+3. **Number 3 — Honest Negative Result (Setup C' vs Setup A): 95% CI Crossing Zero:**
+   - **Report Abstract Claim:** In an apples-to-apples word-level comparison, LID-aware normalization (Setup C': **89.08% accuracy**, **0.8899 Macro-F1**) yields a paired difference against Setup A of $\Delta = \mathbf{-0.0076}$ with a 95% Bootstrap CI of **$[-0.0163, +0.0007]$** ($p = 0.117$). **The confidence interval crosses zero**, demonstrating that phonetic word normalization alone provides no statistically significant gain over raw words.
+   - **Exact Source Files:**
+     - [`results/table_7_intent_experiments.json`](file:///c:/Users/jayde/OneDrive/Attachments/Documents/Desktop/Projects/Hinglish_ID/results/table_7_intent_experiments.json) (Lines 29–46):
+       `Setup_C_Prime_LIDAware_Word`: `"mean_acc": 0.8908`, `"mean_macro_f1": 0.8899`.
+       `Setup_Cp_minus_Setup_A`: `"mean_delta_f1": -0.0076`, `"bootstrap_95_ci": [-0.0163, 0.0007]`, `"p_value": 0.117469`, `"statistically_significant": false`.
+   - **High-Stakes Grievance Advantage:** Setup C leads on primary customer grievance classes: `refund` (**0.9606** C vs **0.9555** B vs **0.8992** A) and `cancel_order` (**0.9723** C vs **0.9697** B vs **0.9560** A). Lines 69–80 of `results/table_7_intent_experiments.json`.
 
 ---
 

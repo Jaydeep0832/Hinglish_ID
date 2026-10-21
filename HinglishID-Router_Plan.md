@@ -705,7 +705,7 @@ if st.button("Analyze"):
 
 ### M3.5 · Day 19 · Report Writing
 
-- [ ] Done
+- [x] Done
 - **Owner:** All (A: LID, B: intent, C: intro/method/demo)
 - **Syllabus:** -
 - **Effort:** ~5 hrs
@@ -720,9 +720,9 @@ if st.button("Analyze"):
 4. Datasets cite karo: LinCE (Aguilar et al., 2020), SemEval-2020 Task 9 (Patwa et al., 2020). Reference details apni copy se verify karo.
 5. AI-assisted drafting use hui ho to disclose karo.
 
-**Deliverable:** Report draft v1.
+**Deliverable:** Report draft v1 (`docs/report_draft.md`, 13 sections, complete empirical cross-references).
 
-> **Checkpoint question:** Kya abstract ke teen numbers results CSV se match karte hain?
+> **Checkpoint question:** Kya abstract ke teen numbers results CSV se match karte hain? (Answered: 100% exact match cross-referenced with `results/table_4_test_final.json`, `results/table_3_ambiguous.json`, and `results/table_7_intent_experiments.json`).
 
 ### M3.6 · Day 20 · Presentation + Repo Cleanup
 
@@ -860,28 +860,28 @@ Submission se pehle sab tick hona chahiye.
 
 ### Labeled data
 
-- [ ] intent_clean.csv (300-400 rows, 6 intents)
-- [ ] Intent guidelines + kappa value
-- [ ] ambiguous_words.txt (frozen before test)
-- [ ] norm_map.json + stopwords_hi.txt
-- [ ] lid_indomain.conll (hand-tagged queries)
+- [x] intent_clean.csv (300-400 rows, 6 intents)
+- [x] Intent guidelines + kappa value
+- [x] ambiguous_words.txt (frozen before test)
+- [x] norm_map.json + stopwords_hi.txt
+- [x] lid_indomain.conll (hand-tagged queries)
 
 ### Report sections
 
-- [ ] Abstract + Introduction
-- [ ] Data & corpus statistics (Outcome 5)
-- [ ] LID tagger + ablation (Outcomes 1, 2)
-- [ ] Ambiguity analysis (Outcome 3)
-- [ ] Downstream A/B/C with CI (Outcome 4)
-- [ ] Error analysis (15 examples)
-- [ ] Limitations & negative results
-- [ ] References + appendix
+- [x] Abstract + Introduction
+- [x] Data & corpus statistics (Outcome 5)
+- [x] LID tagger + ablation (Outcomes 1, 2)
+- [x] Ambiguity analysis (Outcome 3)
+- [x] Downstream A/B/C with CI (Outcome 4)
+- [x] Error analysis (15 examples)
+- [x] Limitations & negative results
+- [x] References + appendix
 
 ### Streamlit demo
 
-- [ ] Runs from fresh clone
-- [ ] Colored tokens, normalized text, intent, routing, CMI
-- [ ] Limitations expander
+- [x] Runs from fresh clone
+- [x] Colored tokens, normalized text, intent, routing, CMI
+- [x] Limitations expander
 - [ ] Screenshots + 60s recording
 
 ### Presentation
