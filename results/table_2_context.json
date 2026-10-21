@@ -1,0 +1,62 @@
+[
+  {
+    "model_id": "M0_Lookup",
+    "model_name": "M0: Word Lookup (Baseline)",
+    "feature_mode": "lookup",
+    "accuracy": 0.9802,
+    "macro_f1": 0.9753,
+    "hi_f1": 0.9863,
+    "en_f1": 0.9643,
+    "in_vocab_accuracy": 0.9884,
+    "oov_accuracy": 0.766,
+    "total_errors": 2704,
+    "ambiguous_tokens": 8098,
+    "ambiguous_accuracy": 0.8474,
+    "ambiguous_macro_f1": 0.8382
+  },
+  {
+    "model_id": "M1_Char_Only",
+    "model_name": "M1: Char-Only (char_wb 1-4)",
+    "feature_mode": "char_only",
+    "accuracy": 0.9739,
+    "macro_f1": 0.9677,
+    "hi_f1": 0.9819,
+    "en_f1": 0.9536,
+    "in_vocab_accuracy": 0.9813,
+    "oov_accuracy": 0.7815,
+    "total_errors": 3554,
+    "ambiguous_tokens": 8098,
+    "ambiguous_accuracy": 0.8474,
+    "ambiguous_macro_f1": 0.8382
+  },
+  {
+    "model_id": "M3_Context_Words",
+    "model_name": "M3: +Context Words (w_{i-1}, w_{i+1})",
+    "feature_mode": "context_words",
+    "accuracy": 0.9842,
+    "macro_f1": 0.9806,
+    "hi_f1": 0.989,
+    "en_f1": 0.9721,
+    "in_vocab_accuracy": 0.9914,
+    "oov_accuracy": 0.7982,
+    "total_errors": 2149,
+    "ambiguous_tokens": 8098,
+    "ambiguous_accuracy": 0.9537,
+    "ambiguous_macro_f1": 0.952
+  },
+  {
+    "model_id": "M4_Context_Labels",
+    "model_name": "M4: 2-Pass (+Neighbour Labels)",
+    "feature_mode": "context_plus_labels",
+    "accuracy": 0.9854,
+    "macro_f1": 0.982,
+    "hi_f1": 0.9898,
+    "en_f1": 0.9741,
+    "in_vocab_accuracy": 0.9923,
+    "oov_accuracy": 0.8036,
+    "total_errors": 1995,
+    "ambiguous_tokens": 8098,
+    "ambiguous_accuracy": 0.953,
+    "ambiguous_macro_f1": 0.9511
+  }
+]

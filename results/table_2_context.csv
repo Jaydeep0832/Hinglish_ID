@@ -1,0 +1,5 @@
+model_id,model_name,feature_mode,accuracy,macro_f1,hi_f1,en_f1,in_vocab_accuracy,oov_accuracy,total_errors,ambiguous_tokens,ambiguous_accuracy,ambiguous_macro_f1
+M0_Lookup,M0: Word Lookup (Baseline),lookup,0.9802,0.9753,0.9863,0.9643,0.9884,0.766,2704,8098,0.8474,0.8382
+M1_Char_Only,M1: Char-Only (char_wb 1-4),char_only,0.9739,0.9677,0.9819,0.9536,0.9813,0.7815,3554,8098,0.8474,0.8382
+M3_Context_Words,"M3: +Context Words (w_{i-1}, w_{i+1})",context_words,0.9842,0.9806,0.989,0.9721,0.9914,0.7982,2149,8098,0.9537,0.952
+M4_Context_Labels,M4: 2-Pass (+Neighbour Labels),context_plus_labels,0.9854,0.982,0.9898,0.9741,0.9923,0.8036,1995,8098,0.953,0.9511

@@ -1,0 +1,34 @@
+{
+  "total_ambiguous_tokens": 8400,
+  "total_ambiguous_vocabulary": 37,
+  "robust_support_words_count": 34,
+  "low_support_words_count": 3,
+  "zero_dev_words_count": 0,
+  "pooled_models": {
+    "majority_word_baseline": {
+      "accuracy": 0.8418,
+      "ci_95_lower": 0.8344,
+      "ci_95_upper": 0.8499
+    },
+    "m0_word_lookup": {
+      "accuracy": 0.8418,
+      "ci_95_lower": 0.8344,
+      "ci_95_upper": 0.8499
+    },
+    "m1_char_only": {
+      "accuracy": 0.8429,
+      "ci_95_lower": 0.8355,
+      "ci_95_upper": 0.8513
+    },
+    "m3_context_words": {
+      "accuracy": 0.9496,
+      "ci_95_lower": 0.9449,
+      "ci_95_upper": 0.9543
+    }
+  },
+  "pooled_gains": {
+    "m3_vs_majority": 0.1079,
+    "m3_vs_m0_lookup": 0.1079,
+    "m3_vs_m1_char": 0.1068
+  }
+}
