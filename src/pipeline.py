@@ -87,9 +87,20 @@ class HinglishPipeline:
 
         # 2. Predict Token-Level LID Tags (Frozen Model M3)
         if self.tagger is not None:
-            tags = self.tagger.predict_sentence(tokens)
+            raw_tags = self.tagger.predict_sentence(tokens)
+            tags = [
+                "OTHER"
+                if ((t.startswith("<") and t.endswith(">")) or not any(c.isalnum() for c in t))
+                else raw_tags[i]
+                for i, t in enumerate(tokens)
+            ]
         else:
-            tags = ["OTHER" if (t.startswith("<") and t.endswith(">")) else "HI" for t in tokens]
+            tags = [
+                "OTHER"
+                if ((t.startswith("<") and t.endswith(">")) or not any(c.isalnum() for c in t))
+                else "HI"
+                for t in tokens
+            ]
 
         # 3. Compute Code-Mixing Index (CMI)
         query_cmi = round(cmi(tags), 2)
