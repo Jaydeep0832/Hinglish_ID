@@ -1,0 +1,2 @@
+model,split,accuracy,macro_f1,weighted_f1,oov_rate,hi_f1,en_f1,total_errors,in_vocab_errors,oov_errors
+M0_word_lookup,dev,0.9802,0.9753,0.98,0.0369,0.9863,0.9643,2704,1527,1177

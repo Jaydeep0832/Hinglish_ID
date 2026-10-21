@@ -1,0 +1,159 @@
+{
+  "vocab_size": 66863,
+  "default_label": "HI",
+  "total_tokens": 136386,
+  "seen_tokens": 131356,
+  "oov_tokens": 5030,
+  "oov_rate": 0.0369,
+  "accuracy": 0.9802,
+  "macro_precision": 0.9817,
+  "macro_recall": 0.9694,
+  "macro_f1": 0.9753,
+  "weighted_f1": 0.98,
+  "per_class": {
+    "EN": {
+      "precision": 0.985,
+      "recall": 0.9444,
+      "f1": 0.9643,
+      "support": 38633
+    },
+    "HI": {
+      "precision": 0.9784,
+      "recall": 0.9943,
+      "f1": 0.9863,
+      "support": 97753
+    }
+  },
+  "total_errors": 2704,
+  "in_vocab_errors": 1527,
+  "in_vocab_error_share": 0.5647,
+  "in_vocab_accuracy": 0.9884,
+  "oov_errors": 1177,
+  "oov_error_share": 0.4353,
+  "oov_accuracy": 0.766,
+  "top_in_vocab_errors": [
+    [
+      "to",
+      720
+    ],
+    [
+      "the",
+      116
+    ],
+    [
+      "do",
+      112
+    ],
+    [
+      "is",
+      107
+    ],
+    [
+      "sir",
+      85
+    ],
+    [
+      "me",
+      54
+    ],
+    [
+      "man",
+      30
+    ],
+    [
+      "us",
+      16
+    ],
+    [
+      "pure",
+      14
+    ],
+    [
+      "tune",
+      11
+    ],
+    [
+      "use",
+      10
+    ],
+    [
+      "beta",
+      7
+    ],
+    [
+      "they",
+      6
+    ],
+    [
+      "bare",
+      6
+    ],
+    [
+      "hi",
+      6
+    ]
+  ],
+  "top_oov_errors": [
+    [
+      "cch",
+      4
+    ],
+    [
+      "alors",
+      3
+    ],
+    [
+      "obtain",
+      3
+    ],
+    [
+      "organisation",
+      3
+    ],
+    [
+      "chaka",
+      3
+    ],
+    [
+      "milion",
+      3
+    ],
+    [
+      "valuation",
+      3
+    ],
+    [
+      "shops",
+      3
+    ],
+    [
+      "gallantry",
+      3
+    ],
+    [
+      "backstabber",
+      3
+    ],
+    [
+      "int",
+      2
+    ],
+    [
+      "tragedy",
+      2
+    ],
+    [
+      "blasts",
+      2
+    ],
+    [
+      "patch",
+      2
+    ],
+    [
+      "divorcee",
+      2
+    ]
+  ],
+  "classification_report": "              precision    recall  f1-score   support\n\n          EN     0.9850    0.9444    0.9643     38633\n          HI     0.9784    0.9943    0.9863     97753\n\n    accuracy                         0.9802    136386\n   macro avg     0.9817    0.9694    0.9753    136386\nweighted avg     0.9803    0.9802    0.9800    136386\n"
+}
