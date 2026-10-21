@@ -1,0 +1,27 @@
+# HinglishID-Router requirements
+# Generated for Week 1 (M1.1). Pin versions after first successful install.
+
+# Core data & ML
+pandas>=2.0
+numpy>=1.24
+scikit-learn>=1.3
+scipy>=1.11
+joblib>=1.3
+
+# NLP utilities
+nltk>=3.8
+regex>=2023.6          # Unicode property support (emoji, Devanagari detection)
+
+# Visualization
+matplotlib>=3.7
+seaborn>=0.12
+
+# Demo
+streamlit>=1.28
+
+# Notebooks
+jupyter>=1.0
+ipykernel>=6.0
+
+# Testing
+pytest>=7.4

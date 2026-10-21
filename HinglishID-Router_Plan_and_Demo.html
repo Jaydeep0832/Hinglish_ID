@@ -1,0 +1,865 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HinglishID-Router: 3-Week Plan + Demo</title>
+<style>
+:root{
+  --bg:#f5f6fb;--card:#ffffff;--ink:#1a1f2e;--muted:#59627a;--line:#e1e5ef;
+  --accent:#4338ca;--accent-soft:#e8e7fb;--hi:#b45309;--hi-bg:#fef0d9;--en:#1d4ed8;--en-bg:#dde8fd;
+  --oth:#4b5563;--oth-bg:#eceef2;--ok:#047857;--ok-bg:#d9f4e8;--warn:#92400e;--warn-bg:#fdf1d6;--bad:#b91c1c;--bad-bg:#fde4e4;
+  --code-bg:#0f172a;--code-ink:#e2e8f0;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0e111d;--card:#161b2c;--ink:#e7eaf5;--muted:#9aa4bd;--line:#283050;
+  --accent:#a5a1ff;--accent-soft:#25264a;--hi:#fbbf24;--hi-bg:#3a2d10;--en:#7db3ff;--en-bg:#172a4d;
+  --oth:#aab2c5;--oth-bg:#23293d;--ok:#4ade9f;--ok-bg:#12332a;--warn:#fbbf24;--warn-bg:#3a2d10;--bad:#fca5a5;--bad-bg:#3d1a1a;
+  --code-bg:#0a0e1a;--code-ink:#dbe3f2}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.88em;background:var(--accent-soft);padding:1px 5px;border-radius:4px}
+header.hero{padding:36px 16px 24px;background:linear-gradient(135deg,var(--accent-soft),transparent 70%);border-bottom:1px solid var(--line)}
+.wrap{max-width:1060px;margin:0 auto;padding:0 16px}
+.hero h1{margin:0 0 6px;font-size:clamp(1.5rem,4vw,2.2rem);line-height:1.2}
+.hero p.sub{margin:0 0 14px;color:var(--muted);max-width:820px}
+.badges{display:flex;flex-wrap:wrap;gap:8px}
+.badge{font-size:.8rem;padding:3px 10px;border-radius:99px;background:var(--card);border:1px solid var(--line);color:var(--muted)}
+nav.top{position:sticky;top:0;z-index:20;background:var(--card);border-bottom:1px solid var(--line)}
+nav.top .wrap{display:flex;gap:4px;overflow-x:auto;padding:8px 16px;align-items:center}
+nav.top a{white-space:nowrap;text-decoration:none;color:var(--muted);font-size:.88rem;padding:4px 10px;border-radius:8px}
+nav.top a:hover{background:var(--accent-soft);color:var(--accent)}
+main section{padding:34px 0 6px}
+h2{font-size:1.5rem;margin:0 0 4px}
+h2 .n{display:inline-block;min-width:1.7em;color:var(--accent)}
+.lead{color:var(--muted);margin:0 0 16px}
+h3{margin:20px 0 8px;font-size:1.08rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:760px){.grid2,.grid3{grid-template-columns:1fr}}
+ul,ol{padding-left:1.25rem;margin:.4rem 0}
+li{margin:.25rem 0}
+.callout{border-left:4px solid var(--warn);background:var(--warn-bg);padding:10px 14px;border-radius:8px;margin:12px 0}
+.callout.ok{border-color:var(--ok);background:var(--ok-bg)}
+.callout.bad{border-color:var(--bad);background:var(--bad-bg)}
+.tablewrap{overflow-x:auto;margin:10px 0}
+table{border-collapse:collapse;width:100%;font-size:.92rem;background:var(--card)}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:var(--accent-soft)}
+.flow{display:flex;flex-wrap:wrap;gap:6px;align-items:stretch;margin:12px 0}
+.flow .step{flex:1 1 150px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:.88rem}
+.flow .step b{display:block;color:var(--accent)}
+.flow .arrow{align-self:center;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:.74rem;padding:2px 9px;border-radius:99px;background:var(--oth-bg);color:var(--oth);white-space:nowrap}
+.chip.own{background:var(--accent-soft);color:var(--accent)}
+.chip.unit{background:var(--en-bg);color:var(--en)}
+.chip.eff{background:var(--hi-bg);color:var(--hi)}
+.pbar{height:10px;background:var(--line);border-radius:99px;overflow:hidden}
+.pbar>i{display:block;height:100%;background:var(--accent);width:0;transition:width .3s}
+.tl{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin:10px 0}
+.tl a{display:block;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 8px;font-size:.78rem;border-top:4px solid var(--accent)}
+.tl a.w2{border-top-color:var(--hi)}.tl a.w3{border-top-color:var(--ok)}
+.tl a b{display:block;font-size:.72rem;color:var(--muted)}
+@media(max-width:700px){.tl{grid-template-columns:repeat(3,1fr)}}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+button,.btn{font:inherit;font-size:.86rem;padding:6px 12px;border-radius:9px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+details.mod{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:10px 0;overflow:hidden}
+details.mod[open]{border-color:var(--accent)}
+details.mod>summary{list-style:none;cursor:pointer;padding:12px 14px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+details.mod>summary::-webkit-details-marker{display:none}
+details.mod>summary::before{content:"▸";color:var(--muted);transition:transform .15s}
+details.mod[open]>summary::before{transform:rotate(90deg)}
+.mod .day{font-weight:700;color:var(--accent);font-size:.82rem;min-width:3.8em}
+.mod .ttl{font-weight:650;flex:1 1 260px}
+.mod .body{padding:4px 16px 16px;border-top:1px dashed var(--line)}
+.mod .lbl{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:14px 0 2px;font-weight:700}
+.mod pre{margin:6px 0;background:var(--code-bg);color:var(--code-ink);padding:12px 14px;border-radius:10px;overflow-x:auto;font-size:.8rem;line-height:1.5}
+.mod .check{background:var(--accent-soft);border-radius:10px;padding:8px 12px;margin-top:12px}
+.mod input[type=checkbox],.cl input[type=checkbox]{width:18px;height:18px;accent-color:var(--accent)}
+.cl label{display:flex;gap:10px;align-items:flex-start;margin:6px 0;cursor:pointer}
+.sev-h{color:var(--bad);font-weight:700}.sev-m{color:var(--hi);font-weight:700}.sev-l{color:var(--ok);font-weight:700}
+.rep li b{color:var(--accent)}
+/* demo */
+textarea#q{width:100%;min-height:84px;font:inherit;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);resize:vertical}
+.ctrl{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin:10px 0}
+.ctrl label{font-size:.88rem;color:var(--muted);display:flex;align-items:center;gap:6px}
+.tok{display:inline-flex;flex-direction:column;align-items:center;margin:3px 3px 3px 0;padding:3px 9px 2px;border-radius:8px;font-weight:600;border-bottom:3px solid;line-height:1.25}
+.tok small{font-size:.62rem;font-weight:700;letter-spacing:.05em;opacity:.85}
+.tok.HI{background:var(--hi-bg);color:var(--hi);border-color:var(--hi)}
+.tok.EN{background:var(--en-bg);color:var(--en);border-color:var(--en)}
+.tok.OTHER{background:var(--oth-bg);color:var(--oth);border-color:var(--oth)}
+.tok.amb{outline:2px dashed var(--accent);outline-offset:1px}
+.stage{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px;margin:10px 0}
+.stage h4{margin:0 0 6px;font-size:.95rem}.stage h4 span{color:var(--accent)}
+.bar{display:flex;align-items:center;gap:8px;margin:4px 0;font-size:.85rem}
+.bar .nm{width:170px;flex:none}.bar .tr{flex:1;height:12px;background:var(--line);border-radius:99px;overflow:hidden}
+.bar .tr i{display:block;height:100%;background:var(--accent)}.bar .v{width:28px;text-align:right;color:var(--muted)}
+.bar.top .tr i{background:var(--ok)}
+.ab{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:760px){.ab{grid-template-columns:1fr}.bar .nm{width:120px}}
+.ab>div{border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:.86rem;background:var(--bg)}
+.ab b{display:block;margin-bottom:3px}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.84rem;word-break:break-word}
+.rm{color:var(--bad);text-decoration:line-through}
+footer{padding:30px 0 50px;color:var(--muted);font-size:.85rem}
+@media print{nav.top,.toolbar,.noprint,.ctrl,textarea#q{display:none!important}body{background:#fff}}
+</style>
+</head>
+<body>
+
+<header class="hero"><div class="wrap">
+  <h1>HinglishID-Router: 3-Week Project Plan + Live Demo</h1>
+  <p class="sub">Word-Level Language Identification with Character N-Grams and Naive Bayes to Improve Intent Classification of Romanized Hindi-English Customer Support Queries</p>
+  <div class="badges"><span class="badge">3 weeks · 21 modules</span><span class="badge">Small team (3 recommended)</span><span class="badge">Modest compute · CPU only</span><span class="badge">Honest evaluation, negative results OK</span></div>
+  <div class="card" style="margin-top:16px">
+    <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:.88rem"><b>Aapka progress</b><span id="progtxt" class="mono">0 / 0</span></div>
+    <div class="pbar" style="margin-top:6px"><i id="progbar"></i></div>
+    <div class="noprint" style="font-size:.78rem;color:var(--muted);margin-top:6px">Tick karo jaise-jaise modules aur checklist items complete hon. Progress aapke browser mein save hota hai.</div>
+  </div>
+</div></header>
+
+<nav class="top"><div class="wrap">
+  <a href="#summary">1 Summary</a><a href="#team">2 Team</a><a href="#week1">3 Week 1</a><a href="#week2">4 Week 2</a><a href="#week3">5 Week 3</a>
+  <a href="#eval">6 Evaluation</a><a href="#risk">7 Risks</a><a href="#checklist">8 Checklist</a><a href="#report">9 Report</a><a href="#demo">▶ Live Demo</a>
+</div></nav>
+
+<main class="wrap">
+
+<!-- 1 SUMMARY -->
+<section id="summary">
+  <h2><span class="n">1.</span>Project Summary and Goals</h2>
+  <p class="lead">Short mein: kya banana hai, kyun, aur success ka matlab kya hai.</p>
+  <div class="card">
+    <ul>
+      <li><b>Problem:</b> Indian users support queries aise likhte hain: <i>"Mera order abhi tak nahi aaya, please refund karo"</i>. Standard English pipeline (stopwords, stemmer, intent model) Hindi words ko noise samajhta hai.</li>
+      <li><b>Core (Part 1):</b> Word-level tagger jo har word ko <span class="tok HI" style="padding:0 6px">HI</span> <span class="tok EN" style="padding:0 6px">EN</span> <span class="tok OTHER" style="padding:0 6px">OTHER</span> label kare, using char n-grams (1-4) + Naive Bayes.</li>
+      <li><b>Proof of value (Part 2):</b> Intent classifier ko 3 setups mein compare karna: A (raw, English pipeline), B (raw, char n-gram TF-IDF, no LID), C (LID-aware normalization, then TF-IDF).</li>
+      <li><b>Honest rule:</b> Gain chhota ya zero ho sakta hai. Negative result + analysis acceptable hai. Fabricated gain kabhi nahi.</li>
+      <li><b>Timeline:</b> Week 1 tagger, Week 2 context + data + normalization, Week 3 comparison + demo + report.</li>
+    </ul>
+  </div>
+
+  <h3>Pipeline ek nazar mein</h3>
+  <div class="flow">
+    <div class="step"><b>1. Tokenize &amp; Clean</b>Emoji, URL, order ID mask</div><div class="arrow">→</div>
+    <div class="step"><b>2. Word-level LID</b>HI / EN / OTHER (char n-gram NB)</div><div class="arrow">→</div>
+    <div class="step"><b>3. Language-aware processing</b>EN: stopwords + stem. HI: spelling normalize + stopwords</div><div class="arrow">→</div>
+    <div class="step"><b>4. Intent classification</b>TF-IDF + LR / NB</div><div class="arrow">→</div>
+    <div class="step"><b>5. Routing</b>Intent + code-mix flag</div>
+  </div>
+
+  <h3>Measurable outcomes</h3>
+  <div class="tablewrap"><table>
+    <tr><th>#</th><th>Outcome</th><th>Kaise measure hoga</th></tr>
+    <tr><td>1</td><td>Tagger quality</td><td>Per-class P/R/F1 for HI and EN. Expect roughly 88-95%, lekin run karne se pehle number promise mat karo.</td></tr>
+    <tr><td>2</td><td>Feature ablation</td><td>Char n-gram vs whole-word lookup; neighbouring-word context ka effect on ambiguous words.</td></tr>
+    <tr><td>3</td><td>Ambiguity result</td><td>30-40 hand-picked ambiguous words par accuracy, alag se report.</td></tr>
+    <tr><td>4</td><td>Downstream value</td><td>Intent accuracy / macro-F1 for A vs B vs C.</td></tr>
+    <tr><td>5</td><td>Corpus statistics</td><td>HI vs EN token share, % code-mixed messages, CMI distribution.</td></tr>
+  </table></div>
+
+  <h3>Syllabus mapping</h3>
+  <div class="grid2">
+    <div class="card"><b>Unit 1</b><br>Tokenization, stemming, morphological analysis (spelling variation in romanized Hindi).</div>
+    <div class="card"><b>Unit 2</b><br>Corpus analysis (language ratio, CMI), categorical attributes (HI/EN/OTHER), dataset prep, CoNLL token-per-line format.</div>
+    <div class="card"><b>Unit 3</b><br>Pre-processing, ambiguity handling (<code>is, to, me, hai, main...</code>).</div>
+    <div class="card"><b>Unit 4</b><br>Char n-grams (1-4), Bag of Words, TF-IDF, Naive Bayes, Logistic Regression, rule-based vs ML.</div>
+  </div>
+
+  <h3>21 din ka timeline <span style="font-weight:400;color:var(--muted);font-size:.85rem">(box par click karo → module khulega)</span></h3>
+  <div class="tl" id="timeline"></div>
+
+  <div class="callout"><b>Mentor note:</b> Sirf tagger banane se project "standard exercise" lagega. Asli value Part 2 se aati hai: tagger intent classification ko sach mein improve karta hai ya nahi. Isliye Week 3 ko skip ya compress mat karna.</div>
+</section>
+
+<!-- 2 TEAM -->
+<section id="team">
+  <h2><span class="n">2.</span>Team Roles and Task Division</h2>
+  <p class="lead">Suggested split 3 logon ke liye. Har module ka ek <b>owner</b> hai aur ek alag <b>verifier</b>, taaki koi bhi kaam bina review ke "done" na ho.</p>
+  <div class="grid3">
+    <div class="card"><div class="chips"><span class="chip own">Member A</span></div><h3 style="margin-top:6px">Tagger Lead (LID core)</h3>
+      <ul><li>Data loading, CoNLL parser, splits</li><li>Lookup baseline, char n-gram NB/LR tagger</li><li>Context features, ablations</li><li>Ambiguous-word list + evaluation</li></ul></div>
+    <div class="card"><div class="chips"><span class="chip own">Member B</span></div><h3 style="margin-top:6px">Data &amp; Intent Lead</h3>
+      <ul><li>Intent guidelines, dataset coordination</li><li>Label QA, Cohen's kappa, CV folds</li><li>A/B/C experiments and statistics</li><li>Per-intent analysis</li></ul></div>
+    <div class="card"><div class="chips"><span class="chip own">Member C</span></div><h3 style="margin-top:6px">Pipeline, Demo &amp; Report Lead</h3>
+      <ul><li><code>preprocess.py</code>, normalization lexicon</li><li><code>pipeline.py</code> integration, routing</li><li>Streamlit demo</li><li>Repo hygiene, slides, report assembly</li></ul></div>
+  </div>
+  <h3>Working rules</h3>
+  <div class="card"><ul>
+    <li><b>Build-and-verify buddy:</b> A banata hai → B verify karta hai; B → C verify; C → A verify.</li>
+    <li><b>Definition of Done:</b> code fresh clone se chalta hai, tests pass, deliverable commit hua, checkpoint question ka jawab <code>docs/checkpoints.md</code> mein likha.</li>
+    <li><b>Shared kaam:</b> intent queries likhna (har member ~100-130), error analysis (Day 10), report writing (Day 19).</li>
+    <li><b>Sync:</b> har 2 din mein 10-minute standup. Slip hone par risk register update karo.</li>
+    <li><b>Git:</b> feature branches + small PRs; <code>main</code> hamesha runnable.</li>
+  </ul></div>
+  <h3>Agar team size alag ho</h3>
+  <div class="grid2">
+    <div class="card"><b>2 members</b><br>A+C merge: tagger + pipeline. B: data + experiments. Streamlit demo simple rakho (text box + colored tokens + intent).</div>
+    <div class="card"><b>Solo / 4 members</b><br>Solo: kappa ke badle 3 din baad khud dobara label karo (intra-annotator agreement), in-domain LID mini-set chhota rakho (~25 queries). 4 members: 4th person demo + report, C sirf pipeline + routing.</div>
+  </div>
+</section>
+
+<!-- WEEKS -->
+<section id="week1">
+  <h2><span class="n">3.</span>Week 1: Foundation and Tagger</h2>
+  <p class="lead">Goal: dataset access confirm, corpus samajhna, aur ek kaam karne wala char n-gram tagger dev set par.</p>
+  <div class="toolbar noprint"><button data-open="w1list">Sab kholo</button><button data-close="w1list">Sab band karo</button></div>
+  <div id="w1list"></div>
+</section>
+
+<section id="week2">
+  <h2><span class="n">4.</span>Week 2: Context, Error Analysis, Dataset, Normalization</h2>
+  <p class="lead">Goal: ambiguity handle karna, intent dataset banana, aur language-aware normalization ready karna.</p>
+  <div class="toolbar noprint"><button data-open="w2list">Sab kholo</button><button data-close="w2list">Sab band karo</button></div>
+  <div id="w2list"></div>
+</section>
+
+<section id="week3">
+  <h2><span class="n">5.</span>Week 3: Downstream Comparison, Demo, Report</h2>
+  <p class="lead">Goal: A vs B vs C fair comparison, routing + Streamlit demo, aur honest report.</p>
+  <div class="toolbar noprint"><button data-open="w3list">Sab kholo</button><button data-close="w3list">Sab band karo</button></div>
+  <div id="w3list"></div>
+</section>
+
+<!-- 6 EVAL -->
+<section id="eval">
+  <h2><span class="n">6.</span>Evaluation Plan</h2>
+  <p class="lead">Exact metrics, splits, ambiguous-word reporting, aur negative results ka protocol.</p>
+
+  <h3>6.1 LID tagger: splits aur metrics</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Item</th><th>Decision</th></tr>
+    <tr><td>Data</td><td>LinCE Hindi-English LID train + dev (test labels hidden). Fallback: SemEval-2020 Task 9 ya self-tagged tokens.</td></tr>
+    <tr><td>Split</td><td><b>Sentence level</b> par 80/10/10 (train/dev/test), <code>seed=42</code>. Token level split mat karo, warna same sentence ke tokens leak honge.</td></tr>
+    <tr><td>Use</td><td>Train = fit. Dev = hyperparameters (alpha, n-gram range, features). <b>Test = sirf ek baar</b>, Day 10 par jab model freeze ho.</td></tr>
+    <tr><td>Primary metric</td><td>Per-class precision / recall / F1 for HI and EN; macro-F1 over HI+EN.</td></tr>
+    <tr><td>Secondary</td><td>OTHER class F1, overall accuracy (imbalance ki wajah se primary nahi), confusion matrix, OOV vs in-vocabulary accuracy.</td></tr>
+    <tr><td>In-domain check</td><td>40-50 hand-tagged support queries par tagger evaluate (train mein kabhi nahi). Twitter vs support-query domain gap dikhata hai.</td></tr>
+  </table></div>
+
+  <h3>6.2 Feature ablation table (Outcome 2)</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Model</th><th>Features</th><th>HI F1</th><th>EN F1</th><th>Macro-F1</th><th>Ambig. acc</th></tr>
+    <tr><td>M0</td><td>Whole-word lookup (majority label)</td><td>…</td><td>…</td><td>…</td><td>…</td></tr>
+    <tr><td>M1</td><td>char_wb 1-4 + MultinomialNB</td><td>…</td><td>…</td><td>…</td><td>…</td></tr>
+    <tr><td>M2</td><td>char_wb 1-4 + LogisticRegression</td><td>…</td><td>…</td><td>…</td><td>…</td></tr>
+    <tr><td>M3</td><td>M1/M2 + prev/next word</td><td>…</td><td>…</td><td>…</td><td>…</td></tr>
+    <tr><td>M4</td><td>M1/M2 + neighbour predicted labels</td><td>…</td><td>…</td><td>…</td><td>…</td></tr>
+  </table></div>
+
+  <h3>6.3 Ambiguous words (30-40): kaise report karna hai (Outcome 3)</h3>
+  <div class="card"><ol>
+    <li><b>List kaise banti hai:</b> train corpus se data-driven candidates (word dono labels ke saath dikhe, minority label ≥ 10%, freq ≥ 20) + domain knowledge. Starter pool (corpus se verify karo): <code>is, to, me, hi, or, do, main, par, the, tab, mat, us, mile, den</code>.</li>
+    <li><b>Freeze:</b> list test results dekhne se <b>pehle</b> commit karo (<code>data/ambiguous_words.txt</code>).</li>
+    <li><b>Table columns:</b> word | n_test | gold HI count | gold EN count | acc (majority-label baseline) | acc (M1) | acc (M3).</li>
+    <li><b>Pooled number:</b> micro-accuracy on all ambiguous tokens + bootstrap 95% CI (1000 resamples).</li>
+    <li><b>Small-n flag:</b> jin words ke test occurrences &lt; 5, unhe "low support" mark karo aur pooled number ke saath alag se bhi dikhao.</li>
+    <li><b>Must-have baseline:</b> "har word ko uska majority label do". Agar model isse beat nahi karta, to context ka fayda claim mat karo.</li>
+  </ol></div>
+
+  <h3>6.4 Downstream intent evaluation (Outcome 4)</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Item</th><th>Decision</th></tr>
+    <tr><td>Protocol</td><td>Stratified 5-fold CV × 3 repeats (15 scores per setup). Same folds A/B/C ke liye. Vectorizer fold ke andar fit.</td></tr>
+    <tr><td>Metrics</td><td>Accuracy, macro-F1 (primary, kyunki "other" class ho sakti hai), per-intent F1.</td></tr>
+    <tr><td>Comparison</td><td>Per-fold paired difference (C−B, B−A) with bootstrap 95% CI. Folds overlap karte hain, isliye p-values optimistic hote hain; CI ko prefer karo.</td></tr>
+    <tr><td>Fairness</td><td>B aur C mein sirf LID-aware normalization alag ho. Same classifier, same vectorizer, same hyperparameter grid.</td></tr>
+    <tr><td>Leakage guard</td><td>LID tagger intent data par kabhi train nahi hota. Near-duplicate queries same fold mein rakho (ya dedupe).</td></tr>
+  </table></div>
+
+  <h3>6.5 Corpus statistics (Outcome 5)</h3>
+  <div class="card">LinCE aur intent dataset dono ke liye: #sentences, #tokens, HI/EN/OTHER share, % code-mixed sentences (HI aur EN dono present), CMI histogram. Dono datasets ka comparison table banao; agar intent data zyada Hindi-heavy ya English-heavy hai to report mein likho.</div>
+
+  <h3>6.6 Negative results ka protocol</h3>
+  <div class="callout ok"><b>Pehle hypotheses likh do (Day 8 tak, <code>docs/hypotheses.md</code>):</b>
+    <ul><li><b>H1:</b> char n-gram NB lookup se zyada macro-F1 deta hai (dev).</li><li><b>H2:</b> context features ambiguous-word accuracy badhate hain.</li><li><b>H3:</b> intent macro-F1: C ≥ B ≥ A.</li></ul></div>
+  <div class="card"><b>Agar result expected nahi aaya:</b>
+    <ol>
+      <li><b>Jaisa hai waisa report karo.</b> Example: "C ne B se 1.2 points behtar kiya, lekin 95% CI [−2.1, +4.3] hai, to improvement reliable nahi hai."</li>
+      <li><b>Test set par tune mat karo,</b> aur "jab tak achha result na aaye tab tak re-run" mat karo. Kitne experiments chale, wo report mein likho.</li>
+      <li><b>Diagnose karo (checklist):</b>
+        <ul>
+          <li>Kya B ke char n-grams already spelling variation absorb kar lete hain? (Plausible: nahi/nhi/nahin ke n-grams overlap karte hain.)</li>
+          <li>Kya LID errors aage propagate ho rahe hain? In-domain hand-tagged queries par <b>oracle LID</b> (gold tags) se upper bound nikalo.</li>
+          <li>Kya intents keyword-driven hain (e.g. "refund" word hi kaafi hai)? To LID se extra fayda kam hoga.</li>
+          <li>Kya dataset chhota hai (300-400)? To CI chaudi hogi; conclusion "inconclusive" hai, "no effect" nahi.</li>
+        </ul></li>
+      <li><b>Negative result ko report mein ek proper section do:</b> kya try kiya, kya nahi chala, aur likely kyun.</li>
+    </ol></div>
+</section>
+
+<!-- 7 RISKS -->
+<section id="risk">
+  <h2><span class="n">7.</span>Risk Register</h2>
+  <p class="lead">Har risk ka early signal aur mitigation. Har standup mein is table ko 1 minute dekho.</p>
+  <div class="tablewrap"><table>
+    <tr><th>ID</th><th>Risk</th><th>Likelihood / Impact</th><th>Early signal</th><th>Mitigation</th><th>Owner</th></tr>
+    <tr><td>R1</td><td><b>Dataset access failure</b> (LinCE registration delay, SemEval link dead)</td><td><span class="sev-m">Medium</span> / <span class="sev-h">High</span></td><td>Day 2 tak download nahi hua</td><td>Day 1 par dono sources check. Fallback: intent-style queries se 1,000-2,000 tokens khud tag karo (do log, overlap par agreement check). Dono sources fail hon to LID evaluation chhota hoga, report mein likho.</td><td>A</td></tr>
+    <tr><td>R2</td><td><b>Label noise</b> (LinCE ki annotation + apni intent labels)</td><td><span class="sev-m">Medium</span> / <span class="sev-m">Medium</span></td><td>Kappa &lt; 0.6; same word ke inconsistent tags</td><td>Written guidelines, 10-15% double-annotation, disagreements discuss. LID noise ke liye error analysis mein "annotation noise" category rakho.</td><td>B</td></tr>
+    <tr><td>R3</td><td><b>Small intent data</b> (300-400 queries)</td><td><span class="sev-h">High</span> / <span class="sev-h">High</span></td><td>CV std bahut zyada; fold-to-fold swings</td><td>Repeated stratified CV, CI report karo, single-number claim mat karo. Mix styles ensure karo. Time bache to 100 aur queries likho (leave-one-writer-out ke saath).</td><td>B</td></tr>
+    <tr><td>R4</td><td><b>Weak ya zero gains</b> (C ≈ B)</td><td><span class="sev-h">High</span> / <span class="sev-m">Medium</span></td><td>Pilot run (Day 15) mein C−B ≈ 0</td><td>Section 6.6 protocol. Oracle-LID experiment, per-intent analysis, spelling-heavy subset par alag evaluation. Report mein negative result ko seriously analyze karo.</td><td>B + A</td></tr>
+    <tr><td>R5</td><td><b>Domain mismatch</b> (LinCE = Twitter, test = support queries)</td><td><span class="sev-h">High</span> / <span class="sev-m">Medium</span></td><td>In-domain F1 &lt;&lt; LinCE F1</td><td>40-50 in-domain queries hand-tag karke evaluate. Brand/product words ke liye small domain lexicon; limitation likho.</td><td>A</td></tr>
+    <tr><td>R6</td><td><b>Data leakage</b> (neighbour labels gold vs predicted, vectorizer fit on all data, duplicates)</td><td><span class="sev-m">Medium</span> / <span class="sev-h">High</span></td><td>Suspiciously high scores (&gt;98%)</td><td>Sklearn <code>Pipeline</code> use karo, <code>cross_val_predict</code> neighbour labels ke liye, dedupe, buddy code review.</td><td>All</td></tr>
+    <tr><td>R7</td><td><b>Timeline slip / member unavailable</b></td><td><span class="sev-m">Medium</span> / <span class="sev-m">Medium</span></td><td>Koi module 1 din se zyada late</td><td>Day 7, 14, 21 buffer days. Optional items (in-domain tagging, extensions) pehle cut hote hain. Modules independent hain, to reassign possible.</td><td>C</td></tr>
+    <tr><td>R8</td><td><b>Licensing / redistribution</b> (LinCE data repo mein daalna)</td><td><span class="sev-l">Low</span> / <span class="sev-m">Medium</span></td><td>Repo public karna hai</td><td>Raw dataset commit mat karo; download instructions do. Sirf apna intent dataset share karo.</td><td>C</td></tr>
+  </table></div>
+</section>
+
+<!-- 8 CHECKLIST -->
+<section id="checklist">
+  <h2><span class="n">8.</span>Final Deliverables Checklist</h2>
+  <p class="lead">Submission se pehle sab tick hona chahiye.</p>
+  <div class="grid2 cl" id="cl"></div>
+</section>
+
+<!-- 9 REPORT -->
+<section id="report">
+  <h2><span class="n">9.</span>Report Outline</h2>
+  <p class="lead">6-8 pages. Structure teen outcomes (tagger, ambiguity, downstream) ke around hai.</p>
+  <div class="tablewrap"><table class="rep">
+    <tr><th>Section</th><th>Content</th><th>Pages</th><th>Outcome</th></tr>
+    <tr><td><b>1. Abstract</b></td><td>Problem, method, 3 key numbers (with CI), ek line honest limitation.</td><td>0.25</td><td>All</td></tr>
+    <tr><td><b>2. Introduction</b></td><td>Code-mixed support queries, English pipeline ki failure example, contributions (2 parts), research questions H1-H3.</td><td>0.75</td><td>-</td></tr>
+    <tr><td><b>3. Data &amp; Corpus Statistics</b></td><td>LinCE (+ SemEval), label mapping, intent dataset construction, guidelines, kappa, HI/EN share, % code-mixed, CMI histogram.</td><td>1</td><td>5</td></tr>
+    <tr><td><b>4. Method</b></td><td>Preprocessing/masking, tagger (char n-gram NB/LR), context features, language-aware processing, setups A/B/C, routing, CMI.</td><td>1.25</td><td>-</td></tr>
+    <tr><td><b>5. Exp 1: LID Tagger</b></td><td>Table 1 (lookup vs NB vs LR), per-class F1, confusion matrix, in-domain result.</td><td>0.75</td><td>1, 2</td></tr>
+    <tr><td><b>6. Exp 2: Ambiguity</b></td><td>Table 3 (per-word + pooled with CI), majority-label baseline, effect of context.</td><td>0.75</td><td>3</td></tr>
+    <tr><td><b>7. Exp 3: Downstream Intent</b></td><td>A vs B vs C: mean ± std, paired-difference CI, per-intent F1, examples where C fixed or broke predictions.</td><td>1.25</td><td>4</td></tr>
+    <tr><td><b>8. Error Analysis</b></td><td>15 concrete examples by category (spelling, ambiguity, brands, slang, noise).</td><td>0.5</td><td>1-4</td></tr>
+    <tr><td><b>9. Demo &amp; Routing</b></td><td>Screenshots, routing rules, CMI flag, failure case.</td><td>0.5</td><td>-</td></tr>
+    <tr><td><b>10. Limitations &amp; Negative Results</b></td><td>Small data, domain gap, what did not work, oracle-LID diagnosis.</td><td>0.5</td><td>4</td></tr>
+    <tr><td><b>11. Conclusion &amp; Future Work</b></td><td>Honest takeaways; HMM over tags, CMI vs error, bigger intent data.</td><td>0.25</td><td>-</td></tr>
+    <tr><td><b>References / Appendix</b></td><td>LinCE (Aguilar et al., LREC 2020), SemEval-2020 Task 9 (Patwa et al.), scikit-learn, NLTK. Appendix: guidelines, norm lexicon, ambiguous list.</td><td>excl.</td><td>-</td></tr>
+  </table></div>
+  <div class="callout">Har table aur figure script se generate karo (<code>results/*.csv</code> → <code>make_figures.py</code>). Hand se number copy karoge to report aur results mein mismatch aa jayega.</div>
+</section>
+
+<!-- DEMO -->
+<section id="demo">
+  <h2><span class="n">▶</span>Live Demo: Pipeline Preview</h2>
+  <p class="lead">Query type karo aur dekho kaise har stage kaam karta hai. Ye plan ka "kaisa dikhega" preview hai.</p>
+  <div class="callout bad"><b>Honest disclosure:</b> Ye demo ek <b>illustrative toy</b> hai. Tagger is page mein embedded ~420 seed words ka lookup hai; jo words seed mein nahi hain unke liye char n-gram (1-4) Naive Bayes chalta hai. Intent scorer rule-based hai aur stemmer simplified hai. Asli project mein tagger LinCE par train hoga aur intent classifier TF-IDF + LR/NB hoga. Yahan dikhne wale outputs project ke <b>results nahi</b> hain, aur ye galtiyan kar sakta hai (jaise unseen slang).</div>
+
+  <div class="card">
+    <textarea id="q" spellcheck="false" aria-label="Customer query">Mera order abhi tak nahi aaya, please refund karo</textarea>
+    <div class="toolbar" id="samples"></div>
+    <div class="ctrl">
+      <label><input type="checkbox" id="ctx" checked> Context rule on (ambiguous words)</label>
+      <label>Heavy-mix CMI threshold <input type="range" id="thr" min="5" max="60" value="30"> <b id="thrv" class="mono">30</b></label>
+    </div>
+  </div>
+  <div id="out"></div>
+</section>
+
+</main>
+
+<footer><div class="wrap">HinglishID-Router plan · self-contained HTML, koi external dependency nahi. <button class="noprint" id="printbtn">Print / Save as PDF</button></div></footer>
+
+<script>
+//<CORE>
+const AMBIG=new Set(['is','to','me','hi','or','do','main','par','the','tab','mat','us','mile','den']);
+const PRIOR={is:'EN',to:'EN',me:'EN',hi:'EN',or:'EN',do:'EN',main:'HI',par:'HI',the:'EN',tab:'HI',mat:'HI',us:'EN',mile:'HI',den:'HI'};
+const HI_SEED=`mera meri mere mujhe mjhe mra mujhko hum humko hamara aap aapka aapki aapke aapko tum tumhara apna apni apne ka ki ke ko se mein pe hai hain hay tha thi thin hoga hogi honge ho hua hui hue hota hoti raha rahi rahe rha rhi rhe nahi nahin nai nhi nahii na kab kya kyaa kyun kyu kyon kaise kahan kaun kitna kitne kitni kuch koi sab sabhi bahut bohot bahot bhot zyada jyada kam bilkul sirf bhi toh lekin magar aur ya agar jab phir fir wala wali wale karo kar kr kro karna karni kiya kia kiye kijiye kijie kardo krdo dena dijiye dijie diya liya lena lo aaya aya aayi aaye aayega aayegi aana aa gaya gayi gaye gya jana jao mil mila mili milega milna bhejo bheja bhej bhejna wapas wapis vapas paise paisa rupaye kal aaj parso jaldi jldi der din ghanta samay chahiye chahie chaiye sakta sakti sakte dikha dikhao bata batao bataiye bol bolo theek thik thikk accha acha achha bura galat sahi saman samaan cheez ghar pata dhanyavad shukriya yaar bhai abhi abi tak tk ab itna itni itne kaisa kaisi kaam kyunki isliye kisi unka unki unke inka inki ye yeh woh wo ek bas kat kata kate kati pahuncha pahunch pahunchi radd karwa karwana krna krde lagta lag rahega rahegi chal chali chale hoon hu hain tumhe humein aapse mujhse usse isse yahan wahan abhi sirf`.split(/\s+/);
+const EN_SEED=`order orders refund refunded payment payments failed fail failure cancel cancelled canceled cancellation delivery delivered deliver delay delayed late product products app application money account bank card debit credit transaction transactions deducted deduct amount received receive not no yes thanks thank you your my we our they their it its this that and but if with without from for of in on at by are was were be been am have has had will would can could should please plz pls plzz pleaze kindly status track tracking address change wrong item items damaged broken return replace replacement issue problem help support service customer care number call email update send give get got want need urgent urgently immediately today tomorrow yesterday week days day hours hour time very too bad worst good great fast slow again already still yet why when where what how who which an a i so just also only any all some more much many new old wallet upi otp coupon offer discount cashback shipping courier parcel package pending hello hey website phone mobile agent manager complaint booking booked confirm confirmed confirmation invoice bill`.split(/\s+/);
+const _hi=new Set(HI_SEED),_en=new Set(EN_SEED);
+[..._hi].forEach(w=>{if(_en.has(w)){_hi.delete(w);_en.delete(w);}});
+AMBIG.forEach(w=>{_hi.delete(w);_en.delete(w);});
+function grams(w){const p=' '+w+' ',o=[];for(let n=1;n<=4;n++)for(let i=0;i+n<=p.length;i++)o.push(p.slice(i,i+n));return o;}
+const NB=(()=>{const counts={HI:new Map(),EN:new Map()},totals={HI:0,EN:0},V=new Set();
+  const docs={HI:[..._hi],EN:[..._en]};
+  for(const c of ['HI','EN'])for(const w of docs[c])for(const g of grams(w)){counts[c].set(g,(counts[c].get(g)||0)+1);totals[c]++;V.add(g);}
+  return {counts,totals,V:V.size,nHI:docs.HI.length,nEN:docs.EN.length};})();
+function nbProbs(w,alpha=0.5){const gs=grams(w),ll={};
+  for(const c of ['HI','EN']){let s=Math.log(0.5);for(const g of gs)s+=Math.log(((NB.counts[c].get(g)||0)+alpha)/(NB.totals[c]+alpha*NB.V));ll[c]=s;}
+  const m=Math.max(ll.HI,ll.EN),a=Math.exp(ll.HI-m),b=Math.exp(ll.EN-m);return {HI:a/(a+b),EN:b/(a+b)};}
+const NORM_HI={nahin:'nahi',nai:'nahi',nhi:'nahi',nahii:'nahi',hain:'hai',hay:'hai',kr:'kar',kro:'karo',kia:'kiya',kyaa:'kya',kyu:'kyun',kyon:'kyun',abi:'abhi',tk:'tak',bohot:'bahut',bahot:'bahut',bhot:'bahut',jldi:'jaldi',thik:'theek',thikk:'theek',acha:'accha',achha:'accha',mjhe:'mujhe',mra:'mera',aya:'aaya',chahie:'chahiye',chaiye:'chahiye',wapis:'wapas',vapas:'wapas',dijie:'dijiye',kijie:'kijiye',krdo:'kardo',gya:'gaya',rha:'raha',rhi:'rahi',rhe:'rahe',jyada:'zyada'};
+const SHORT_EN={plz:'please',pls:'please',plzz:'please',pleaze:'please',thx:'thanks'};
+const HI_STOP=new Set('is us ka ki ke ko se mein pe par hai tha thi thin ho hoga hogi honge hota hoti hua hui hue raha rahi rahe toh to hi bhi aur ya ek ye yeh woh wo jab tab mera meri mere mujhe main hum aap tum us unka unki unke inka inki hoon hu'.split(' '));
+const EN_STOP=new Set('the a an is are was were be been am i me my you your we our they their it its this that of in on at to for with by from and or but if so do does did have has had will would can could should us'.split(' '));
+const STEM_EXC={cancelled:'cancel',canceled:'cancel',cancelling:'cancel',cancellation:'cancel',delivery:'deliver',delivered:'deliver',deliveries:'deliver'};
+function stemEN(w){if(STEM_EXC[w])return STEM_EXC[w];if(w.length<4||!/^[a-z]+$/.test(w))return w;let s=w;
+  if(s.length>5&&s.endsWith('ing'))s=s.slice(0,-3);else if(s.length>4&&s.endsWith('ed'))s=s.slice(0,-2);else if(s.length>3&&s.endsWith('s')&&!s.endsWith('ss'))s=s.slice(0,-1);
+  if(s!==w&&/([a-z])\1$/.test(s)&&!/(ss|ll)$/.test(s))s=s.slice(0,-1);return s;}
+function preprocess(text){let t=String(text||'');
+  t=t.replace(/https?:\/\/\S+|www\.\S+/gi,' <URL> ');
+  t=t.replace(/\p{Extended_Pictographic}/gu,' <EMOJI> ');
+  t=t.replace(/#\d{4,}|\b[A-Za-z]{1,4}[-_]?\d{5,}\b|\b\d{6,}\b/g,' <ORDER_ID> ');
+  t=t.replace(/([A-Za-z])\1{2,}/g,'$1$1');
+  const tokens=t.match(/<[A-Z_]+>|[A-Za-z]+(?:'[A-Za-z]+)?|\d+|[^\sA-Za-z\d]/g)||[];
+  const masks={};tokens.forEach(x=>{if(/^<[A-Z_]+>$/.test(x))masks[x]=(masks[x]||0)+1;});
+  return {tokens,masks};}
+function vote(t1,i,r){let h=0,e=0;for(let d=-r;d<=r;d++){if(!d)continue;const j=i+d;if(j<0||j>=t1.length)continue;if(t1[j]==='HI')h++;else if(t1[j]==='EN')e++;}return {h,e};}
+function tagTokens(tokens,useCtx){
+  const t1=[],pr=[];
+  tokens.forEach(t=>{if(!/^[A-Za-z']+$/.test(t)){t1.push('OTHER');pr.push(null);return;}
+    const w=t.toLowerCase();if(AMBIG.has(w)){t1.push(null);pr.push(null);return;}
+    const p=_hi.has(w)?{HI:1,EN:0,seed:true}:_en.has(w)?{HI:0,EN:1,seed:true}:nbProbs(w);
+    t1.push(p.HI>=p.EN?'HI':'EN');pr.push(p);});
+  const tags=[],why=[];
+  tokens.forEach((t,i)=>{if(t1[i]!==null){tags.push(t1[i]);why.push(null);return;}
+    const w=t.toLowerCase();
+    if(!useCtx){tags.push(PRIOR[w]);why.push('ambiguous word: context off, word prior = '+PRIOR[w]);return;}
+    let v=vote(t1,i,1),r='±1';
+    if(v.h===v.e&&i>0&&(t1[i-1]==='HI'||t1[i-1]==='EN')){const L=t1[i-1];tags.push(L);why.push('ambiguous word: ±1 tie, followed previous word ('+L+')');return;}
+    if(v.h===v.e){v=vote(t1,i,2);r='±2';}
+    if(v.h>v.e){tags.push('HI');why.push('ambiguous word: context vote ('+r+') HI '+v.h+' vs EN '+v.e);}
+    else if(v.e>v.h){tags.push('EN');why.push('ambiguous word: context vote ('+r+') HI '+v.h+' vs EN '+v.e);}
+    else{tags.push(PRIOR[w]);why.push('ambiguous word: tie, fell back to word prior = '+PRIOR[w]);}});
+  return {tags,probs:pr,why};}
+function langAware(tokens,tags){const rows=[],out=[];
+  tokens.forEach((t,i)=>{const tag=tags[i];let w=t.toLowerCase();
+    if(tag==='OTHER'){if(/^<[A-Z_]+>$/.test(t)){rows.push({t,tag,act:'placeholder kept',o:w});out.push(w);}
+      else if(/^\d+$/.test(t)){rows.push({t,tag,act:'number kept',o:w});out.push(w);}
+      else rows.push({t,tag,act:'punctuation dropped',o:null});return;}
+    if(tag==='HI'){let act='kept';if(NORM_HI[w]){rows.push({t,tag,act:'spelling normalized: '+w+' → '+NORM_HI[w],o:null,pending:true});w=NORM_HI[w];rows.pop();act='spelling normalized: '+t.toLowerCase()+' → '+w;}
+      if(HI_STOP.has(w)){rows.push({t,tag,act:'Hindi stopword dropped',o:null});return;}
+      rows.push({t,tag,act,o:w});out.push(w);return;}
+    let act='kept';if(SHORT_EN[w]){act='shorthand expanded: '+w+' → '+SHORT_EN[w];w=SHORT_EN[w];}
+    if(EN_STOP.has(w)){rows.push({t,tag,act:'English stopword dropped',o:null});return;}
+    const s=stemEN(w);if(s!==w){act=(act==='kept'?'':act+'; ')+'stemmed: '+w+' → '+s;w=s;}
+    rows.push({t,tag,act,o:w});out.push(w);});
+  return {rows,out};}
+const INTENTS={
+ order_not_delivered:{deliver:2,aaya:1,aayi:1,aaye:1,mila:1,mili:1,pahuncha:1,pahunchi:1,receiv:2,receive:2,parcel:1,package:1},
+ refund:{refund:3,wapas:2,return:1,money:1,paise:1,paisa:1,back:1},
+ payment_failed:{payment:2,fail:3,failure:3,deduct:3,kat:2,kata:2,kate:2,transaction:2,upi:2,otp:1,debit:1,charg:1,charge:1,declin:2,decline:2},
+ cancel_order:{cancel:3,radd:3},
+ delivery_delay:{delay:3,late:2,der:2,kab:2,track:1,jaldi:1,still:1,urgent:1,pending:1,abhi:1,tak:1}};
+const NEG=new Set(['nahi','not','no']),ARRIVE=new Set(['aaya','aayi','aaye','mila','mili','pahuncha','pahunchi','receiv','receive','deliver','arriv']);
+const CUES=new Set(['karo','kar','kardo','chahiye','dijiye','kijiye','want','need','please','kindly']);
+const QUEUE={order_not_delivered:'Logistics queue',refund:'Refunds queue',payment_failed:'Payments queue',cancel_order:'Order Ops queue',delivery_delay:'Logistics queue',other:'General FAQ / bot'};
+function scoreIntent(out){const sc={};Object.keys(INTENTS).forEach(k=>sc[k]=0);
+  out.forEach(w=>{for(const k in INTENTS){const v=INTENTS[k][w];if(v)sc[k]+=v;}});
+  const ni=[],ai=[];out.forEach((w,i)=>{if(NEG.has(w))ni.push(i);if(ARRIVE.has(w))ai.push(i);});
+  let nb=false;ni.forEach(n=>ai.forEach(a=>{if(Math.abs(n-a)<=2)nb=true;}));if(nb)sc.order_not_delivered+=3;
+  if(out.some(w=>CUES.has(w))){if(sc.refund>0)sc.refund+=2;if(sc.cancel_order>0)sc.cancel_order+=2;}
+  const ranked=Object.entries(sc).sort((a,b)=>b[1]-a[1]);
+  const top=ranked[0][1]<2?'other':ranked[0][0];
+  return {sc,top,ranked,negBoost:nb};}
+function analyze(text,opts){opts=opts||{};const useCtx=opts.ctx!==false,thr=opts.thr==null?30:opts.thr;
+  const {tokens,masks}=preprocess(text);const T=tagTokens(tokens,useCtx);
+  const la=langAware(tokens,T.tags);const it=scoreIntent(la.out);
+  const hi=T.tags.filter(x=>x==='HI').length,en=T.tags.filter(x=>x==='EN').length,w=hi+en;
+  const cmi=w?100*(1-Math.max(hi,en)/w):0;
+  const heavy=cmi>=thr&&hi>0&&en>0;
+  // setups
+  const rawToks=(String(text||'').toLowerCase().match(/[a-z0-9']+/g)||[]);const aDrop=[],aKeep=[];
+  rawToks.forEach(x=>{if(EN_STOP.has(x))aDrop.push(x);else aKeep.push(stemEN(x));});
+  const collide=[];tokens.forEach((t,i)=>{if(T.tags[i]==='HI'&&EN_STOP.has(t.toLowerCase()))collide.push(t.toLowerCase());});
+  const gset=new Set();rawToks.forEach(x=>grams(x).forEach(g=>gset.add(g)));
+  return {tokens,masks,tags:T.tags,probs:T.probs,why:T.why,rows:la.rows,out:la.out,intent:it,hi,en,cmi,heavy,thr,
+    A:{str:aKeep.join(' '),dropped:aDrop,collide},B:{lower:rawToks.join(' '),ngrams:gset.size},C:{str:la.out.join(' ')},
+    queue:QUEUE[it.top]};}
+//</CORE>
+
+/* ---------- plan data ---------- */
+const W1=[
+{id:'M1.1',day:'Day 1',title:'Setup + Dataset Access Check',owner:'All (A leads)',unit:'Unit 2',effort:'~3 hrs',
+ obj:'Repo, environment aur dataset access Day 1 par confirm karna, taaki baad mein surprise na ho.',
+ steps:[
+ 'GitHub repo banao: <code>data/raw</code>, <code>data/processed</code>, <code>src</code>, <code>notebooks</code>, <code>app</code>, <code>docs</code>, <code>results</code>, <code>tests</code>.',
+ 'Virtual env + <code>requirements.txt</code> (pandas, scikit-learn, nltk, streamlit, matplotlib, joblib, regex).',
+ 'LinCE (ritual.uh.edu/lince) par register karo aur Hindi-English LID download page check karo. Dhyan do: <b>test labels hidden hain</b>, sirf train/dev labels use honge.',
+ 'Parallel mein SemEval-2020 Task 9 (SentiMix) availability verify karo. Link dead ho sakta hai, isliye ek hi source par depend mat karo.',
+ 'Label scheme finalize karo: LinCE ke labels (lang1, lang2, other, ne, mixed, ...) ko HI / EN / OTHER mein map karo. Dataset README se verify karo ki lang1/lang2 kaunsi language hai, assume mat karo.',
+ 'Fallback trigger decide karo: Day 2 ke end tak data nahi mila to Risk R1 ka plan B chalu.'],
+ code:String.raw`# docs/label_mapping.md  (example: dataset README se verify karo)
+lang1 -> EN        # verify
+lang2 -> HI        # verify
+ne, other, unk, mixed, fw, ambiguous -> OTHER   # decision likh ke rakho`,
+ deliv:'Repo link, data access status (Yes/No + screenshot), <code>docs/label_mapping.md</code>.',
+ check:'Agar LinCE access Day 2 tak nahi mila, to hamara plan B kya hai aur use kaun trigger karega?'},
+{id:'M1.2',day:'Day 2',title:'Corpus Exploration + CoNLL Parser + Splits',owner:'A (verify: B)',unit:'Unit 2',effort:'~4 hrs',
+ obj:'Corpus samajhna: kitne sentences/tokens, language ratio, code-mixing index. Aur train/dev/test split fix karna.',
+ steps:[
+ 'CoNLL-style file parse karo: har line <code>token&lt;TAB&gt;label</code>, blank line = sentence boundary. Actual file ka format check karke parser adjust karo.',
+ 'Table banao: #sentences, #tokens, avg length, label distribution (HI/EN/OTHER).',
+ 'Per-sentence CMI nikalo aur % code-mixed sentences (HI aur EN dono present) report karo.',
+ 'Har class ke top-20 frequent tokens dekho. Same token dono classes mein ho to ambiguity ka early sign hai.',
+ '<b>Split by sentence</b> 80/10/10, <code>seed=42</code>, files save karo: <code>data/processed/{train,dev,test}.conll</code>. Test ko Day 10 tak mat chhuo.',
+ 'Plots: label distribution bar chart, CMI histogram.'],
+ code:String.raw`def read_conll(path):
+    sents, toks, labs = [], [], []
+    for line in open(path, encoding="utf-8"):
+        line = line.rstrip("\n")
+        if not line.strip():
+            if toks: sents.append((toks, labs)); toks, labs = [], []
+            continue
+        t, l = line.split("\t")[:2]
+        toks.append(t); labs.append(l)
+    if toks: sents.append((toks, labs))
+    return sents
+
+def cmi(labels):               # Das & Gambäck; 0 = monolingual
+    u = labels.count("OTHER"); n = len(labels)
+    if n == u: return 0.0
+    hi, en = labels.count("HI"), labels.count("EN")
+    return 100 * (1 - max(hi, en) / (n - u))`,
+ deliv:'<code>01_corpus_stats.ipynb</code>, stats table, 2 plots, split files.',
+ check:'Corpus mein HI vs EN token share kya hai, aur kitne % sentences actually code-mixed hain?'},
+{id:'M1.3',day:'Day 3',title:'Preprocessing: Tokenizer + Masking',owner:'C (verify: A)',unit:'Unit 1, 3',effort:'~3 hrs',
+ obj:'Ek reusable <code>preprocess.py</code> banana jo URL, emoji, order IDs mask kare aur tokens nikale. Same code LID aur intent dono ke liye.',
+ steps:[
+ 'Regex rules: URL → <code>&lt;URL&gt;</code>, emoji → <code>&lt;EMOJI&gt;</code>, order IDs (<code>OD123456789</code>, <code>#45678</code>, 6+ digits) → <code>&lt;ORDER_ID&gt;</code>.',
+ 'Elongation normalization: <code>plzzzzz</code> → <code>plzz</code> (3+ repeated letters ko 2 tak).',
+ 'Tokenizer: placeholders ek token, words, numbers, punctuation alag.',
+ 'Lowercase sirf features ke liye; original casing alag rakho (Capitalized words brand/NE ka hint ho sakte hain).',
+ '20 asserts/unit tests likho (weird inputs: emoji-only, empty string, mixed script).'],
+ code:String.raw`import regex as re   # pip install regex  (Unicode property support)
+URL   = re.compile(r"https?://\S+|www\.\S+", re.I)
+EMOJI = re.compile(r"\p{Extended_Pictographic}")
+OID   = re.compile(r"#\d{4,}|\b[A-Za-z]{1,4}[-_]?\d{5,}\b|\b\d{6,}\b")
+ELONG = re.compile(r"([A-Za-z])\1{2,}")
+
+def clean(t):
+    t = URL.sub(" <URL> ", t); t = EMOJI.sub(" <EMOJI> ", t)
+    t = OID.sub(" <ORDER_ID> ", t); return ELONG.sub(r"\1\1", t)`,
+ deliv:'<code>src/preprocess.py</code> + <code>tests/test_preprocess.py</code> (20 asserts passing).',
+ check:'Order ID aur normal number (jaise "2 din") mein difference kaise karoge? Kaunsa example tumhara regex galat pakad sakta hai?'},
+{id:'M1.4',day:'Day 4',title:'Baseline: Word-Lookup Tagger',owner:'A (verify: B)',unit:'Unit 4',effort:'~2 hrs',
+ obj:'Simple baseline banana taaki char n-gram ka fayda measurable ho.',
+ steps:[
+ 'Train split se word → majority label dictionary banao (lowercased).',
+ 'OOV (unseen) words ka default label decide karo aur <b>OOV rate</b> report karo.',
+ 'Dev set par per-class P/R/F1 nikalo.',
+ 'Optional: top-100 Hindi function words ki tiny hand lexicon se compare karo.',
+ 'OOV errors ke examples dekho: romanized spelling variation kitna bada problem hai?'],
+ code:String.raw`from collections import Counter, defaultdict
+counts = defaultdict(Counter)
+for toks, labs in train:
+    for t, l in zip(toks, labs): counts[t.lower()][l] += 1
+lookup  = {w: c.most_common(1)[0][0] for w, c in counts.items()}
+default = Counter(l for _, labs in train for l in labs).most_common(1)[0][0]
+pred = [lookup.get(t.lower(), default) for t in dev_tokens]`,
+ deliv:'Baseline results table (dev) + OOV rate.',
+ check:'OOV rate kitna hai, aur kya baseline ka zyada error OOV words se aa raha hai?'},
+{id:'M1.5',day:'Day 5',title:'Char N-Gram Naive Bayes Tagger',owner:'A (verify: C)',unit:'Unit 4',effort:'~4 hrs',
+ obj:'Main tagger: <code>char_wb</code> 1-4 grams + MultinomialNB, aur comparison ke liye LogisticRegression.',
+ steps:[
+ 'Har token (lowercased) ek "document" hai; <code>CountVectorizer(analyzer="char_wb", ngram_range=(1,4))</code>.',
+ '<code>make_pipeline(vectorizer, MultinomialNB(alpha=...))</code>; alpha dev par tune karo (0.1, 0.5, 1.0).',
+ 'Same features par <code>LogisticRegression(max_iter=1000)</code> train karo.',
+ 'Class imbalance check; <code>class_weight</code> / prior try karo aur dono report karo.',
+ 'Model <code>joblib.dump</code> se save karo; <code>fit / predict / save / load</code> wali class banao.'],
+ code:String.raw`from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.pipeline import make_pipeline
+
+tagger = make_pipeline(
+    CountVectorizer(analyzer="char_wb", ngram_range=(1, 4)),
+    MultinomialNB(alpha=0.5))
+tagger.fit(train_words, train_labels)`,
+ deliv:'<code>src/lid_tagger.py</code> + dev metrics.',
+ check:'Char n-grams word lookup se kyun better hone chahiye? Dev par actual result kya bata raha hai? Agar nahi hai, to kyun?'},
+{id:'M1.6',day:'Day 6',title:'Week-1 Evaluation + Ablation Table 1',owner:'A + B',unit:'Unit 4',effort:'~3 hrs',
+ obj:'Lookup vs NB vs LR ka clean comparison, test set ko touch kiye bina.',
+ steps:[
+ '<code>classification_report</code> se per-class P/R/F1; macro-F1 over HI+EN.',
+ 'Confusion matrix plot; OOV vs in-vocab accuracy alag nikalo.',
+ 'Best config dev par choose karo; test set <b>untouched</b>.',
+ 'Results ko <code>results/lid_dev.csv</code> mein save karo (report ke liye script se tables banenge).'],
+ code:String.raw`from sklearn.metrics import classification_report, confusion_matrix
+print(classification_report(dev_labels, tagger.predict(dev_words), digits=3))
+print(confusion_matrix(dev_labels, tagger.predict(dev_words), labels=["HI","EN","OTHER"]))`,
+ deliv:'Table 1 (dev) + confusion matrix image + <code>results/lid_dev.csv</code>.',
+ check:'Kaunsi class sabse zyada confuse ho rahi hai, aur kya wo corpus ki ambiguity hai ya model ki kamzori?'},
+{id:'M1.7',day:'Day 7',title:'Buffer + Week-1 Review + Guidelines Kickoff',owner:'All',unit:'Unit 2',effort:'~3 hrs',
+ obj:'Gaps fix karna, buddy review, aur intent guidelines ka pehla draft.',
+ steps:[
+ 'Har module buddy se verify karwao (fresh clone par run).',
+ 'Notebook mein 10 sample queries par tagger demo karo (colored output).',
+ '<code>docs/intent_guidelines.md</code> draft: 6 intents ki definitions + borderline rules.',
+ '15-min retro: kya slow tha, kaunsa module slip hua.'],
+ code:'',
+ deliv:'Git tag <code>v0.1</code>, guidelines draft.',
+ check:'Kya hum Week 2 ke liye on track hain? Kaunsa module slip hua aur uska plan kya hai?'}
+];
+const W2=[
+{id:'M2.1',day:'Day 8',title:'Context Features (neighbouring words)',owner:'A (verify: B)',unit:'Unit 3, 4',effort:'~4 hrs',
+ obj:'Neighbouring words ka context add karke ambiguous words (<code>is, to, me, main</code>) par improvement check karna.',
+ steps:[
+ 'Hypotheses H1-H3 pehle <code>docs/hypotheses.md</code> mein likh do (results dekhne se pehle).',
+ 'Features: char n-grams + prev word + next word (boundary par <code>&lt;S&gt;</code>, <code>&lt;/S&gt;</code>).',
+ 'Variant M4: neighbours ke <b>predicted</b> labels (2-pass). Train ke liye gold labels mat lo, <code>cross_val_predict</code> ke predicted labels lo, warna train/test mismatch hoga.',
+ 'Teen variants compare karo: char-only / +context words / +neighbour labels. Splits same rakho.',
+ 'Sparse matrices ko <code>scipy.sparse.hstack</code> se jodo (char block + context block).'],
+ code:String.raw`def ctx_feats(tokens, i):
+    p = tokens[i-1].lower() if i > 0 else "<S>"
+    n = tokens[i+1].lower() if i + 1 < len(tokens) else "</S>"
+    return {"p=" + p: 1, "n=" + n: 1}
+# X = hstack([char_vec.transform(words), DictVectorizer().fit_transform(ctx_dicts)])`,
+ deliv:'<code>src/lid_context.py</code> + Table 2 (char-only vs +context).',
+ check:'Context se overall F1 badha ya sirf ambiguous words par? Dono alag kyun report karne chahiye?'},
+{id:'M2.2',day:'Day 9',title:'Ambiguous Word List (30-40) + Evaluation',owner:'A + B',unit:'Unit 3',effort:'~4 hrs',
+ obj:'Hard cases ke liye alag test: words jo dono languages mein valid hain.',
+ steps:[
+ 'Data-driven candidates: train corpus mein jo words HI aur EN dono label ke saath dikhte hain (minority ≥ 10%, freq ≥ 20; thresholds tune karo).',
+ 'Domain knowledge se add karo. Starter pool (corpus se verify karo): <code>is, to, me, hi, or, do, main, par, the, tab, mat, us, mile, den</code>.',
+ 'Final list 30-40 words, <b>test results dekhne se pehle freeze</b>: <code>data/ambiguous_words.txt</code> commit karo.',
+ 'Test tokens mein se list wale tokens ka subset nikalo; per-word count report karo, n &lt; 5 ko "low support" flag karo.',
+ 'Models M0, M1, M3 + <b>majority-label-per-word baseline</b> evaluate karo; pooled micro-accuracy + bootstrap CI.'],
+ code:String.raw`# candidate mining (train only)
+amb = [w for w, c in counts.items()
+       if sum(c.values()) >= 20 and c["HI"] and c["EN"]
+       and min(c["HI"], c["EN"]) / sum(c.values()) >= 0.10]`,
+ deliv:'<code>ambiguous_words.txt</code> + Table 3 (per-word + pooled).',
+ check:'Ye list tumne test results dekhne se pehle freeze ki thi? Ye kyun zaroori hai?'},
+{id:'M2.3',day:'Day 10',title:'Error Analysis (15 examples) + Freeze Tagger',owner:'All',unit:'Unit 1, 3',effort:'~4 hrs',
+ obj:'Errors ko categorize karna, tagger freeze karna, aur test set par <b>ek baar</b> final evaluation.',
+ steps:[
+ 'Dev errors collect karo aur categorize karo: spelling variants, ambiguous, brand/NE, slang/abbreviation, numerals, elongation, annotation noise.',
+ '15 concrete examples sentence context ke saath chuno.',
+ 'Sasta fix (feature/alpha) sirf dev par try karo, phir <b>freeze</b>: <code>lid_final.joblib</code>.',
+ 'Test set par final evaluation <b>ek baar</b> chalao; number kabhi dobara tune mat karo.'],
+ code:'',
+ deliv:'<code>error_analysis.md</code> (15 examples), frozen model, final test table.',
+ check:'Kaunsi error category sabse badi hai, aur kya normalization (Day 13) usse address kar sakta hai?'},
+{id:'M2.4',day:'Day 11',title:'Intent Dataset Writing (300-400 queries)',owner:'B leads, All write',unit:'Unit 2',effort:'~4 hrs each',
+ obj:'6 intents × ~60 queries, diverse spellings aur language mix ke saath.',
+ steps:[
+ 'Guidelines freeze: har intent ki definition. <b>Primary-intent rule:</b> query mein do intents ho ("order nahi aaya, refund karo") to label = customer jo action maang raha hai (refund).',
+ 'Har member sab 6 intents likhe (~100-130 queries each) taaki writer style bias kam ho; <code>writer</code> column rakho.',
+ 'Variety quota: ~⅓ Hindi-dominant, ⅓ balanced, ⅓ English-dominant. Spellings vary karo (nahi/nhi/nai), shorthand (plz/pls), typos, kabhi emoji/order ID, short + long queries.',
+ 'Ek template 60 baar copy-paste mat karo; near-duplicates baad mein dedupe honge.',
+ 'Agar AI-assisted drafting use karo to report mein disclose karo aur manually edit karo; bulk generated queries mein realistic spellings kam aate hain.'],
+ code:String.raw`id,text,intent,writer,mix_style
+1,"Mera order abhi tak nahi aaya, please refund karo",refund,A,balanced
+2,"payment fail ho gaya but paise kat gaye",payment_failed,B,balanced
+3,"order cancel karna hai plz jaldi",cancel_order,C,hindi
+4,"My order is delayed, kab tak aayega?",delivery_delay,A,english`,
+ deliv:'<code>data/intent_raw.csv</code> (≥ 300 rows) + guidelines v1.',
+ check:'Kya har intent ke ~60 examples hain? Kya queries sach mein alag spellings aur lengths mein hain?'},
+{id:'M2.5',day:'Day 12',title:'Label QA, Kappa, CV Folds + In-domain LID Set',owner:'B (verify: C)',unit:'Unit 2',effort:'~4 hrs',
+ obj:'Dataset ko trustworthy banana aur evaluation protocol lock karna.',
+ steps:[
+ 'Random 10-15% (~40-50) queries kisi doosre se bina original label dekhe relabel karwao; <code>cohen_kappa_score</code> nikalo; confusions discuss karo; guidelines update karo.',
+ 'Near-duplicates dedupe; class balance check.',
+ 'Protocol fix: <b>stratified 5-fold × 3 repeats</b>, fixed seeds, same folds A/B/C ke liye (chhote dataset par single split reliable nahi).',
+ 'Recommended: 40-50 support queries (~400 tokens) khud token-level tag karo. Ye <b>sirf evaluation</b> ke liye hai (LinCE Twitter vs support domain gap), training mein nahi.'],
+ code:String.raw`from sklearn.metrics import cohen_kappa_score
+kappa = cohen_kappa_score(labels_annotator1, labels_annotator2)
+# folds
+from sklearn.model_selection import RepeatedStratifiedKFold
+cv = RepeatedStratifiedKFold(n_splits=5, n_repeats=3, random_state=42)`,
+ deliv:'<code>intent_clean.csv</code>, kappa value, fold config, <code>lid_indomain.conll</code>.',
+ check:'Kappa kitna aaya? Agar &lt; 0.6 hai, to guidelines mein kya badlaav karoge?'},
+{id:'M2.6',day:'Day 13',title:'Normalization Lexicon + Stopwords',owner:'C (verify: B)',unit:'Unit 1, 3',effort:'~4 hrs',
+ obj:'Hindi spelling variants ko ek canonical form dena aur language-specific stopwords handle karna.',
+ steps:[
+ 'Intent data + LinCE Hindi tokens se frequent Hindi tokens nikalo; spelling variants cluster karo (manual + edit distance ≤ 2 suggestions).',
+ '<code>norm_map.json</code> (100-200 variants → canonical): <code>nahin/nai/nhi/nahii → nahi</code>, <code>hain/hay → hai</code>, <code>kro → karo</code>, <code>bohot/bahot → bahut</code>. Ye <b>spelling normalization</b> hai, lemmatization nahi.',
+ 'Hindi stopwords (~40-60): <code>ka, ki, ke, ko, se, mein, par, hai...</code>. <b>Negation/question words (nahi, mat, kab, kya) mat hatao</b>, ye intent signal hain.',
+ 'English: NLTK stopwords lo lekin negations (<code>not, no, nor, never</code>) rakho; stemming Porter/Snowball.',
+ '<b>LID-aware collision handling:</b> <code>do</code> English stopword hai, lekin Hindi "do" (dena) content word hai. Tag ke hisaab se decide karo.',
+ '15 before/after pairs ke unit tests.'],
+ code:String.raw`def process(tokens, tags):
+    out = []
+    for t, tag in zip(tokens, tags):
+        w = t.lower()
+        if tag == "HI":
+            w = NORM.get(w, w)
+            if w in HI_STOP: continue
+        elif tag == "EN":
+            if w in EN_STOP: continue
+            w = stemmer.stem(w)
+        out.append(w)
+    return out`,
+ deliv:'<code>norm_map.json</code>, <code>stopwords_hi.txt</code>, <code>src/lang_aware.py</code>, tests.',
+ check:'Kaunse Hindi words ko stopword list se <b>nahi</b> hatana chahiye aur kyun?'},
+{id:'M2.7',day:'Day 14',title:'Pipeline Integration + Week-2 Review',owner:'C + All',unit:'Unit 1-4',effort:'~4 hrs',
+ obj:'Saare modules ko ek single <code>analyze(query)</code> function mein jodna.',
+ steps:[
+ '<code>pipeline.py</code>: preprocess → LID → language-aware processing → return tokens, tags, normalized string, CMI.',
+ '20 sample queries par end-to-end run; output table save karo; latency check.',
+ 'Buddy code review (A reviews C). Fresh clone par run.',
+ 'Risk register update; decide karo ki intent dataset size theek hai ya aur queries chahiye.'],
+ code:String.raw`def analyze(query):
+    toks = tokenize(clean(query))
+    tags = tagger.predict(toks)            # frozen LID model
+    out  = process(toks, tags)             # language-aware
+    return {"tokens": toks, "tags": tags, "text_C": " ".join(out), "cmi": cmi(tags)}`,
+ deliv:'<code>src/pipeline.py</code>, 20-query sample table, tag <code>v0.2</code>.',
+ check:'Pipeline ek function call mein chal raha hai? Kya LID tagger intent data par kabhi train hua? (Nahi hona chahiye.)'}
+];
+const W3=[
+{id:'M3.1',day:'Day 15',title:'Implement Setups A, B, C (fair comparison)',owner:'B (verify: C)',unit:'Unit 4',effort:'~4 hrs',
+ obj:'A/B/C ko ek-ek variable change karke build karna.',
+ steps:[
+ '<b>A:</b> lowercase → English stopwords + stemmer saare tokens par (no LID) → word TF-IDF (1-2 grams).',
+ '<b>B:</b> raw lowercase text → <code>TfidfVectorizer(analyzer="char_wb", ngram_range=(1,4))</code>.',
+ '<b>C:</b> pipeline output (normalized text) → <b>same</b> char_wb TF-IDF jaisa B mein. B vs C ka difference sirf LID-aware normalization se aayega. Optional C′: C ke saath word TF-IDF (A se fair comparison).',
+ 'Classifier same: LogisticRegression (second run: MultinomialNB). Same small hyperparameter grid.',
+ 'Vectorizer ko <code>Pipeline</code> ke andar rakho taaki fold ke andar fit ho (leakage nahi).'],
+ code:String.raw`from sklearn.pipeline import Pipeline
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.linear_model import LogisticRegression
+
+def make_model(analyzer, ngram):
+    return Pipeline([("tfidf", TfidfVectorizer(analyzer=analyzer, ngram_range=ngram, sublinear_tf=True)),
+                     ("clf", LogisticRegression(max_iter=2000))])
+A = make_model("word", (1, 2)); B = make_model("char_wb", (1, 4)); C = make_model("char_wb", (1, 4))
+# inputs: A <- text_A, B <- raw lowercase, C <- text_C`,
+ deliv:'<code>src/run_intent_experiments.py</code> + fold-level score CSV.',
+ check:'B aur C mein <b>sirf</b> ek cheez different hai. Kaunsi? Agar do cheezein badal jaayein to conclusion kyun kamzor hoga?'},
+{id:'M3.2',day:'Day 16',title:'Results, Statistics, Per-intent Analysis',owner:'B + A',unit:'Unit 4',effort:'~4 hrs',
+ obj:'Numbers ko honest tareeke se analyze karna.',
+ steps:[
+ '15 fold scores se mean ± std (accuracy, macro-F1) nikalo.',
+ 'Paired difference (C−B, B−A) + bootstrap 95% CI. Folds overlap karte hain, isliye CI ko p-value se zyada importance do.',
+ 'Per-intent F1 table + best model ka confusion matrix.',
+ 'Queries jahan C ne B ko fix kiya ya tod diya, unke examples collect karo.',
+ 'Agar gain ≈ 0: <b>oracle-LID</b> check (in-domain hand-tagged queries par gold tags se C) karo, taaki "LID error" aur "idea kamzor" alag ho sakein.'],
+ code:String.raw`import numpy as np
+diff = scores_C - scores_B                      # shape (15,)
+boot = [np.mean(np.random.choice(diff, len(diff))) for _ in range(5000)]
+print(diff.mean(), np.percentile(boot, [2.5, 97.5]))`,
+ deliv:'Table 4 + figures + <code>analysis_notes.md</code>.',
+ check:'Kya CI zero ko cross kar raha hai? Agar haan, to claim kya karoge?'},
+{id:'M3.3',day:'Day 17',title:'Routing + Code-Mixing Flag',owner:'C (verify: A)',unit:'Unit 4',effort:'~3 hrs',
+ obj:'Rule-based routing layer: intent → queue, aur heavy code-mixing flag.',
+ steps:[
+ 'Routing table: intent → queue (rule-based system, Unit 4).',
+ 'CMI threshold <b>data se</b> choose karo (train/dev intent queries ka percentile), gut feeling se nahi.',
+ 'Low-confidence predictions ko "human agent" par bhejo (threshold dev par choose karo).',
+ 'Stretch: heavily-mixed queries par misclassification zyada hai? CMI vs error plot.',
+ '<code>route()</code> ke unit tests.'],
+ code:String.raw`QUEUE = {"order_not_delivered": "Logistics", "refund": "Refunds", "payment_failed": "Payments",
+         "cancel_order": "Order Ops", "delivery_delay": "Logistics", "other": "General FAQ"}
+def route(intent, conf, cmi_val, cmi_thr=30, conf_thr=0.5):
+    queue = QUEUE[intent] if conf >= conf_thr else "Human agent (low confidence)"
+    return {"queue": queue, "flag_heavy_mix": cmi_val >= cmi_thr}`,
+ deliv:'<code>src/routing.py</code> + tests, CMI-vs-error plot (agar time ho).',
+ check:'CMI threshold ka basis kya hai, gut feeling ya data?'},
+{id:'M3.4',day:'Day 18',title:'Streamlit Demo',owner:'C (verify: B)',unit:'Unit 1-4',effort:'~4 hrs',
+ obj:'Ek simple, reliable demo jo pipeline ke har stage ko dikhaye (is page ke demo jaisa).',
+ steps:[
+ 'Layout: text area + 5-6 sample query buttons; colored tokens (HTML spans); normalized text; intent + top-3 probabilities; routing + CMI.',
+ '<code>@st.cache_resource</code> se models ek baar load karo.',
+ 'Edge cases: empty input, very long input, sirf emoji.',
+ 'Ek <b>"Limitations"</b> expander jisme known failure cases hon.',
+ 'Local run: <code>streamlit run app/demo.py</code>. Optional: Streamlit Community Cloud deploy.'],
+ code:String.raw`import streamlit as st
+from src.pipeline import analyze
+
+q = st.text_area("Customer query", "Mera order abhi tak nahi aaya, please refund karo")
+if st.button("Analyze"):
+    res = analyze(q)
+    st.markdown(render_tokens(res), unsafe_allow_html=True)
+    st.write(res["intent"], res["queue"], f"CMI = {res['cmi']:.1f}")`,
+ deliv:'Working demo, 3 screenshots, 60-second screen recording.',
+ check:'Demo mein tumhara system galat kab hota hai? Kya demo wo failure bhi dikhata hai?'},
+{id:'M3.5',day:'Day 19',title:'Report Writing',owner:'All (A: LID, B: intent, C: intro/method/demo)',unit:'-',effort:'~5 hrs',
+ obj:'Section 9 ke outline ke hisaab se 6-8 page report ka draft v1.',
+ steps:[
+ 'Tables/figures script se generate karo (<code>results/*.csv</code> → <code>make_figures.py</code>), hand se copy nahi.',
+ 'Har claim ke saath number + CI. Negative result ko apna section do.',
+ 'Limitations honestly likho: chhota data, domain gap, annotation noise.',
+ 'Datasets cite karo: LinCE (Aguilar et al., 2020), SemEval-2020 Task 9 (Patwa et al., 2020). Reference details apni copy se verify karo.',
+ 'AI-assisted drafting use hui ho to disclose karo.'],
+ code:'',
+ deliv:'Report draft v1.',
+ check:'Kya abstract ke teen numbers results CSV se match karte hain?'},
+{id:'M3.6',day:'Day 20',title:'Presentation + Repo Cleanup',owner:'C + All',unit:'-',effort:'~4 hrs',
+ obj:'Reproducible repo aur 8-10 slides.',
+ steps:[
+ 'README: setup, data download, run commands, results reproduce karne ke steps.',
+ '<code>requirements.txt</code> pinned versions, seeds fixed, <code>run_all.sh</code> / Makefile.',
+ 'Fresh clone test kisi doosre laptop par.',
+ 'LinCE raw data repo se hatao (license); download instructions do.',
+ 'Slides: problem → pipeline → 3 results → demo → limitations → future work.'],
+ code:'',
+ deliv:'Clean repo, slides.',
+ check:'Kya koi bhi bina tumhari madad ke repo se results reproduce kar sakta hai?'},
+{id:'M3.7',day:'Day 21',title:'Final Review + Rehearsal (buffer)',owner:'All',unit:'-',effort:'~3 hrs',
+ obj:'Last checks aur presentation practice.',
+ steps:[
+ 'Report ke har number ko results CSV se cross-check karo.',
+ '2 mock presentations; 10 expected Q&A (why Naive Bayes? why char n-grams? agar gain zero ho to kya? domain gap?).',
+ 'Final tag <code>v1.0</code>; submission checklist (Section 8) poora karo.'],
+ code:'',
+ deliv:'Submission-ready package.',
+ check:'Agar evaluator pooche "tumhara sabse kamzor result kaunsa hai?", to tumhara jawab kya hoga?'}
+];
+const CHECK={
+ 'Code repo':['README (setup + reproduce steps)','src/ (preprocess, lid_tagger, lid_context, lang_aware, pipeline, routing)','tests/ (preprocess, lang_aware, routing) passing','requirements.txt pinned + seeds fixed','Git tags v0.1 / v0.2 / v1.0'],
+ 'Labeled data':['intent_clean.csv (300-400 rows, 6 intents)','Intent guidelines + kappa value','ambiguous_words.txt (frozen before test)','norm_map.json + stopwords_hi.txt','lid_indomain.conll (hand-tagged queries)'],
+ 'Report sections':['Abstract + Introduction','Data & corpus statistics (Outcome 5)','LID tagger + ablation (Outcomes 1, 2)','Ambiguity analysis (Outcome 3)','Downstream A/B/C with CI (Outcome 4)','Error analysis (15 examples)','Limitations & negative results','References + appendix'],
+ 'Streamlit demo':['Runs from fresh clone','Colored tokens, normalized text, intent, routing, CMI','Limitations expander','Screenshots + 60s recording'],
+ 'Presentation':['8-10 slides','Q&A prep (10 questions)','2 rehearsals done']
+};
+
+/*DOM*/
+const KEY='hidr-progress-v1';let state={};
+try{state=JSON.parse(localStorage.getItem(KEY))||{};}catch(e){state={};}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function modHTML(m){const k='m:'+m.id;
+ return '<details class="mod" id="'+m.id.toLowerCase().replace('.','-')+'"><summary><input type="checkbox" data-k="'+k+'" '+(state[k]?'checked':'')+' aria-label="Done"><span class="day">'+m.day+'</span><span class="ttl">'+m.id+' · '+m.title+'</span><span class="chips"><span class="chip own">'+m.owner+'</span><span class="chip unit">'+m.unit+'</span><span class="chip eff">'+m.effort+'</span></span></summary><div class="body">'
+ +'<div class="lbl">Objective</div><div>'+m.obj+'</div>'
+ +'<div class="lbl">Steps</div><ol>'+m.steps.map(s=>'<li>'+s+'</li>').join('')+'</ol>'
+ +(m.code?'<div class="lbl">Tools / code hints</div><pre><code>'+esc(m.code)+'</code></pre>':'')
+ +'<div class="lbl">Deliverable</div><div>'+m.deliv+'</div>'
+ +'<div class="check"><b>Checkpoint question:</b> '+m.check+'</div></div></details>';}
+document.getElementById('w1list').innerHTML=W1.map(modHTML).join('');
+document.getElementById('w2list').innerHTML=W2.map(modHTML).join('');
+document.getElementById('w3list').innerHTML=W3.map(modHTML).join('');
+document.getElementById('timeline').innerHTML=[...W1,...W2,...W3].map((m,i)=>'<a href="#'+m.id.toLowerCase().replace('.','-')+'" class="w'+(i<7?1:i<14?2:3)+'" data-m="'+m.id.toLowerCase().replace('.','-')+'"><b>'+m.day+'</b>'+m.title+'</a>').join('');
+let ch='';Object.keys(CHECK).forEach(g=>{ch+='<div class="card"><b>'+g+'</b>'+CHECK[g].map((x,i)=>{const k='c:'+g+i;return '<label><input type="checkbox" data-k="'+k+'" '+(state[k]?'checked':'')+'><span>'+x+'</span></label>';}).join('')+'</div>';});
+document.getElementById('cl').innerHTML=ch;
+function updateProgress(){const all=[...document.querySelectorAll('input[data-k]')];const done=all.filter(x=>x.checked).length;
+ document.getElementById('progtxt').textContent=done+' / '+all.length;document.getElementById('progbar').style.width=(all.length?100*done/all.length:0)+'%';}
+document.addEventListener('change',e=>{if(e.target.matches('input[data-k]')){state[e.target.dataset.k]=e.target.checked;save();updateProgress();}});
+document.addEventListener('click',e=>{
+ const o=e.target.closest('[data-open]'),c=e.target.closest('[data-close]');
+ if(o)document.querySelectorAll('#'+o.dataset.open+' details').forEach(d=>d.open=true);
+ if(c)document.querySelectorAll('#'+c.dataset.close+' details').forEach(d=>d.open=false);
+ const t=e.target.closest('#timeline a');if(t){const d=document.getElementById(t.dataset.m);if(d)d.open=true;}});
+function openFromHash(){const id=location.hash.slice(1);if(!id)return;const d=document.getElementById(id);if(d&&d.tagName==='DETAILS')d.open=true;}
+window.addEventListener('hashchange',openFromHash);openFromHash();
+document.getElementById('printbtn').onclick=()=>{document.querySelectorAll('details').forEach(d=>d.open=true);window.print();};
+updateProgress();
+
+/* demo */
+const SAMPLES=['Mera order abhi tak nahi aaya, please refund karo','payment fail ho gaya but paise kat gaye 😡 OD123456789','order cancel karna hai plz jaldi','My order is delayed, kab tak aayega? https://track.example.com/x','mujhe is order ka refund chahiye, wrong item aaya hai','Thanks, app bahut accha hai'];
+const qEl=document.getElementById('q'),ctxEl=document.getElementById('ctx'),thrEl=document.getElementById('thr'),outEl=document.getElementById('out');
+document.getElementById('samples').innerHTML=SAMPLES.map((s,i)=>'<button data-s="'+i+'">Sample '+(i+1)+'</button>').join('');
+document.getElementById('samples').addEventListener('click',e=>{const b=e.target.closest('button[data-s]');if(b){qEl.value=SAMPLES[+b.dataset.s];run();}});
+function bar(name,v,max,top){return '<div class="bar'+(top?' top':'')+'"><span class="nm">'+name+'</span><span class="tr"><i style="width:'+(max?100*v/max:0)+'%"></i></span><span class="v">'+v+'</span></div>';}
+function run(){
+ document.getElementById('thrv').textContent=thrEl.value;
+ const text=qEl.value;if(!text.trim()){outEl.innerHTML='<div class="stage">Upar koi query likho.</div>';return;}
+ const r=analyze(text,{ctx:ctxEl.checked,thr:+thrEl.value});
+ let h='';
+ // stage 1
+ const mk=Object.keys(r.masks);
+ h+='<div class="stage"><h4><span>1.</span> Tokenize &amp; Clean</h4><div class="mono">'+r.tokens.map(esc).join(' ⎪ ')+'</div><div style="font-size:.84rem;color:var(--muted);margin-top:4px">'+(mk.length?'Masked: '+mk.map(k=>esc(k)+' ×'+r.masks[k]).join(', '):'Koi URL / emoji / order ID mask nahi hua.')+' Repeated letters (plzzz → plzz) bhi collapse hote hain.</div></div>';
+ // stage 2
+ h+='<div class="stage"><h4><span>2.</span> Word-level LID (seed lookup + char n-gram NB for unseen words)</h4><div>'+r.tokens.map((t,i)=>{const p=r.probs[i];const tip=r.why[i]||(p?(p.seed?'found in seed lexicon (lookup baseline)':'unseen word → char n-gram NB: HI '+p.HI.toFixed(2)+' / EN '+p.EN.toFixed(2)):'non-word token → OTHER');return '<span class="tok '+r.tags[i]+(r.why[i]?' amb':'')+'" title="'+esc(tip)+'">'+esc(t)+'<small>'+r.tags[i]+(r.why[i]?' ⚑':'')+'</small></span>';}).join('')+'</div>'
+  +'<div style="font-size:.84rem;color:var(--muted);margin-top:6px">HI '+r.hi+' · EN '+r.en+' · <b>CMI '+r.cmi.toFixed(1)+'</b> (0 = monolingual). Dashed ⚑ = ambiguous word; hover karke reason dekho.</div></div>';
+ // stage 3
+ h+='<div class="stage"><h4><span>3.</span> Language-aware processing</h4><div class="tablewrap"><table><tr><th>Token</th><th>Tag</th><th>Action</th></tr>'+r.rows.map(x=>'<tr><td class="mono">'+esc(x.t)+'</td><td><span class="tok '+x.tag+'" style="margin:0;padding:0 7px;display:inline-block">'+x.tag+'</span></td><td>'+(/dropped/.test(x.act)?'<span class="rm">'+esc(x.act)+'</span>':esc(x.act))+'</td></tr>').join('')+'</table></div><div class="mono"><b>Output (Setup C text):</b> '+(esc(r.C.str)||'(empty)')+'</div></div>';
+ // stage 4
+ const mx=Math.max(1,...r.intent.ranked.map(x=>x[1]));
+ const second=r.intent.ranked[1];const multi=r.intent.top!=='other'&&second[1]>=2&&r.intent.ranked[0][1]-second[1]<=2;
+ h+='<div class="stage"><h4><span>4.</span> Intent (rule-score toy, not TF-IDF+LR)</h4>'+r.intent.ranked.map(x=>bar(x[0],x[1],mx,x[0]===r.intent.top)).join('')+'<div style="margin-top:6px"><b>Predicted: <code>'+r.intent.top+'</code></b>'+(r.intent.top==='other'?' (koi intent score ≥ 2 nahi, to fallback)':'')+'</div>'
+  +(multi?'<div style="font-size:.84rem;color:var(--muted)">Multi-intent query: <code>'+second[0]+'</code> bhi close hai. Guidelines ka primary-intent rule (customer ka requested action) yahin kaam aata hai.</div>':'')+'</div>';
+ // stage 5
+ h+='<div class="stage"><h4><span>5.</span> Routing</h4><div><span class="chip own" style="font-size:.85rem">→ '+r.queue+'</span> '+(r.heavy?'<span class="chip eff" style="font-size:.85rem">⚠ Heavy code-mix (CMI '+r.cmi.toFixed(0)+' ≥ '+r.thr+') → bilingual template / agent</span>':'<span class="chip" style="font-size:.85rem">CMI '+r.cmi.toFixed(0)+' &lt; '+r.thr+': normal handling</span>')+'</div></div>';
+ // A/B/C
+ h+='<div class="stage"><h4><span>★</span> Setup A vs B vs C: classifier ko kya milta hai</h4><div class="ab">'
+  +'<div><b>A: raw, English pipeline</b><div class="mono">'+(esc(r.A.str)||'(empty)')+'</div><div style="margin-top:4px;font-size:.8rem;color:var(--muted)">English stopwords sab par lage'+(r.A.dropped.length?': dropped <span class="rm">'+r.A.dropped.map(esc).join(', ')+'</span>':'')+'. Hindi function words (ka, hai, ...) noise ban kar reh jaate hain.'+(r.A.collide.length?' <b>Hindi words galat hate:</b> '+r.A.collide.map(esc).join(', ')+'.':'')+'</div></div>'
+  +'<div><b>B: raw, char n-gram TF-IDF</b><div class="mono">'+(esc(r.B.lower)||'(empty)')+'</div><div style="margin-top:4px;font-size:.8rem;color:var(--muted)">'+r.B.ngrams+' distinct char 1-4 grams. Spelling variants (nahi/nhi/nahin) kaafi n-grams share karte hain, isliye B already kuch robust hai. Ye hi wajah hai ki C−B gain chhota ho sakta hai.</div></div>'
+  +'<div><b>C: LID-aware normalized</b><div class="mono">'+(esc(r.C.str)||'(empty)')+'</div><div style="margin-top:4px;font-size:.8rem;color:var(--muted)">Language-specific stopwords + spelling canonical + English stemming. Asli project mein isi text par B jaisa char_wb TF-IDF lagega.</div></div></div></div>';
+ outEl.innerHTML=h;}
+qEl.addEventListener('input',run);ctxEl.addEventListener('change',run);thrEl.addEventListener('input',run);
+run();
+</script>
+</body>
+</html>

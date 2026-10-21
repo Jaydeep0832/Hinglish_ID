@@ -1,0 +1,36 @@
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Data (LinCE raw data NOT committed — license)
+data/raw/
+
+# Models (large intermediate binaries ignored, production models tracked)
+models/*.joblib
+!models/lid_final.joblib
+!models/intent_classifier_setup_c.joblib
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Results CSVs are committed (small, needed for reproducibility)
+# models/lid_final.joblib committed AFTER Day 10 freeze
