@@ -148,11 +148,13 @@ export function predictLidTags(tokens) {
   // Common Hindi lexicon indicators
   const HINDI_CORE = new Set([
     "mera", "meri", "mere", "abhi", "tak", "nahi", "nahin", "nhi", "nai", "aaya", "aayi", "aayega", 
-    "karo", "kro", "karna", "krna", "karega", "karegi", "bahut", "bohot", "bhot", "paise", "paisa", 
+    "karo", "kro", "karna", "krna", "karega", "karegi", "karein", "bahut", "bohot", "bhot", "paise", "paisa", 
     "kat", "gaye", "gaya", "gayi", "ho", "hai", "hain", "hay", "ka", "ki", "ke", "ko", "se", "mein", 
     "par", "pe", "chahiye", "chaiye", "jaldi", "jldi", "wapas", "wapis", "mujhe", "mjhe", "yeh", "woh", 
-    "kab", "kya", "kaise", "kyun", "kyu", "kahan", "bhai", "din", "der", "baar", "kuch", "apne", 
-    "aur", "or", "milega", "mila", "diya", "daal", "galti", "saman", "thik", "accha", "khana"
+    "kab", "kya", "kaise", "kyun", "kyu", "kahan", "bhai", "din", "der", "baar", "kuch", "apne", "apna", "apni",
+    "aur", "or", "milega", "mila", "diya", "daal", "galti", "saman", "thik", "accha", "khana",
+    "jagah", "jagha", "hu", "hoon", "hun", "tha", "thi", "the", "us", "iss", "inhe", "unhe", "main", "hum",
+    "baat", "kam", "kaam", "waqt", "samay", "sahi", "galat", "hona", "raha", "rahi", "rahe"
   ]);
 
   // Common English support words
@@ -161,7 +163,8 @@ export function predictLidTags(tokens) {
     "delay", "delayed", "delivery", "boy", "courier", "package", "parcel", "shipping", 
     "address", "item", "product", "track", "tracking", "status", "change", "update", 
     "wrong", "damaged", "app", "help", "support", "care", "customer", "agent", "txn", 
-    "card", "account", "money", "charged", "missing", "undelivered", "received", "number"
+    "card", "account", "money", "charged", "missing", "undelivered", "received", "number",
+    "active", "inactive", "login", "logout", "password", "reset", "email", "phone"
   ]);
 
   for (let i = 0; i < tokens.length; i++) {
@@ -189,6 +192,31 @@ export function predictLidTags(tokens) {
       if (ENGLISH_CORE.has(next)) enContextPoints += 2;
 
       // Special homograph rules
+      if (lower === "me") {
+        // "me us jagah" or sentence has "hu" / "hoon" / "par" -> HI (मैं / में)
+        const hasHiAux = tokens.some(t => ["hu", "hoon", "hun", "hai", "hain", "tha", "par", "pe"].includes(t.toLowerCase()));
+        if (hasHiAux || ["us", "iss", "apne", "mera", "meri", "yeh", "woh", "jagah"].includes(next)) {
+          tags.push("HI");
+          why.push("Context Rule: Hindi subject pronoun / locative postposition 'me' (मैं / में)");
+          continue;
+        }
+      }
+      if (lower === "us") {
+        // Hindi demonstrative pronoun (उस) before noun or postposition
+        if (["jagah", "order", "product", "item", "par", "pe", "ko", "se", "ka", "ki", "ke"].includes(next) || prev === "me") {
+          tags.push("HI");
+          why.push("Context Rule: Hindi demonstrative pronoun 'us' (उस)");
+          continue;
+        }
+      }
+      if (lower === "par") {
+        // "jagah par", "order par" -> HI postposition (पर)
+        if (["jagah", "order", "time", "date", "table"].includes(prev) || HINDI_CORE.has(prev)) {
+          tags.push("HI");
+          why.push("Context Rule: Hindi locative postposition 'par' (पर)");
+          continue;
+        }
+      }
       if (lower === "do") {
         // "refund do" / "paise do" -> HI imperative; "how do I" -> EN auxiliary
         if (["wapas", "paise", "solution", "refund", "kar", "kr"].includes(prev)) {
@@ -220,7 +248,7 @@ export function predictLidTags(tokens) {
         why.push(`Context Disambiguation: EN context score ${enContextPoints} > ${hiContextPoints}`);
       } else {
         // Default unigram prior from LinCE benchmark
-        const defaultTag = ["to", "is", "me", "or"].includes(lower) ? "EN" : "HI";
+        const defaultTag = ["to", "is", "or"].includes(lower) ? "EN" : "HI";
         tags.push(defaultTag);
         why.push(`Unigram prior default: '${lower}' → ${defaultTag}`);
       }
@@ -454,8 +482,8 @@ export async function analyzeHinglishQuery(queryText, options = {}) {
   
   const startTime = performance.now();
 
-  // Try fetching from local FastAPI backend if requested or configured
-  if (options.useApi) {
+  // Try fetching from local FastAPI backend if online/available
+  if (options.useApi !== false) {
     try {
       const response = await fetch("http://localhost:8000/api/analyze", {
         method: "POST",
