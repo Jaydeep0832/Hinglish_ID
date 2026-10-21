@@ -1,0 +1,434 @@
+Mera	HI
+order	EN
+abhi	HI
+tak	HI
+nahi	HI
+aaya	HI
+,	OTHER
+please	EN
+refund	EN
+karo	HI
+
+Please	EN
+refund	EN
+my	EN
+money	EN
+,	OTHER
+wrong	EN
+item	EN
+deliver	EN
+hua	HI
+hai	HI
+
+Maine	HI
+item	EN
+return	EN
+kar	HI
+diya	HI
+par	HI
+paise	HI
+wapas	HI
+nahi	HI
+mile	HI
+
+Refund	EN
+kab	HI
+tak	HI
+aayega	HI
+mere	HI
+bank	EN
+account	EN
+mein	HI
+?	OTHER
+
+Product	EN
+was	EN
+damaged	EN
+,	OTHER
+I	EN
+need	EN
+full	EN
+refund	EN
+now	EN
+
+Paise	HI
+wapas	HI
+chahiye	HI
+mujhe	HI
+abhi	HI
+ke	HI
+abhi	HI
+
+Refund	EN
+initiate	EN
+nahi	HI
+hua	HI
+abhi	HI
+tak	HI
+,	OTHER
+txn	EN
+<ORDER_ID>	OTHER
+
+Item	EN
+returned	EN
+to	EN
+delivery	EN
+boy	EN
+,	OTHER
+refund	EN
+please	EN
+
+Order	EN
+cancel	EN
+karna	HI
+hai	HI
+plz	EN
+jaldi	HI
+
+Please	EN
+cancel	EN
+my	EN
+order	EN
+<ORDER_ID>	OTHER
+immediately	EN
+
+Mujhe	HI
+yeh	HI
+order	EN
+nahi	HI
+chahiye	HI
+,	OTHER
+cancel	EN
+kar	HI
+do	HI
+
+Mera	HI
+order	EN
+cancel	EN
+kardo	HI
+maine	HI
+galti	HI
+se	HI
+order	EN
+kar	HI
+diya	HI
+
+I	EN
+want	EN
+to	EN
+cancel	EN
+this	EN
+order	EN
+as	EN
+delivery	EN
+is	EN
+late	EN
+
+Order	EN
+abhi	HI
+cancel	EN
+karo	HI
+please	EN
+
+Galti	HI
+se	HI
+wrong	EN
+address	EN
+daal	HI
+diya	HI
+,	OTHER
+order	EN
+cancel	EN
+karna	HI
+hai	HI
+
+Can	EN
+you	EN
+please	EN
+cancel	EN
+order	EN
+<ORDER_ID>	OTHER
+?	OTHER
+
+Status	EN
+delivered	EN
+dikha	HI
+raha	HI
+hai	HI
+but	EN
+mujhe	HI
+item	EN
+nahi	HI
+mila	HI
+!	OTHER
+
+Mera	HI
+package	EN
+missing	EN
+hai	HI
+,	OTHER
+kahan	HI
+gaya	HI
+?	OTHER
+
+Kisi	HI
+ne	HI
+deliver	EN
+nahi	HI
+kiya	HI
+aur	HI
+delivered	EN
+mark	EN
+kar	HI
+diya	HI
+
+4	OTHER
+din	HI
+ho	HI
+gaye	HI
+parcel	EN
+gayab	HI
+hai	HI
+
+I	EN
+never	EN
+received	EN
+this	EN
+delivery	EN
+,	OTHER
+tracking	EN
+is	EN
+wrong	EN
+
+Delivery	EN
+marked	EN
+without	EN
+OTP	EN
+,	OTHER
+mujhe	HI
+saman	HI
+nahi	HI
+mila	HI
+
+Order	EN
+missing	EN
+from	EN
+doorstep	EN
+,	OTHER
+please	EN
+investigate	EN
+
+Courier	EN
+wala	HI
+bina	HI
+call	EN
+kiye	HI
+return	EN
+kar	HI
+diya	HI
+
+My	EN
+order	EN
+is	EN
+delayed	EN
+,	OTHER
+kab	HI
+tak	HI
+aayega	HI
+?	OTHER
+
+Expected	EN
+delivery	EN
+kal	HI
+thi	HI
+,	OTHER
+ab	HI
+kab	HI
+milega	HI
+?	OTHER
+
+Kitne	HI
+din	HI
+aur	HI
+lagenge	HI
+shipment	EN
+pahunchne	HI
+mein	HI
+?	OTHER
+
+Bhai	HI
+bohot	HI
+der	HI
+ho	HI
+gayi	HI
+,	OTHER
+delivery	EN
+time	EN
+update	EN
+karo	HI
+
+Out	EN
+for	EN
+delivery	EN
+hokar	HI
+bhi	HI
+6	OTHER
+ghante	HI
+lag	HI
+gaye	HI
+
+Please	EN
+expedite	EN
+my	EN
+parcel	EN
+delivery	EN
+,	OTHER
+running	EN
+very	EN
+late	EN
+
+Delivery	EN
+date	EN
+roz	HI
+aage	HI
+kyun	HI
+badha	HI
+rahe	HI
+ho	HI
+?	OTHER
+
+Payment	EN
+fail	EN
+ho	HI
+gaya	HI
+but	EN
+bank	EN
+se	HI
+paise	HI
+kat	HI
+gaye	HI
+
+Money	EN
+deducted	EN
+from	EN
+account	EN
+but	EN
+order	EN
+nahi	HI
+aaya	HI
+
+Transaction	EN
+failed	EN
+phir	HI
+bhi	HI
+amount	EN
+debited	EN
+dikh	HI
+raha	HI
+hai	HI
+
+Double	EN
+payment	EN
+cut	EN
+ho	HI
+gaya	HI
+single	EN
+item	EN
+ke	HI
+liye	HI
+
+UPI	EN
+payment	EN
+timeout	EN
+hua	HI
+par	HI
+account	EN
+se	HI
+paise	HI
+gaye	HI
+
+Card	EN
+charged	EN
+twice	EN
+for	EN
+order	EN
+<ORDER_ID>	OTHER
+,	OTHER
+please	EN
+check	EN
+
+Amount	EN
+deducted	EN
+from	EN
+wallet	EN
+but	EN
+cart	EN
+is	EN
+still	EN
+full	EN
+
+Thank	EN
+you	EN
+so	EN
+much	EN
+team	EN
+,	OTHER
+support	EN
+bohot	HI
+acchi	HI
+thi	HI
+!	OTHER
+
+Your	EN
+working	EN
+hours	EN
+kya	HI
+hain	HI
+?	OTHER
+
+App	EN
+bahut	HI
+accha	HI
+hai	HI
+,	OTHER
+great	EN
+experience	EN
+
+How	EN
+do	EN
+I	EN
+change	EN
+my	EN
+registered	EN
+phone	EN
+number	EN
+?	OTHER
+
+Can	EN
+I	EN
+get	EN
+a	EN
+discount	EN
+code	EN
+for	EN
+next	EN
+order	EN
+?	OTHER
+
+Mujhe	HI
+invoice	EN
+download	EN
+karna	HI
+hai	HI
+,	OTHER
+option	EN
+kahan	HI
+hai	HI
+?	OTHER
+
+Executive	EN
+se	HI
+baat	HI
+karao	HI
+please	EN
+

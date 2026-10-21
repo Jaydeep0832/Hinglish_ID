@@ -1,0 +1,5 @@
+Rater_Pair,Metric,Score,Interpretation
+Annotator A vs Annotator B,Cohen's Kappa,0.9398,Almost Perfect Agreement (> 0.81)
+Annotator A vs Annotator C,Cohen's Kappa,0.9699,Almost Perfect Agreement (> 0.81)
+Annotator B vs Annotator C,Cohen's Kappa,0.9098,Almost Perfect Agreement (> 0.81)
+"All 3 Annotators (A, B, C)",Fleiss' Kappa,0.9398,Almost Perfect Agreement (> 0.81)

@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "evaluation_timestamp": "2026-10-21 15:47:02",
+    "conll_file": "data\\lid_indomain.conll",
+    "total_sentences": 45,
+    "total_tokens": 389,
+    "label_distribution": {
+      "EN": 195,
+      "HI": 156,
+      "OTHER": 38
+    }
+  },
+  "models": {
+    "M0_Lookup": {
+      "accuracy": 0.8766,
+      "macro_f1": 0.6132,
+      "hi_f1": 0.8708,
+      "en_f1": 0.9688,
+      "other_f1": 0.0,
+      "errors": 48
+    },
+    "M3_Final_Context": {
+      "accuracy": 0.8972,
+      "macro_f1": 0.6332,
+      "hi_f1": 0.9936,
+      "en_f1": 0.9061,
+      "other_f1": 0.0,
+      "errors": 40
+    }
+  }
+}

@@ -1,0 +1,2522 @@
+[
+  {
+    "id": "1",
+    "text": "Mera order abhi tak nahi aaya, please refund karo",
+    "intent": "refund",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "2",
+    "text": "Please refund my money, wrong item deliver hua hai",
+    "intent": "refund",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "3",
+    "text": "Maine item return kar diya par paise wapas nahi mile",
+    "intent": "refund",
+    "writer": "C",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "4",
+    "text": "Refund kab tak aayega mere bank account mein?",
+    "intent": "refund",
+    "writer": "A",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "5",
+    "text": "Product was completely damaged, I need full refund immediately",
+    "intent": "refund",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "6",
+    "text": "Paise wapas chahiye mujhe abhi ke abhi",
+    "intent": "refund",
+    "writer": "C",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "7",
+    "text": "Refund initiate nahi hua abhi tak, transaction #948271",
+    "intent": "refund",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "8",
+    "text": "Item already returned to delivery boy, refund please",
+    "intent": "refund",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "9",
+    "text": "Mujhe wrong size bheja hai, paisa refund kardo",
+    "intent": "refund",
+    "writer": "C",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "10",
+    "text": "Money back guarantee thi, so please process my refund",
+    "intent": "refund",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "11",
+    "text": "Order cancel kar diya tha maine, refund kab milega?",
+    "intent": "refund",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "12",
+    "text": "Customer care ne bola tha 24 hours me refund aayega but nahi aaya",
+    "intent": "refund",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "13",
+    "text": "I want my refund right now, worst service ever",
+    "intent": "refund",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "14",
+    "text": "Bhai mere 1200 rupaye wapas kar do jaldi",
+    "intent": "refund",
+    "writer": "B",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "15",
+    "text": "Seller ne defective product bheja, please return and refund",
+    "intent": "refund",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "16",
+    "text": "Refund status failed dikha raha hai, kya karu?",
+    "intent": "refund",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "17",
+    "text": "Paise kab account me transfer honge? 4 din ho gaye",
+    "intent": "refund",
+    "writer": "B",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "18",
+    "text": "Where is my refund amount? It has been one week",
+    "intent": "refund",
+    "writer": "C",
+    "mix_style": "english"
+  },
+  {
+    "id": "19",
+    "text": "Amount wapas bhej do mere gpay par",
+    "intent": "refund",
+    "writer": "A",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "20",
+    "text": "Refund request reject kyun ki? Item bilkul seal pack tha",
+    "intent": "refund",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "21",
+    "text": "Give me full refund, courier partner didn't pick up the return",
+    "intent": "refund",
+    "writer": "C",
+    "mix_style": "english"
+  },
+  {
+    "id": "22",
+    "text": "Mera refund credit nahi hua bank me abhi tak",
+    "intent": "refund",
+    "writer": "A",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "23",
+    "text": "Refund processing me kitna time lagta hai?",
+    "intent": "refund",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "24",
+    "text": "Please check order #884920 and refund my payment",
+    "intent": "refund",
+    "writer": "C",
+    "mix_style": "english"
+  },
+  {
+    "id": "25",
+    "text": "Paise wapas kar do, mujhe doosra product nahi chahiye",
+    "intent": "refund",
+    "writer": "A",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "26",
+    "text": "I returned the shoes yesterday, when will I get my refund?",
+    "intent": "refund",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "27",
+    "text": "Mera 500 rs ka refund pending hai 3 din se",
+    "intent": "refund",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "28",
+    "text": "Refund ka status check karke batao please",
+    "intent": "refund",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "29",
+    "text": "Khana bilkul thanda aur kharab tha, refund do",
+    "intent": "refund",
+    "writer": "B",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "30",
+    "text": "Food was spilled inside package, refund my money plz",
+    "intent": "refund",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "31",
+    "text": "Paise account me wapas kab tak credit honge?",
+    "intent": "refund",
+    "writer": "A",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "32",
+    "text": "I requested a refund 2 days ago, still no update",
+    "intent": "refund",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "33",
+    "text": "Wrong order deliver kiya hai, refund initiate karo",
+    "intent": "refund",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "34",
+    "text": "Paisa wapas chahiye mere wallet mein",
+    "intent": "refund",
+    "writer": "A",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "35",
+    "text": "Need immediate refund for this missing parcel",
+    "intent": "refund",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "36",
+    "text": "Shirt ka fabric bohot bekar hai, paise wapas karo",
+    "intent": "refund",
+    "writer": "C",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "37",
+    "text": "Refund nahi mila toh consumer forum me complaint karunga",
+    "intent": "refund",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "38",
+    "text": "Where is my money? You cancelled my order without refund",
+    "intent": "refund",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "39",
+    "text": "Mera refund UPI ID pe bhej do jaldi",
+    "intent": "refund",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "40",
+    "text": "Return pickup complete ho gaya hai, refund please",
+    "intent": "refund",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "41",
+    "text": "Paise wapas kardo ya store credit de do",
+    "intent": "refund",
+    "writer": "B",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "42",
+    "text": "I have not received the refund for order #104928",
+    "intent": "refund",
+    "writer": "C",
+    "mix_style": "english"
+  },
+  {
+    "id": "43",
+    "text": "Amount deduct ho gaya par refund ka mail nahi aaya",
+    "intent": "refund",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "44",
+    "text": "Please expedite my refund process",
+    "intent": "refund",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "45",
+    "text": "Jitna jaldi ho sake mera paisa return karo",
+    "intent": "refund",
+    "writer": "C",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "46",
+    "text": "Refund voucher issue kardo agar bank me time lagega",
+    "intent": "refund",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "47",
+    "text": "Order cancelled by delivery guy, I want my money back",
+    "intent": "refund",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "48",
+    "text": "Poora payment refund karo including delivery charges",
+    "intent": "refund",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "49",
+    "text": "Kitna wait karna padega refund ke liye?",
+    "intent": "refund",
+    "writer": "A",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "50",
+    "text": "Still waiting for my 850 rs refund",
+    "intent": "refund",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "51",
+    "text": "Refund policy kya hai aapki? Mujhe paise wapas chahiye",
+    "intent": "refund",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "52",
+    "text": "Sir mera refund clear karwa do please",
+    "intent": "refund",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "53",
+    "text": "Money has not been credited back to my credit card",
+    "intent": "refund",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "54",
+    "text": "Maine order reject kar diya, refund initiate hua kya?",
+    "intent": "refund",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "55",
+    "text": "Bhai mera refund kahan atak gaya?",
+    "intent": "refund",
+    "writer": "A",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "56",
+    "text": "Kindly initiate my refund as soon as possible",
+    "intent": "refund",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "57",
+    "text": "Wrong item mila tha, delivery boy le gaya, refund kab aayega?",
+    "intent": "refund",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "58",
+    "text": "Paise wapas karo bhai 5 din se wait kar raha hoon",
+    "intent": "refund",
+    "writer": "A",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "59",
+    "text": "Refund process karo ya fir manager se baat karao",
+    "intent": "refund",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "60",
+    "text": "Can you please refund my amount to original payment method?",
+    "intent": "refund",
+    "writer": "C",
+    "mix_style": "english"
+  },
+  {
+    "id": "61",
+    "text": "Order cancel karna hai plz jaldi",
+    "intent": "cancel_order",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "62",
+    "text": "Please cancel my order #994821 immediately",
+    "intent": "cancel_order",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "63",
+    "text": "Mujhe yeh order nahi chahiye, cancel kar do",
+    "intent": "cancel_order",
+    "writer": "C",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "64",
+    "text": "Mera order cancel kardo maine galti se order kar diya",
+    "intent": "cancel_order",
+    "writer": "A",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "65",
+    "text": "I want to cancel this order as delivery is too late",
+    "intent": "cancel_order",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "66",
+    "text": "Order abhi cancel karo please",
+    "intent": "cancel_order",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "67",
+    "text": "Cancel this order right now",
+    "intent": "cancel_order",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "68",
+    "text": "Galti se galat address daal diya, order cancel karna hai",
+    "intent": "cancel_order",
+    "writer": "B",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "69",
+    "text": "Can you please cancel order #382910?",
+    "intent": "cancel_order",
+    "writer": "C",
+    "mix_style": "english"
+  },
+  {
+    "id": "70",
+    "text": "Bhai order rok do, cancel kar do abhi",
+    "intent": "cancel_order",
+    "writer": "A",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "71",
+    "text": "I placed this order by mistake, kindly cancel it",
+    "intent": "cancel_order",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "72",
+    "text": "Cancel order option nahi dikh raha app me, please cancel it",
+    "intent": "cancel_order",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "73",
+    "text": "Mujhe yeh item ab nahi chahiye, cancellation request accept karo",
+    "intent": "cancel_order",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "74",
+    "text": "Sir please cancel this order immediately",
+    "intent": "cancel_order",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "75",
+    "text": "Maine do baar order place kar diya, ek cancel kar do",
+    "intent": "cancel_order",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "76",
+    "text": "How can I cancel my running order?",
+    "intent": "cancel_order",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "77",
+    "text": "Delivery cancel kardo, mai city me nahi hoon",
+    "intent": "cancel_order",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "78",
+    "text": "Cancel kardo bhai order jaldi se",
+    "intent": "cancel_order",
+    "writer": "C",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "79",
+    "text": "Please cancel the shipment before dispatch",
+    "intent": "cancel_order",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "80",
+    "text": "Abhi order place kiya tha, turant cancel karna hai",
+    "intent": "cancel_order",
+    "writer": "B",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "81",
+    "text": "I want to cancel my food order, mood change ho gaya",
+    "intent": "cancel_order",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "82",
+    "text": "Order cancel karne ka process bata do",
+    "intent": "cancel_order",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "83",
+    "text": "Do not deliver this package, cancel it",
+    "intent": "cancel_order",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "84",
+    "text": "Mera order cancel nahi ho raha hai app par",
+    "intent": "cancel_order",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "85",
+    "text": "Please stop the delivery and cancel order #552918",
+    "intent": "cancel_order",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "86",
+    "text": "Mujhe dusra color chahiye, pehle wala cancel karo",
+    "intent": "cancel_order",
+    "writer": "B",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "87",
+    "text": "Cancel my order, price dropped on another website",
+    "intent": "cancel_order",
+    "writer": "C",
+    "mix_style": "english"
+  },
+  {
+    "id": "88",
+    "text": "Bhai delivery boy ko bolo wapas laut jaye, cancel hai",
+    "intent": "cancel_order",
+    "writer": "A",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "89",
+    "text": "I want to cancel the subscription and pending order",
+    "intent": "cancel_order",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "90",
+    "text": "Order cancel karke confirmation mail bhej do",
+    "intent": "cancel_order",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "91",
+    "text": "Urgent: cancel my order placed 5 minutes ago",
+    "intent": "cancel_order",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "92",
+    "text": "Galat size select ho gaya tha, cancel karo order",
+    "intent": "cancel_order",
+    "writer": "B",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "93",
+    "text": "Can I cancel my order now? It is still in packing state",
+    "intent": "cancel_order",
+    "writer": "C",
+    "mix_style": "english"
+  },
+  {
+    "id": "94",
+    "text": "Order cancel karo yaar bohot late ho gaya",
+    "intent": "cancel_order",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "95",
+    "text": "Please cancel this item from my cart order",
+    "intent": "cancel_order",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "96",
+    "text": "Address change nahi ho raha toh order cancel kardo",
+    "intent": "cancel_order",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "97",
+    "text": "I would like to cancel my order immediately",
+    "intent": "cancel_order",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "98",
+    "text": "Cancel kardo, maine market se le liya saman",
+    "intent": "cancel_order",
+    "writer": "B",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "99",
+    "text": "Delivery slot suit nahi kar raha, cancel the order",
+    "intent": "cancel_order",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "100",
+    "text": "Cancel this parcel right away please",
+    "intent": "cancel_order",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "101",
+    "text": "Mujhe product ki ab zaroorat nahi hai, cancel karo",
+    "intent": "cancel_order",
+    "writer": "B",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "102",
+    "text": "Is it possible to cancel order #992817?",
+    "intent": "cancel_order",
+    "writer": "C",
+    "mix_style": "english"
+  },
+  {
+    "id": "103",
+    "text": "App pe cancel button disable dikha raha hai, please cancel",
+    "intent": "cancel_order",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "104",
+    "text": "Kripya karke mera order radd kar dijiye",
+    "intent": "cancel_order",
+    "writer": "B",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "105",
+    "text": "Please cancel my booking for tomorrow",
+    "intent": "cancel_order",
+    "writer": "C",
+    "mix_style": "english"
+  },
+  {
+    "id": "106",
+    "text": "Order dispatch se pehle cancel kardo please",
+    "intent": "cancel_order",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "107",
+    "text": "I do not want this delivery anymore, cancel it",
+    "intent": "cancel_order",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "108",
+    "text": "Cancel request raise kardo meri side se",
+    "intent": "cancel_order",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "109",
+    "text": "Cancel my order and do not send delivery boy",
+    "intent": "cancel_order",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "110",
+    "text": "Order cancel karke notification bhej do",
+    "intent": "cancel_order",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "111",
+    "text": "Mujhe urgent bahar jana hai, order cancel karo",
+    "intent": "cancel_order",
+    "writer": "C",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "112",
+    "text": "Stop processing order #482910 and cancel it",
+    "intent": "cancel_order",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "113",
+    "text": "Yeh order cancel kar dijiye kripya",
+    "intent": "cancel_order",
+    "writer": "B",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "114",
+    "text": "Please cancel the second item in my order",
+    "intent": "cancel_order",
+    "writer": "C",
+    "mix_style": "english"
+  },
+  {
+    "id": "115",
+    "text": "Cancel order option kyun nahi aa raha?",
+    "intent": "cancel_order",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "116",
+    "text": "Sir kindly cancel this purchase immediately",
+    "intent": "cancel_order",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "117",
+    "text": "Order cancel kardo, galat phone number daal diya tha",
+    "intent": "cancel_order",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "118",
+    "text": "Bhai order cancel kar do request hai",
+    "intent": "cancel_order",
+    "writer": "A",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "119",
+    "text": "Cancel this order, I ordered by error",
+    "intent": "cancel_order",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "120",
+    "text": "Order cancel karna hai, payment online ho chuki hai",
+    "intent": "cancel_order",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "121",
+    "text": "Mera order abhi tak nahi aaya",
+    "intent": "order_not_delivered",
+    "writer": "A",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "122",
+    "text": "My package is missing and status says delivered",
+    "intent": "order_not_delivered",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "123",
+    "text": "Status delivered dikha raha hai but mujhe item nahi mila!",
+    "intent": "order_not_delivered",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "124",
+    "text": "Order kahan hai? Abhi tak deliver nahi hua",
+    "intent": "order_not_delivered",
+    "writer": "A",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "125",
+    "text": "I have not received my order yet",
+    "intent": "order_not_delivered",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "126",
+    "text": "3 din ho gaye, order kahan hai?",
+    "intent": "order_not_delivered",
+    "writer": "C",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "127",
+    "text": "Delivery boy ne bina deliver kiye status update kar diya",
+    "intent": "order_not_delivered",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "128",
+    "text": "My parcel has not arrived, please trace it",
+    "intent": "order_not_delivered",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "129",
+    "text": "Mera khana nahi mila abhi tak, app me delivered dikha raha hai",
+    "intent": "order_not_delivered",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "130",
+    "text": "Where is my shipment? I never received it",
+    "intent": "order_not_delivered",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "131",
+    "text": "Kisi ne package deliver nahi kiya par SMS aaya delivered",
+    "intent": "order_not_delivered",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "132",
+    "text": "Order not delivered yet, please help",
+    "intent": "order_not_delivered",
+    "writer": "C",
+    "mix_style": "english"
+  },
+  {
+    "id": "133",
+    "text": "Bhai mera courier kiske paas hai? Mujhe nahi mila",
+    "intent": "order_not_delivered",
+    "writer": "A",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "134",
+    "text": "Package has not been delivered to my address",
+    "intent": "order_not_delivered",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "135",
+    "text": "Subah se wait kar raha hoon, parcel nahi pahuncha",
+    "intent": "order_not_delivered",
+    "writer": "C",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "136",
+    "text": "Tracking status shows delivered but OTP bhi nahi maanga",
+    "intent": "order_not_delivered",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "137",
+    "text": "I am still waiting for my delivery, it is missing",
+    "intent": "order_not_delivered",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "138",
+    "text": "Mera parcel kisi aur ko de diya kya? Mujhe nahi mila",
+    "intent": "order_not_delivered",
+    "writer": "C",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "139",
+    "text": "Order has not reached me yet, please check",
+    "intent": "order_not_delivered",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "140",
+    "text": "Bhai mera khana kahan gaya? Deliver nahi hua",
+    "intent": "order_not_delivered",
+    "writer": "B",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "141",
+    "text": "Fake delivery attempt mark kar diya, koi call nahi aaya",
+    "intent": "order_not_delivered",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "142",
+    "text": "Courier not received, please check order #948201",
+    "intent": "order_not_delivered",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "143",
+    "text": "Mujhe mera order deliver nahi kiya gaya hai abhi tak",
+    "intent": "order_not_delivered",
+    "writer": "B",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "144",
+    "text": "Status says handed to customer but I was not at home",
+    "intent": "order_not_delivered",
+    "writer": "C",
+    "mix_style": "english"
+  },
+  {
+    "id": "145",
+    "text": "Delivery boy call nahi utha raha aur order nahi mila",
+    "intent": "order_not_delivered",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "146",
+    "text": "My food order never arrived last night",
+    "intent": "order_not_delivered",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "147",
+    "text": "Ghar pe koi nahi aaya aur marked delivered kar diya",
+    "intent": "order_not_delivered",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "148",
+    "text": "Order nahi aaya abhi tak, kab deliver hoga?",
+    "intent": "order_not_delivered",
+    "writer": "A",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "149",
+    "text": "I did not receive the package at all",
+    "intent": "order_not_delivered",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "150",
+    "text": "Security guard ko bhi check kiya, parcel wahan nahi hai",
+    "intent": "order_not_delivered",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "151",
+    "text": "Item was not delivered to me, please resolve",
+    "intent": "order_not_delivered",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "152",
+    "text": "Order missing hai, please pata lagao kahan hai",
+    "intent": "order_not_delivered",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "153",
+    "text": "Koi delivery nahi aayi aaj, tracking fake hai",
+    "intent": "order_not_delivered",
+    "writer": "C",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "154",
+    "text": "Shipment not received, please take action",
+    "intent": "order_not_delivered",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "155",
+    "text": "Mera package kahan atak gaya? Ghar nahi pahuncha",
+    "intent": "order_not_delivered",
+    "writer": "B",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "156",
+    "text": "Delivered marked without my confirmation or OTP",
+    "intent": "order_not_delivered",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "157",
+    "text": "Where is my package? The tracking has stopped updating",
+    "intent": "order_not_delivered",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "158",
+    "text": "Mujhe koi packet deliver nahi hua hai",
+    "intent": "order_not_delivered",
+    "writer": "B",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "159",
+    "text": "Order not delivered, please contact delivery agent",
+    "intent": "order_not_delivered",
+    "writer": "C",
+    "mix_style": "english"
+  },
+  {
+    "id": "160",
+    "text": "Bhai order ghar pe deliver nahi hua par message aa gaya",
+    "intent": "order_not_delivered",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "161",
+    "text": "Package missing from doorstep, I checked everywhere",
+    "intent": "order_not_delivered",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "162",
+    "text": "Abhi tak mera delivery nahi mila hai mujhe",
+    "intent": "order_not_delivered",
+    "writer": "C",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "163",
+    "text": "I have not received order #338190, please check",
+    "intent": "order_not_delivered",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "164",
+    "text": "Raste me kahan kho gaya order? Abhi tak nahi mila",
+    "intent": "order_not_delivered",
+    "writer": "B",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "165",
+    "text": "Delivery agent marked delivered falsely without delivery",
+    "intent": "order_not_delivered",
+    "writer": "C",
+    "mix_style": "english"
+  },
+  {
+    "id": "166",
+    "text": "Mera packet nahi aaya, delivery partner call reject kar raha hai",
+    "intent": "order_not_delivered",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "167",
+    "text": "Item has not arrived yet at my location",
+    "intent": "order_not_delivered",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "168",
+    "text": "4 ghante pehle delivered ka msg aaya tha par parcel gayab hai",
+    "intent": "order_not_delivered",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "169",
+    "text": "My order has completely vanished, no one delivered it",
+    "intent": "order_not_delivered",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "170",
+    "text": "Ghar par koi delivery nahi aayi, please check karo",
+    "intent": "order_not_delivered",
+    "writer": "B",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "171",
+    "text": "Still have not received my grocery order today",
+    "intent": "order_not_delivered",
+    "writer": "C",
+    "mix_style": "english"
+  },
+  {
+    "id": "172",
+    "text": "Tracking status galat hai, parcel deliver nahi hua",
+    "intent": "order_not_delivered",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "173",
+    "text": "Where is my order? Delivery boy phone switch off kar liya",
+    "intent": "order_not_delivered",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "174",
+    "text": "Order is completely missing, please investigate",
+    "intent": "order_not_delivered",
+    "writer": "C",
+    "mix_style": "english"
+  },
+  {
+    "id": "175",
+    "text": "Mujhe product deliver nahi kiya gaya",
+    "intent": "order_not_delivered",
+    "writer": "A",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "176",
+    "text": "No one delivered anything to my apartment today",
+    "intent": "order_not_delivered",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "177",
+    "text": "Order status false delivered mark hua hai, package kahan hai?",
+    "intent": "order_not_delivered",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "178",
+    "text": "Courier boy package deliver kiye bina chala gaya",
+    "intent": "order_not_delivered",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "179",
+    "text": "I did not receive this delivery at all, urgent help needed",
+    "intent": "order_not_delivered",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "180",
+    "text": "Saman nahi mila mujhe abhi tak, status check karo",
+    "intent": "order_not_delivered",
+    "writer": "C",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "181",
+    "text": "My order is delayed, kab tak aayega?",
+    "intent": "delivery_delay",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "182",
+    "text": "Kitne din aur lagenge?",
+    "intent": "delivery_delay",
+    "writer": "B",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "183",
+    "text": "Expected delivery kal thi, ab kab milega?",
+    "intent": "delivery_delay",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "184",
+    "text": "Delivery itni late kyun ho rahi hai?",
+    "intent": "delivery_delay",
+    "writer": "A",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "185",
+    "text": "Why is my shipment running so late?",
+    "intent": "delivery_delay",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "186",
+    "text": "2 din pehle delivery honi thi, abhi tak pending hai",
+    "intent": "delivery_delay",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "187",
+    "text": "Expected date nikal gayi par parcel nahi aaya",
+    "intent": "delivery_delay",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "188",
+    "text": "Can you tell me expected delivery time?",
+    "intent": "delivery_delay",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "189",
+    "text": "Bohot zyada delay ho raha hai order me",
+    "intent": "delivery_delay",
+    "writer": "C",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "190",
+    "text": "My food order is 45 minutes late already",
+    "intent": "delivery_delay",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "191",
+    "text": "Delivery boy itna late kyun kar raha hai?",
+    "intent": "delivery_delay",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "192",
+    "text": "Kab tak deliver karoge bhai? Bohot der ho gayi",
+    "intent": "delivery_delay",
+    "writer": "C",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "193",
+    "text": "Order is delayed by 3 days, when will it arrive?",
+    "intent": "delivery_delay",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "194",
+    "text": "Aapka delivery partner hamesha late karta hai",
+    "intent": "delivery_delay",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "195",
+    "text": "Expected delivery time update karke batao please",
+    "intent": "delivery_delay",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "196",
+    "text": "Why is there so much delay in courier dispatch?",
+    "intent": "delivery_delay",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "197",
+    "text": "Kitna time lagega aur parcel aane me?",
+    "intent": "delivery_delay",
+    "writer": "B",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "198",
+    "text": "Order dispatch ho gaya tha par raste me atak gaya hai",
+    "intent": "delivery_delay",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "199",
+    "text": "Delivery is delayed, please expedite shipment",
+    "intent": "delivery_delay",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "200",
+    "text": "Subah se out for delivery dikha raha hai, kab aayega?",
+    "intent": "delivery_delay",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "201",
+    "text": "Aur kitna wait karna padega mujhe?",
+    "intent": "delivery_delay",
+    "writer": "C",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "202",
+    "text": "Package is running late according to tracker",
+    "intent": "delivery_delay",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "203",
+    "text": "Delivery date extend kyun kar di bina bataye?",
+    "intent": "delivery_delay",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "204",
+    "text": "Kal aane wala tha saman, aaj aayega ya nahi?",
+    "intent": "delivery_delay",
+    "writer": "C",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "205",
+    "text": "When can I expect my order #993821 to arrive?",
+    "intent": "delivery_delay",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "206",
+    "text": "Bhai bohot delay ho raha hai, khana thanda ho jayega",
+    "intent": "delivery_delay",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "207",
+    "text": "Delivery time frame miss ho gaya, new ETA kya hai?",
+    "intent": "delivery_delay",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "208",
+    "text": "My grocery order is already 2 hours late",
+    "intent": "delivery_delay",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "209",
+    "text": "Order itna slow kyun move ho raha hai?",
+    "intent": "delivery_delay",
+    "writer": "B",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "210",
+    "text": "Tracker me delivery date roz aage badh rahi hai",
+    "intent": "delivery_delay",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "211",
+    "text": "How much more delay can I expect on this shipment?",
+    "intent": "delivery_delay",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "212",
+    "text": "Kripya delivery jaldi karwayein, bohot late ho raha hai",
+    "intent": "delivery_delay",
+    "writer": "B",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "213",
+    "text": "Order abhi tak dispatch nahi hua, delayed dikha raha hai",
+    "intent": "delivery_delay",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "214",
+    "text": "Delivery is delayed due to weather, when will it reach?",
+    "intent": "delivery_delay",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "215",
+    "text": "Bhai delivery kab tak hone ki umeed hai?",
+    "intent": "delivery_delay",
+    "writer": "B",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "216",
+    "text": "Out for delivery ho kar bhi 8 ghante lag gaye",
+    "intent": "delivery_delay",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "217",
+    "text": "Why is the courier moving so slowly between hubs?",
+    "intent": "delivery_delay",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "218",
+    "text": "Delay ka reason batao please, kal birthday hai",
+    "intent": "delivery_delay",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "219",
+    "text": "Mujhe urgent chahiye tha, itna delay kyun?",
+    "intent": "delivery_delay",
+    "writer": "C",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "220",
+    "text": "The delivery has been delayed twice already",
+    "intent": "delivery_delay",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "221",
+    "text": "Bhai order thoda jaldi bhejwa do please",
+    "intent": "delivery_delay",
+    "writer": "B",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "222",
+    "text": "Delivery late hone ki koi intimation nahi di aapne",
+    "intent": "delivery_delay",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "223",
+    "text": "Estimated delivery date was yesterday, any update?",
+    "intent": "delivery_delay",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "224",
+    "text": "Kitna intezaar aur karna padega is parcel ke liye?",
+    "intent": "delivery_delay",
+    "writer": "B",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "225",
+    "text": "Raste me parcel kahan ruka hua hai? Update delivery time",
+    "intent": "delivery_delay",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "226",
+    "text": "Please expedite the delivery, running very late",
+    "intent": "delivery_delay",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "227",
+    "text": "Bohot slow service hai aapki, delivery kab milegi?",
+    "intent": "delivery_delay",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "228",
+    "text": "Order 4 din se transit me hai, kab pahuchega?",
+    "intent": "delivery_delay",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "229",
+    "text": "Why is my medicine order taking so long to deliver?",
+    "intent": "delivery_delay",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "230",
+    "text": "Ghar par koi patient hai, delivery jaldi karwa do",
+    "intent": "delivery_delay",
+    "writer": "B",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "231",
+    "text": "Delivery time reschedule kar sakte hain agar late ho raha hai?",
+    "intent": "delivery_delay",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "232",
+    "text": "Is there an updated estimated arrival time for order #44921?",
+    "intent": "delivery_delay",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "233",
+    "text": "Bhai kab tak deliver kar paoge? Time bata do bas",
+    "intent": "delivery_delay",
+    "writer": "B",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "234",
+    "text": "Delivery delayed message received, need package today",
+    "intent": "delivery_delay",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "235",
+    "text": "Shipment is delayed at sorting facility",
+    "intent": "delivery_delay",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "236",
+    "text": "Kitni der aur lagegi delivery boy ko aane me?",
+    "intent": "delivery_delay",
+    "writer": "B",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "237",
+    "text": "Tracking status delayed dikha raha hai subah se",
+    "intent": "delivery_delay",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "238",
+    "text": "Can you speed up my parcel delivery please?",
+    "intent": "delivery_delay",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "239",
+    "text": "Delay ho raha hai toh delivery agent ka number de do",
+    "intent": "delivery_delay",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "240",
+    "text": "Bhai delivery ka exact time frame batao please",
+    "intent": "delivery_delay",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "241",
+    "text": "Payment fail ho gaya but paise kat gaye",
+    "intent": "payment_failed",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "242",
+    "text": "Money deducted from account but order nahi aaya",
+    "intent": "payment_failed",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "243",
+    "text": "Transaction failed phir bhi amount gaya",
+    "intent": "payment_failed",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "244",
+    "text": "Paise cut ho gaye bank se but order pending hai",
+    "intent": "payment_failed",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "245",
+    "text": "Payment was deducted twice for single order",
+    "intent": "payment_failed",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "246",
+    "text": "Account se 1500 rs debited par app me payment failed dikha raha hai",
+    "intent": "payment_failed",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "247",
+    "text": "UPI transaction failed, amount deducted from SBI account",
+    "intent": "payment_failed",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "248",
+    "text": "Bank se SMS aaya paise katne ka but order place nahi hua",
+    "intent": "payment_failed",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "249",
+    "text": "Money debited from Google Pay but order confirmation failed",
+    "intent": "payment_failed",
+    "writer": "C",
+    "mix_style": "english"
+  },
+  {
+    "id": "250",
+    "text": "Paise kat gaye par screen pe transaction failed aa gaya",
+    "intent": "payment_failed",
+    "writer": "A",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "251",
+    "text": "Payment got failed during checkout, will money be refunded?",
+    "intent": "payment_failed",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "252",
+    "text": "Mera payment atak gaya hai bank aur app ke beech me",
+    "intent": "payment_failed",
+    "writer": "C",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "253",
+    "text": "Card charged twice for order #482910, please check",
+    "intent": "payment_failed",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "254",
+    "text": "Paise cut gaye account se, order generate nahi hua",
+    "intent": "payment_failed",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "255",
+    "text": "Transaction timeout ho gaya but paise deduct ho gaye",
+    "intent": "payment_failed",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "256",
+    "text": "Amount debited from Paytm wallet but cart is still full",
+    "intent": "payment_failed",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "257",
+    "text": "Server error ke dauran paise kat gaye mere",
+    "intent": "payment_failed",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "258",
+    "text": "Payment failure issue: money deducted, no order ID",
+    "intent": "payment_failed",
+    "writer": "C",
+    "mix_style": "english"
+  },
+  {
+    "id": "259",
+    "text": "Bank se paise kat gaye but order confirmed nahi hua",
+    "intent": "payment_failed",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "260",
+    "text": "Payment failed message aaya tha phir paise kyun kate?",
+    "intent": "payment_failed",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "261",
+    "text": "Net banking payment deducted but order status is failed",
+    "intent": "payment_failed",
+    "writer": "C",
+    "mix_style": "english"
+  },
+  {
+    "id": "262",
+    "text": "500 rs deduct ho gaye but order place nahi ho paya",
+    "intent": "payment_failed",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "263",
+    "text": "Payment gateway crashed and my money got deducted",
+    "intent": "payment_failed",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "264",
+    "text": "Mera payment status unconfirmed dikha raha hai",
+    "intent": "payment_failed",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "265",
+    "text": "Account debited with 2400 rs but order is not showing in my orders",
+    "intent": "payment_failed",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "266",
+    "text": "Paise kat gaye bhai, order place hua ya nahi?",
+    "intent": "payment_failed",
+    "writer": "B",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "267",
+    "text": "Transaction declined on app but money deducted by bank",
+    "intent": "payment_failed",
+    "writer": "C",
+    "mix_style": "english"
+  },
+  {
+    "id": "268",
+    "text": "Twice amount debited from my HDFC debit card",
+    "intent": "payment_failed",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "269",
+    "text": "UPI pin daalne ke baad screen blank ho gayi aur paise cut gaye",
+    "intent": "payment_failed",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "270",
+    "text": "Payment failed but amount not credited back to bank",
+    "intent": "payment_failed",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "271",
+    "text": "Money deducted, please check payment reference #8849201",
+    "intent": "payment_failed",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "272",
+    "text": "Paise kat chuke hain, please mera order manually confirm kardo",
+    "intent": "payment_failed",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "273",
+    "text": "Checkout error: payment deducted but order created nahi hua",
+    "intent": "payment_failed",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "274",
+    "text": "I was charged twice for the same booking",
+    "intent": "payment_failed",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "275",
+    "text": "Bank account se debit ho gaya, order status failed hai",
+    "intent": "payment_failed",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "276",
+    "text": "Double payment cut ho gaya single item ke liye",
+    "intent": "payment_failed",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "277",
+    "text": "Payment failed at bank gateway, when will money reverse?",
+    "intent": "payment_failed",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "278",
+    "text": "Paise kat gaye par cart me items abhi bhi hain",
+    "intent": "payment_failed",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "279",
+    "text": "Order failed par bank balance kam ho gaya",
+    "intent": "payment_failed",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "280",
+    "text": "UPI transaction failed, please reverse the amount",
+    "intent": "payment_failed",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "281",
+    "text": "Gpay se paise chale gaye par yahan order nahi dikh raha",
+    "intent": "payment_failed",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "282",
+    "text": "Money deducted without order placement, please resolve",
+    "intent": "payment_failed",
+    "writer": "C",
+    "mix_style": "english"
+  },
+  {
+    "id": "283",
+    "text": "Paise kat gaye aur payment failed likha aa gaya screen pe",
+    "intent": "payment_failed",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "284",
+    "text": "Payment was successful on bank side but failed on merchant side",
+    "intent": "payment_failed",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "285",
+    "text": "Account se paise nikal gaye par order create nahi hua",
+    "intent": "payment_failed",
+    "writer": "C",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "286",
+    "text": "Duplicate transaction happened for order #884910",
+    "intent": "payment_failed",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "287",
+    "text": "Bank bol raha hai payment successful hai, aap bol rahe ho failed",
+    "intent": "payment_failed",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "288",
+    "text": "Transaction failed notification received, please verify payment",
+    "intent": "payment_failed",
+    "writer": "C",
+    "mix_style": "english"
+  },
+  {
+    "id": "289",
+    "text": "Paise kat gaye 3 ghante pehle, abhi tak koi order update nahi",
+    "intent": "payment_failed",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "290",
+    "text": "Money deducted from account, need payment confirmation or refund",
+    "intent": "payment_failed",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "291",
+    "text": "Payment error ki wajah se order nahi laga par paise gaye",
+    "intent": "payment_failed",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "292",
+    "text": "Card debited but payment processing stuck at 99%",
+    "intent": "payment_failed",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "293",
+    "text": "Bhai paise kat gaye hain account se, help karo",
+    "intent": "payment_failed",
+    "writer": "B",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "294",
+    "text": "Payment failed while ordering, please check my transaction",
+    "intent": "payment_failed",
+    "writer": "C",
+    "mix_style": "english"
+  },
+  {
+    "id": "295",
+    "text": "Amount deducted from credit card but order status says cancelled",
+    "intent": "payment_failed",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "296",
+    "text": "Paise chale gaye par invoice generate nahi hua",
+    "intent": "payment_failed",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "297",
+    "text": "Transaction failed on payment portal, amount deducted",
+    "intent": "payment_failed",
+    "writer": "C",
+    "mix_style": "english"
+  },
+  {
+    "id": "298",
+    "text": "Bank statement me debit show ho raha hai, order confirm karo",
+    "intent": "payment_failed",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "299",
+    "text": "Money deducted from wallet, order failed immediately",
+    "intent": "payment_failed",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "300",
+    "text": "Paise kat gaye par order summary blank hai",
+    "intent": "payment_failed",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "301",
+    "text": "Thank you so much team, customer support service bohot acchi thi!",
+    "intent": "other",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "302",
+    "text": "App bahut accha hai, keep up the good work",
+    "intent": "other",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "303",
+    "text": "Your working hours kya hain?",
+    "intent": "other",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "304",
+    "text": "Customer care number provide kardo please",
+    "intent": "other",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "305",
+    "text": "How can I change my profile password?",
+    "intent": "other",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "306",
+    "text": "Mujhe store ka address bata sakte ho Delhi mein?",
+    "intent": "other",
+    "writer": "C",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "307",
+    "text": "Great shopping experience on your app today",
+    "intent": "other",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "308",
+    "text": "Aapka delivery boy bohot polite aur helpful tha",
+    "intent": "other",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "309",
+    "text": "Is COD cash on delivery available in my pin code 110001?",
+    "intent": "other",
+    "writer": "C",
+    "mix_style": "english"
+  },
+  {
+    "id": "310",
+    "text": "Customer executive se call par baat karni hai",
+    "intent": "other",
+    "writer": "A",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "311",
+    "text": "Can you update my registered email ID?",
+    "intent": "other",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "312",
+    "text": "Aapke store pe gift card redeem kaise karte hain?",
+    "intent": "other",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "313",
+    "text": "Thank you for the quick support, appreciated!",
+    "intent": "other",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "314",
+    "text": "Kya aap weekend par delivery karte ho?",
+    "intent": "other",
+    "writer": "B",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "315",
+    "text": "I want to know about loyalty membership plans",
+    "intent": "other",
+    "writer": "C",
+    "mix_style": "english"
+  },
+  {
+    "id": "316",
+    "text": "Account delete karne ka option kahan milega?",
+    "intent": "other",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "317",
+    "text": "Good morning, hope you are having a nice day",
+    "intent": "other",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "318",
+    "text": "Bhai discount coupon code provide kar do koi",
+    "intent": "other",
+    "writer": "C",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "319",
+    "text": "How to apply promo code during checkout?",
+    "intent": "other",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "320",
+    "text": "Mujhe feedback submit karna hai app interface ke baare mein",
+    "intent": "other",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "321",
+    "text": "Nice packaging and fast response, thank you",
+    "intent": "other",
+    "writer": "C",
+    "mix_style": "english"
+  },
+  {
+    "id": "322",
+    "text": "Aapki branch Sunday ko open rehti hai kya?",
+    "intent": "other",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "323",
+    "text": "Can I change my registered mobile number?",
+    "intent": "other",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "324",
+    "text": "Chat support agent se connect karwa do please",
+    "intent": "other",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "325",
+    "text": "Bohot accha product mila, five star rating dunga",
+    "intent": "other",
+    "writer": "A",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "326",
+    "text": "How do I unsubscribe from marketing emails?",
+    "intent": "other",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "327",
+    "text": "Aapke delivery charges kitne hain orders pe?",
+    "intent": "other",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "328",
+    "text": "Customer support team was very responsive today",
+    "intent": "other",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "329",
+    "text": "Kripya mujhe manager se connect kijiye",
+    "intent": "other",
+    "writer": "B",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "330",
+    "text": "Do you deliver international shipments as well?",
+    "intent": "other",
+    "writer": "C",
+    "mix_style": "english"
+  },
+  {
+    "id": "331",
+    "text": "Mera account temporarily block dikha raha hai, unblock karo",
+    "intent": "other",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "332",
+    "text": "Just wanted to appreciate the fast service",
+    "intent": "other",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "333",
+    "text": "Aapka nearest offline store kahan par hai?",
+    "intent": "other",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "334",
+    "text": "Can you help me reset my account password?",
+    "intent": "other",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "335",
+    "text": "Shukriya aapki team ka madad karne ke liye",
+    "intent": "other",
+    "writer": "B",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "336",
+    "text": "Is there any discount offer running currently?",
+    "intent": "other",
+    "writer": "C",
+    "mix_style": "english"
+  },
+  {
+    "id": "337",
+    "text": "App update ke baad crash ho rahi hai bar bar",
+    "intent": "other",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "338",
+    "text": "Thank you for sorting out my query yesterday",
+    "intent": "other",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "339",
+    "text": "Mujhe delivery executive ki tareef karni hai",
+    "intent": "other",
+    "writer": "C",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "340",
+    "text": "Where can I download my order tax invoice?",
+    "intent": "other",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "341",
+    "text": "Hello support team, are you available right now?",
+    "intent": "other",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "342",
+    "text": "Bhai app ka UI update karke pehle jaisa kardo",
+    "intent": "other",
+    "writer": "C",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "343",
+    "text": "Do you have any customer care email address?",
+    "intent": "other",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "344",
+    "text": "Mera rating feedback record kar lo please",
+    "intent": "other",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "345",
+    "text": "I love your customer service, very professional",
+    "intent": "other",
+    "writer": "C",
+    "mix_style": "english"
+  },
+  {
+    "id": "346",
+    "text": "Pin code 560034 me service active hai kya abhi?",
+    "intent": "other",
+    "writer": "A",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "347",
+    "text": "How to change delivery address in profile settings?",
+    "intent": "other",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "348",
+    "text": "Aapki service se bohot khush hoon, thanks a lot",
+    "intent": "other",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "349",
+    "text": "What are the terms and conditions for festive sale?",
+    "intent": "other",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "350",
+    "text": "Customer support number par call connect nahi ho raha",
+    "intent": "other",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "351",
+    "text": "Just testing this customer chat feature",
+    "intent": "other",
+    "writer": "C",
+    "mix_style": "english"
+  },
+  {
+    "id": "352",
+    "text": "Bhai kya discount chal raha hai electronics pe?",
+    "intent": "other",
+    "writer": "A",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "353",
+    "text": "Please connect me to a human representative",
+    "intent": "other",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "354",
+    "text": "Aapki return policy ke rules kahan padh sakta hoon?",
+    "intent": "other",
+    "writer": "C",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "355",
+    "text": "Excellent support provided by executive yesterday",
+    "intent": "other",
+    "writer": "A",
+    "mix_style": "english"
+  },
+  {
+    "id": "356",
+    "text": "Account verify karne ke liye OTP nahi aa raha",
+    "intent": "other",
+    "writer": "B",
+    "mix_style": "balanced"
+  },
+  {
+    "id": "357",
+    "text": "How can I update my GSTIN in invoice?",
+    "intent": "other",
+    "writer": "C",
+    "mix_style": "english"
+  },
+  {
+    "id": "358",
+    "text": "Kripya batayein aapka office time kab shuru hota hai",
+    "intent": "other",
+    "writer": "A",
+    "mix_style": "hindi"
+  },
+  {
+    "id": "359",
+    "text": "Thanks team, keep delivering great products",
+    "intent": "other",
+    "writer": "B",
+    "mix_style": "english"
+  },
+  {
+    "id": "360",
+    "text": "Mujhe app ke baare me kuch suggestions dene hain",
+    "intent": "other",
+    "writer": "C",
+    "mix_style": "balanced"
+  }
+]

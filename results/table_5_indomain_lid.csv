@@ -1,0 +1,3 @@
+Model_ID,Model_Name,Domain,Tokens,Accuracy,Macro_F1,HI_F1,EN_F1,OTHER_F1,Total_Errors
+M0_Lookup,M0: Word Lookup Baseline,Customer Support (In-Domain),389,87.66%,0.6132,0.8708,0.9688,0.0,48
+M3_Final_Context,M3: Production Context Tagger (Ours),Customer Support (In-Domain),389,89.72%,0.6332,0.9936,0.9061,0.0,40

@@ -1,0 +1,361 @@
+id,text,intent,writer,mix_style
+1,"Mera order abhi tak nahi aaya, please refund karo",refund,A,balanced
+2,"Please refund my money, wrong item deliver hua hai",refund,B,balanced
+3,Maine item return kar diya par paise wapas nahi mile,refund,C,hindi
+4,Refund kab tak aayega mere bank account mein?,refund,A,hindi
+5,"Product was completely damaged, I need full refund immediately",refund,B,english
+6,Paise wapas chahiye mujhe abhi ke abhi,refund,C,hindi
+7,"Refund initiate nahi hua abhi tak, transaction #948271",refund,A,balanced
+8,"Item already returned to delivery boy, refund please",refund,B,english
+9,"Mujhe wrong size bheja hai, paisa refund kardo",refund,C,hindi
+10,"Money back guarantee thi, so please process my refund",refund,A,english
+11,"Order cancel kar diya tha maine, refund kab milega?",refund,B,balanced
+12,Customer care ne bola tha 24 hours me refund aayega but nahi aaya,refund,C,balanced
+13,"I want my refund right now, worst service ever",refund,A,english
+14,Bhai mere 1200 rupaye wapas kar do jaldi,refund,B,hindi
+15,"Seller ne defective product bheja, please return and refund",refund,C,balanced
+16,"Refund status failed dikha raha hai, kya karu?",refund,A,balanced
+17,Paise kab account me transfer honge? 4 din ho gaye,refund,B,hindi
+18,Where is my refund amount? It has been one week,refund,C,english
+19,Amount wapas bhej do mere gpay par,refund,A,hindi
+20,Refund request reject kyun ki? Item bilkul seal pack tha,refund,B,balanced
+21,"Give me full refund, courier partner didn't pick up the return",refund,C,english
+22,Mera refund credit nahi hua bank me abhi tak,refund,A,hindi
+23,Refund processing me kitna time lagta hai?,refund,B,balanced
+24,Please check order #884920 and refund my payment,refund,C,english
+25,"Paise wapas kar do, mujhe doosra product nahi chahiye",refund,A,hindi
+26,"I returned the shoes yesterday, when will I get my refund?",refund,B,english
+27,Mera 500 rs ka refund pending hai 3 din se,refund,C,balanced
+28,Refund ka status check karke batao please,refund,A,balanced
+29,"Khana bilkul thanda aur kharab tha, refund do",refund,B,hindi
+30,"Food was spilled inside package, refund my money plz",refund,C,balanced
+31,Paise account me wapas kab tak credit honge?,refund,A,hindi
+32,"I requested a refund 2 days ago, still no update",refund,B,english
+33,"Wrong order deliver kiya hai, refund initiate karo",refund,C,balanced
+34,Paisa wapas chahiye mere wallet mein,refund,A,hindi
+35,Need immediate refund for this missing parcel,refund,B,english
+36,"Shirt ka fabric bohot bekar hai, paise wapas karo",refund,C,hindi
+37,Refund nahi mila toh consumer forum me complaint karunga,refund,A,balanced
+38,Where is my money? You cancelled my order without refund,refund,B,english
+39,Mera refund UPI ID pe bhej do jaldi,refund,C,balanced
+40,"Return pickup complete ho gaya hai, refund please",refund,A,balanced
+41,Paise wapas kardo ya store credit de do,refund,B,hindi
+42,I have not received the refund for order #104928,refund,C,english
+43,Amount deduct ho gaya par refund ka mail nahi aaya,refund,A,balanced
+44,Please expedite my refund process,refund,B,english
+45,Jitna jaldi ho sake mera paisa return karo,refund,C,hindi
+46,Refund voucher issue kardo agar bank me time lagega,refund,A,balanced
+47,"Order cancelled by delivery guy, I want my money back",refund,B,english
+48,Poora payment refund karo including delivery charges,refund,C,balanced
+49,Kitna wait karna padega refund ke liye?,refund,A,hindi
+50,Still waiting for my 850 rs refund,refund,B,english
+51,Refund policy kya hai aapki? Mujhe paise wapas chahiye,refund,C,balanced
+52,Sir mera refund clear karwa do please,refund,A,balanced
+53,Money has not been credited back to my credit card,refund,B,english
+54,"Maine order reject kar diya, refund initiate hua kya?",refund,C,balanced
+55,Bhai mera refund kahan atak gaya?,refund,A,hindi
+56,Kindly initiate my refund as soon as possible,refund,B,english
+57,"Wrong item mila tha, delivery boy le gaya, refund kab aayega?",refund,C,balanced
+58,Paise wapas karo bhai 5 din se wait kar raha hoon,refund,A,hindi
+59,Refund process karo ya fir manager se baat karao,refund,B,balanced
+60,Can you please refund my amount to original payment method?,refund,C,english
+61,Order cancel karna hai plz jaldi,cancel_order,A,balanced
+62,Please cancel my order #994821 immediately,cancel_order,B,english
+63,"Mujhe yeh order nahi chahiye, cancel kar do",cancel_order,C,hindi
+64,Mera order cancel kardo maine galti se order kar diya,cancel_order,A,hindi
+65,I want to cancel this order as delivery is too late,cancel_order,B,english
+66,Order abhi cancel karo please,cancel_order,C,balanced
+67,Cancel this order right now,cancel_order,A,english
+68,"Galti se galat address daal diya, order cancel karna hai",cancel_order,B,hindi
+69,Can you please cancel order #382910?,cancel_order,C,english
+70,"Bhai order rok do, cancel kar do abhi",cancel_order,A,hindi
+71,"I placed this order by mistake, kindly cancel it",cancel_order,B,english
+72,"Cancel order option nahi dikh raha app me, please cancel it",cancel_order,C,balanced
+73,"Mujhe yeh item ab nahi chahiye, cancellation request accept karo",cancel_order,A,balanced
+74,Sir please cancel this order immediately,cancel_order,B,english
+75,"Maine do baar order place kar diya, ek cancel kar do",cancel_order,C,balanced
+76,How can I cancel my running order?,cancel_order,A,english
+77,"Delivery cancel kardo, mai city me nahi hoon",cancel_order,B,balanced
+78,Cancel kardo bhai order jaldi se,cancel_order,C,hindi
+79,Please cancel the shipment before dispatch,cancel_order,A,english
+80,"Abhi order place kiya tha, turant cancel karna hai",cancel_order,B,hindi
+81,"I want to cancel my food order, mood change ho gaya",cancel_order,C,balanced
+82,Order cancel karne ka process bata do,cancel_order,A,balanced
+83,"Do not deliver this package, cancel it",cancel_order,B,english
+84,Mera order cancel nahi ho raha hai app par,cancel_order,C,balanced
+85,Please stop the delivery and cancel order #552918,cancel_order,A,english
+86,"Mujhe dusra color chahiye, pehle wala cancel karo",cancel_order,B,hindi
+87,"Cancel my order, price dropped on another website",cancel_order,C,english
+88,"Bhai delivery boy ko bolo wapas laut jaye, cancel hai",cancel_order,A,hindi
+89,I want to cancel the subscription and pending order,cancel_order,B,english
+90,Order cancel karke confirmation mail bhej do,cancel_order,C,balanced
+91,Urgent: cancel my order placed 5 minutes ago,cancel_order,A,english
+92,"Galat size select ho gaya tha, cancel karo order",cancel_order,B,hindi
+93,Can I cancel my order now? It is still in packing state,cancel_order,C,english
+94,Order cancel karo yaar bohot late ho gaya,cancel_order,A,balanced
+95,Please cancel this item from my cart order,cancel_order,B,english
+96,Address change nahi ho raha toh order cancel kardo,cancel_order,C,balanced
+97,I would like to cancel my order immediately,cancel_order,A,english
+98,"Cancel kardo, maine market se le liya saman",cancel_order,B,hindi
+99,"Delivery slot suit nahi kar raha, cancel the order",cancel_order,C,balanced
+100,Cancel this parcel right away please,cancel_order,A,english
+101,"Mujhe product ki ab zaroorat nahi hai, cancel karo",cancel_order,B,hindi
+102,Is it possible to cancel order #992817?,cancel_order,C,english
+103,"App pe cancel button disable dikha raha hai, please cancel",cancel_order,A,balanced
+104,Kripya karke mera order radd kar dijiye,cancel_order,B,hindi
+105,Please cancel my booking for tomorrow,cancel_order,C,english
+106,Order dispatch se pehle cancel kardo please,cancel_order,A,balanced
+107,"I do not want this delivery anymore, cancel it",cancel_order,B,english
+108,Cancel request raise kardo meri side se,cancel_order,C,balanced
+109,Cancel my order and do not send delivery boy,cancel_order,A,english
+110,Order cancel karke notification bhej do,cancel_order,B,balanced
+111,"Mujhe urgent bahar jana hai, order cancel karo",cancel_order,C,hindi
+112,Stop processing order #482910 and cancel it,cancel_order,A,english
+113,Yeh order cancel kar dijiye kripya,cancel_order,B,hindi
+114,Please cancel the second item in my order,cancel_order,C,english
+115,Cancel order option kyun nahi aa raha?,cancel_order,A,balanced
+116,Sir kindly cancel this purchase immediately,cancel_order,B,english
+117,"Order cancel kardo, galat phone number daal diya tha",cancel_order,C,balanced
+118,Bhai order cancel kar do request hai,cancel_order,A,hindi
+119,"Cancel this order, I ordered by error",cancel_order,B,english
+120,"Order cancel karna hai, payment online ho chuki hai",cancel_order,C,balanced
+121,Mera order abhi tak nahi aaya,order_not_delivered,A,hindi
+122,My package is missing and status says delivered,order_not_delivered,B,english
+123,Status delivered dikha raha hai but mujhe item nahi mila!,order_not_delivered,C,balanced
+124,Order kahan hai? Abhi tak deliver nahi hua,order_not_delivered,A,hindi
+125,I have not received my order yet,order_not_delivered,B,english
+126,"3 din ho gaye, order kahan hai?",order_not_delivered,C,hindi
+127,Delivery boy ne bina deliver kiye status update kar diya,order_not_delivered,A,balanced
+128,"My parcel has not arrived, please trace it",order_not_delivered,B,english
+129,"Mera khana nahi mila abhi tak, app me delivered dikha raha hai",order_not_delivered,C,balanced
+130,Where is my shipment? I never received it,order_not_delivered,A,english
+131,Kisi ne package deliver nahi kiya par SMS aaya delivered,order_not_delivered,B,balanced
+132,"Order not delivered yet, please help",order_not_delivered,C,english
+133,Bhai mera courier kiske paas hai? Mujhe nahi mila,order_not_delivered,A,hindi
+134,Package has not been delivered to my address,order_not_delivered,B,english
+135,"Subah se wait kar raha hoon, parcel nahi pahuncha",order_not_delivered,C,hindi
+136,Tracking status shows delivered but OTP bhi nahi maanga,order_not_delivered,A,balanced
+137,"I am still waiting for my delivery, it is missing",order_not_delivered,B,english
+138,Mera parcel kisi aur ko de diya kya? Mujhe nahi mila,order_not_delivered,C,hindi
+139,"Order has not reached me yet, please check",order_not_delivered,A,english
+140,Bhai mera khana kahan gaya? Deliver nahi hua,order_not_delivered,B,hindi
+141,"Fake delivery attempt mark kar diya, koi call nahi aaya",order_not_delivered,C,balanced
+142,"Courier not received, please check order #948201",order_not_delivered,A,english
+143,Mujhe mera order deliver nahi kiya gaya hai abhi tak,order_not_delivered,B,hindi
+144,Status says handed to customer but I was not at home,order_not_delivered,C,english
+145,Delivery boy call nahi utha raha aur order nahi mila,order_not_delivered,A,balanced
+146,My food order never arrived last night,order_not_delivered,B,english
+147,Ghar pe koi nahi aaya aur marked delivered kar diya,order_not_delivered,C,balanced
+148,"Order nahi aaya abhi tak, kab deliver hoga?",order_not_delivered,A,hindi
+149,I did not receive the package at all,order_not_delivered,B,english
+150,"Security guard ko bhi check kiya, parcel wahan nahi hai",order_not_delivered,C,balanced
+151,"Item was not delivered to me, please resolve",order_not_delivered,A,english
+152,"Order missing hai, please pata lagao kahan hai",order_not_delivered,B,balanced
+153,"Koi delivery nahi aayi aaj, tracking fake hai",order_not_delivered,C,hindi
+154,"Shipment not received, please take action",order_not_delivered,A,english
+155,Mera package kahan atak gaya? Ghar nahi pahuncha,order_not_delivered,B,hindi
+156,Delivered marked without my confirmation or OTP,order_not_delivered,C,balanced
+157,Where is my package? The tracking has stopped updating,order_not_delivered,A,english
+158,Mujhe koi packet deliver nahi hua hai,order_not_delivered,B,hindi
+159,"Order not delivered, please contact delivery agent",order_not_delivered,C,english
+160,Bhai order ghar pe deliver nahi hua par message aa gaya,order_not_delivered,A,balanced
+161,"Package missing from doorstep, I checked everywhere",order_not_delivered,B,english
+162,Abhi tak mera delivery nahi mila hai mujhe,order_not_delivered,C,hindi
+163,"I have not received order #338190, please check",order_not_delivered,A,english
+164,Raste me kahan kho gaya order? Abhi tak nahi mila,order_not_delivered,B,hindi
+165,Delivery agent marked delivered falsely without delivery,order_not_delivered,C,english
+166,"Mera packet nahi aaya, delivery partner call reject kar raha hai",order_not_delivered,A,balanced
+167,Item has not arrived yet at my location,order_not_delivered,B,english
+168,4 ghante pehle delivered ka msg aaya tha par parcel gayab hai,order_not_delivered,C,balanced
+169,"My order has completely vanished, no one delivered it",order_not_delivered,A,english
+170,"Ghar par koi delivery nahi aayi, please check karo",order_not_delivered,B,hindi
+171,Still have not received my grocery order today,order_not_delivered,C,english
+172,"Tracking status galat hai, parcel deliver nahi hua",order_not_delivered,A,balanced
+173,Where is my order? Delivery boy phone switch off kar liya,order_not_delivered,B,balanced
+174,"Order is completely missing, please investigate",order_not_delivered,C,english
+175,Mujhe product deliver nahi kiya gaya,order_not_delivered,A,hindi
+176,No one delivered anything to my apartment today,order_not_delivered,B,english
+177,"Order status false delivered mark hua hai, package kahan hai?",order_not_delivered,C,balanced
+178,Courier boy package deliver kiye bina chala gaya,order_not_delivered,A,balanced
+179,"I did not receive this delivery at all, urgent help needed",order_not_delivered,B,english
+180,"Saman nahi mila mujhe abhi tak, status check karo",order_not_delivered,C,hindi
+181,"My order is delayed, kab tak aayega?",delivery_delay,A,english
+182,Kitne din aur lagenge?,delivery_delay,B,hindi
+183,"Expected delivery kal thi, ab kab milega?",delivery_delay,C,balanced
+184,Delivery itni late kyun ho rahi hai?,delivery_delay,A,hindi
+185,Why is my shipment running so late?,delivery_delay,B,english
+186,"2 din pehle delivery honi thi, abhi tak pending hai",delivery_delay,C,balanced
+187,Expected date nikal gayi par parcel nahi aaya,delivery_delay,A,balanced
+188,Can you tell me expected delivery time?,delivery_delay,B,english
+189,Bohot zyada delay ho raha hai order me,delivery_delay,C,hindi
+190,My food order is 45 minutes late already,delivery_delay,A,english
+191,Delivery boy itna late kyun kar raha hai?,delivery_delay,B,balanced
+192,Kab tak deliver karoge bhai? Bohot der ho gayi,delivery_delay,C,hindi
+193,"Order is delayed by 3 days, when will it arrive?",delivery_delay,A,english
+194,Aapka delivery partner hamesha late karta hai,delivery_delay,B,balanced
+195,Expected delivery time update karke batao please,delivery_delay,C,balanced
+196,Why is there so much delay in courier dispatch?,delivery_delay,A,english
+197,Kitna time lagega aur parcel aane me?,delivery_delay,B,hindi
+198,Order dispatch ho gaya tha par raste me atak gaya hai,delivery_delay,C,balanced
+199,"Delivery is delayed, please expedite shipment",delivery_delay,A,english
+200,"Subah se out for delivery dikha raha hai, kab aayega?",delivery_delay,B,balanced
+201,Aur kitna wait karna padega mujhe?,delivery_delay,C,hindi
+202,Package is running late according to tracker,delivery_delay,A,english
+203,Delivery date extend kyun kar di bina bataye?,delivery_delay,B,balanced
+204,"Kal aane wala tha saman, aaj aayega ya nahi?",delivery_delay,C,hindi
+205,When can I expect my order #993821 to arrive?,delivery_delay,A,english
+206,"Bhai bohot delay ho raha hai, khana thanda ho jayega",delivery_delay,B,balanced
+207,"Delivery time frame miss ho gaya, new ETA kya hai?",delivery_delay,C,balanced
+208,My grocery order is already 2 hours late,delivery_delay,A,english
+209,Order itna slow kyun move ho raha hai?,delivery_delay,B,hindi
+210,Tracker me delivery date roz aage badh rahi hai,delivery_delay,C,balanced
+211,How much more delay can I expect on this shipment?,delivery_delay,A,english
+212,"Kripya delivery jaldi karwayein, bohot late ho raha hai",delivery_delay,B,hindi
+213,"Order abhi tak dispatch nahi hua, delayed dikha raha hai",delivery_delay,C,balanced
+214,"Delivery is delayed due to weather, when will it reach?",delivery_delay,A,english
+215,Bhai delivery kab tak hone ki umeed hai?,delivery_delay,B,hindi
+216,Out for delivery ho kar bhi 8 ghante lag gaye,delivery_delay,C,balanced
+217,Why is the courier moving so slowly between hubs?,delivery_delay,A,english
+218,"Delay ka reason batao please, kal birthday hai",delivery_delay,B,balanced
+219,"Mujhe urgent chahiye tha, itna delay kyun?",delivery_delay,C,hindi
+220,The delivery has been delayed twice already,delivery_delay,A,english
+221,Bhai order thoda jaldi bhejwa do please,delivery_delay,B,hindi
+222,Delivery late hone ki koi intimation nahi di aapne,delivery_delay,C,balanced
+223,"Estimated delivery date was yesterday, any update?",delivery_delay,A,english
+224,Kitna intezaar aur karna padega is parcel ke liye?,delivery_delay,B,hindi
+225,Raste me parcel kahan ruka hua hai? Update delivery time,delivery_delay,C,balanced
+226,"Please expedite the delivery, running very late",delivery_delay,A,english
+227,"Bohot slow service hai aapki, delivery kab milegi?",delivery_delay,B,balanced
+228,"Order 4 din se transit me hai, kab pahuchega?",delivery_delay,C,balanced
+229,Why is my medicine order taking so long to deliver?,delivery_delay,A,english
+230,"Ghar par koi patient hai, delivery jaldi karwa do",delivery_delay,B,hindi
+231,Delivery time reschedule kar sakte hain agar late ho raha hai?,delivery_delay,C,balanced
+232,Is there an updated estimated arrival time for order #44921?,delivery_delay,A,english
+233,Bhai kab tak deliver kar paoge? Time bata do bas,delivery_delay,B,hindi
+234,"Delivery delayed message received, need package today",delivery_delay,C,balanced
+235,Shipment is delayed at sorting facility,delivery_delay,A,english
+236,Kitni der aur lagegi delivery boy ko aane me?,delivery_delay,B,hindi
+237,Tracking status delayed dikha raha hai subah se,delivery_delay,C,balanced
+238,Can you speed up my parcel delivery please?,delivery_delay,A,english
+239,Delay ho raha hai toh delivery agent ka number de do,delivery_delay,B,balanced
+240,Bhai delivery ka exact time frame batao please,delivery_delay,C,balanced
+241,Payment fail ho gaya but paise kat gaye,payment_failed,A,balanced
+242,Money deducted from account but order nahi aaya,payment_failed,B,balanced
+243,Transaction failed phir bhi amount gaya,payment_failed,C,balanced
+244,Paise cut ho gaye bank se but order pending hai,payment_failed,A,balanced
+245,Payment was deducted twice for single order,payment_failed,B,english
+246,Account se 1500 rs debited par app me payment failed dikha raha hai,payment_failed,C,balanced
+247,"UPI transaction failed, amount deducted from SBI account",payment_failed,A,english
+248,Bank se SMS aaya paise katne ka but order place nahi hua,payment_failed,B,balanced
+249,Money debited from Google Pay but order confirmation failed,payment_failed,C,english
+250,Paise kat gaye par screen pe transaction failed aa gaya,payment_failed,A,hindi
+251,"Payment got failed during checkout, will money be refunded?",payment_failed,B,english
+252,Mera payment atak gaya hai bank aur app ke beech me,payment_failed,C,hindi
+253,"Card charged twice for order #482910, please check",payment_failed,A,english
+254,"Paise cut gaye account se, order generate nahi hua",payment_failed,B,balanced
+255,Transaction timeout ho gaya but paise deduct ho gaye,payment_failed,C,balanced
+256,Amount debited from Paytm wallet but cart is still full,payment_failed,A,english
+257,Server error ke dauran paise kat gaye mere,payment_failed,B,balanced
+258,"Payment failure issue: money deducted, no order ID",payment_failed,C,english
+259,Bank se paise kat gaye but order confirmed nahi hua,payment_failed,A,balanced
+260,Payment failed message aaya tha phir paise kyun kate?,payment_failed,B,balanced
+261,Net banking payment deducted but order status is failed,payment_failed,C,english
+262,500 rs deduct ho gaye but order place nahi ho paya,payment_failed,A,balanced
+263,Payment gateway crashed and my money got deducted,payment_failed,B,english
+264,Mera payment status unconfirmed dikha raha hai,payment_failed,C,balanced
+265,Account debited with 2400 rs but order is not showing in my orders,payment_failed,A,english
+266,"Paise kat gaye bhai, order place hua ya nahi?",payment_failed,B,hindi
+267,Transaction declined on app but money deducted by bank,payment_failed,C,english
+268,Twice amount debited from my HDFC debit card,payment_failed,A,english
+269,UPI pin daalne ke baad screen blank ho gayi aur paise cut gaye,payment_failed,B,balanced
+270,Payment failed but amount not credited back to bank,payment_failed,C,balanced
+271,"Money deducted, please check payment reference #8849201",payment_failed,A,english
+272,"Paise kat chuke hain, please mera order manually confirm kardo",payment_failed,B,balanced
+273,Checkout error: payment deducted but order created nahi hua,payment_failed,C,balanced
+274,I was charged twice for the same booking,payment_failed,A,english
+275,"Bank account se debit ho gaya, order status failed hai",payment_failed,B,balanced
+276,Double payment cut ho gaya single item ke liye,payment_failed,C,balanced
+277,"Payment failed at bank gateway, when will money reverse?",payment_failed,A,english
+278,Paise kat gaye par cart me items abhi bhi hain,payment_failed,B,balanced
+279,Order failed par bank balance kam ho gaya,payment_failed,C,balanced
+280,"UPI transaction failed, please reverse the amount",payment_failed,A,english
+281,Gpay se paise chale gaye par yahan order nahi dikh raha,payment_failed,B,balanced
+282,"Money deducted without order placement, please resolve",payment_failed,C,english
+283,Paise kat gaye aur payment failed likha aa gaya screen pe,payment_failed,A,balanced
+284,Payment was successful on bank side but failed on merchant side,payment_failed,B,english
+285,Account se paise nikal gaye par order create nahi hua,payment_failed,C,hindi
+286,Duplicate transaction happened for order #884910,payment_failed,A,english
+287,"Bank bol raha hai payment successful hai, aap bol rahe ho failed",payment_failed,B,balanced
+288,"Transaction failed notification received, please verify payment",payment_failed,C,english
+289,"Paise kat gaye 3 ghante pehle, abhi tak koi order update nahi",payment_failed,A,balanced
+290,"Money deducted from account, need payment confirmation or refund",payment_failed,B,english
+291,Payment error ki wajah se order nahi laga par paise gaye,payment_failed,C,balanced
+292,Card debited but payment processing stuck at 99%,payment_failed,A,english
+293,"Bhai paise kat gaye hain account se, help karo",payment_failed,B,hindi
+294,"Payment failed while ordering, please check my transaction",payment_failed,C,english
+295,Amount deducted from credit card but order status says cancelled,payment_failed,A,english
+296,Paise chale gaye par invoice generate nahi hua,payment_failed,B,balanced
+297,"Transaction failed on payment portal, amount deducted",payment_failed,C,english
+298,"Bank statement me debit show ho raha hai, order confirm karo",payment_failed,A,balanced
+299,"Money deducted from wallet, order failed immediately",payment_failed,B,english
+300,Paise kat gaye par order summary blank hai,payment_failed,C,balanced
+301,"Thank you so much team, customer support service bohot acchi thi!",other,A,balanced
+302,"App bahut accha hai, keep up the good work",other,B,balanced
+303,Your working hours kya hain?,other,C,balanced
+304,Customer care number provide kardo please,other,A,balanced
+305,How can I change my profile password?,other,B,english
+306,Mujhe store ka address bata sakte ho Delhi mein?,other,C,hindi
+307,Great shopping experience on your app today,other,A,english
+308,Aapka delivery boy bohot polite aur helpful tha,other,B,balanced
+309,Is COD cash on delivery available in my pin code 110001?,other,C,english
+310,Customer executive se call par baat karni hai,other,A,hindi
+311,Can you update my registered email ID?,other,B,english
+312,Aapke store pe gift card redeem kaise karte hain?,other,C,balanced
+313,"Thank you for the quick support, appreciated!",other,A,english
+314,Kya aap weekend par delivery karte ho?,other,B,hindi
+315,I want to know about loyalty membership plans,other,C,english
+316,Account delete karne ka option kahan milega?,other,A,balanced
+317,"Good morning, hope you are having a nice day",other,B,english
+318,Bhai discount coupon code provide kar do koi,other,C,hindi
+319,How to apply promo code during checkout?,other,A,english
+320,Mujhe feedback submit karna hai app interface ke baare mein,other,B,balanced
+321,"Nice packaging and fast response, thank you",other,C,english
+322,Aapki branch Sunday ko open rehti hai kya?,other,A,balanced
+323,Can I change my registered mobile number?,other,B,english
+324,Chat support agent se connect karwa do please,other,C,balanced
+325,"Bohot accha product mila, five star rating dunga",other,A,hindi
+326,How do I unsubscribe from marketing emails?,other,B,english
+327,Aapke delivery charges kitne hain orders pe?,other,C,balanced
+328,Customer support team was very responsive today,other,A,english
+329,Kripya mujhe manager se connect kijiye,other,B,hindi
+330,Do you deliver international shipments as well?,other,C,english
+331,"Mera account temporarily block dikha raha hai, unblock karo",other,A,balanced
+332,Just wanted to appreciate the fast service,other,B,english
+333,Aapka nearest offline store kahan par hai?,other,C,balanced
+334,Can you help me reset my account password?,other,A,english
+335,Shukriya aapki team ka madad karne ke liye,other,B,hindi
+336,Is there any discount offer running currently?,other,C,english
+337,App update ke baad crash ho rahi hai bar bar,other,A,balanced
+338,Thank you for sorting out my query yesterday,other,B,english
+339,Mujhe delivery executive ki tareef karni hai,other,C,hindi
+340,Where can I download my order tax invoice?,other,A,english
+341,"Hello support team, are you available right now?",other,B,english
+342,Bhai app ka UI update karke pehle jaisa kardo,other,C,hindi
+343,Do you have any customer care email address?,other,A,english
+344,Mera rating feedback record kar lo please,other,B,balanced
+345,"I love your customer service, very professional",other,C,english
+346,Pin code 560034 me service active hai kya abhi?,other,A,balanced
+347,How to change delivery address in profile settings?,other,B,english
+348,"Aapki service se bohot khush hoon, thanks a lot",other,C,balanced
+349,What are the terms and conditions for festive sale?,other,A,english
+350,Customer support number par call connect nahi ho raha,other,B,balanced
+351,Just testing this customer chat feature,other,C,english
+352,Bhai kya discount chal raha hai electronics pe?,other,A,hindi
+353,Please connect me to a human representative,other,B,english
+354,Aapki return policy ke rules kahan padh sakta hoon?,other,C,balanced
+355,Excellent support provided by executive yesterday,other,A,english
+356,Account verify karne ke liye OTP nahi aa raha,other,B,balanced
+357,How can I update my GSTIN in invoice?,other,C,english
+358,Kripya batayein aapka office time kab shuru hota hai,other,A,hindi
+359,"Thanks team, keep delivering great products",other,B,english
+360,Mujhe app ke baare me kuch suggestions dene hain,other,C,balanced

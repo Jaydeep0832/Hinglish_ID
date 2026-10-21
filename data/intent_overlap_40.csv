@@ -1,0 +1,41 @@
+overlap_id,text,gold_intent,annotator_A,annotator_B,annotator_C
+1,"Order nahi aaya, please refund karo",refund,refund,refund,refund
+2,"Khana bohot late ho gaya, order cancel karke paise wapas do",refund,refund,cancel_order,refund
+3,"Item deliver ho gaya par wrong size hai, paise wapas chahiye",refund,refund,refund,refund
+4,"Order reject kar diya maine, mera refund kab aayega?",refund,refund,refund,refund
+5,"Money back guarantee thi, refund initiate karo abhi",refund,refund,refund,refund
+6,"Courier return ho chuka hai, refund please",refund,refund,refund,refund
+7,Paise wapas kardo bhai order cancel karne ke baad,refund,refund,refund,refund
+8,"Order cancel karna hai plz, galat address daal diya",cancel_order,cancel_order,cancel_order,cancel_order
+9,Please cancel my order before dispatch,cancel_order,cancel_order,cancel_order,cancel_order
+10,"Mujhe yeh saman ab nahi chahiye, cancel kar do",cancel_order,cancel_order,cancel_order,cancel_order
+11,"Double order ho gaya galti se, ek order cancel karo",cancel_order,cancel_order,cancel_order,cancel_order
+12,"Cancel this shipment immediately, found better price",cancel_order,cancel_order,cancel_order,cancel_order
+13,Delivery boy abhi nikla nahi hai na? Order cancel kardo,cancel_order,cancel_order,cancel_order,cancel_order
+14,Cancel my order #998412 right now,cancel_order,cancel_order,cancel_order,cancel_order
+15,Status delivered dikha raha hai but mujhe item nahi mila!,order_not_delivered,order_not_delivered,order_not_delivered,order_not_delivered
+16,"Mera package missing hai, kahan gaya?",order_not_delivered,order_not_delivered,order_not_delivered,order_not_delivered
+17,Kisi ne deliver nahi kiya aur delivered mark kar diya,order_not_delivered,order_not_delivered,order_not_delivered,order_not_delivered
+18,"4 din ho gaye parcel gayab hai, delivery boy switch off hai",order_not_delivered,order_not_delivered,order_not_delivered,delivery_delay
+19,"I never received this delivery, tracking is wrong",order_not_delivered,order_not_delivered,order_not_delivered,order_not_delivered
+20,"Delivery marked without OTP, mujhe saman nahi mila",order_not_delivered,order_not_delivered,order_not_delivered,order_not_delivered
+21,"Order missing from doorstep, please investigate",order_not_delivered,order_not_delivered,order_not_delivered,order_not_delivered
+22,"My order is delayed, kab tak aayega?",delivery_delay,delivery_delay,delivery_delay,delivery_delay
+23,"Expected delivery kal thi, ab kab milega?",delivery_delay,delivery_delay,delivery_delay,delivery_delay
+24,Kitne din aur lagenge shipment pahunchne mein?,delivery_delay,delivery_delay,delivery_delay,delivery_delay
+25,"Bhai bohot der ho gayi, delivery time update karo",delivery_delay,delivery_delay,delivery_delay,delivery_delay
+26,"Out for delivery hokar bhi 6 ghante lag gaye, kab aayega?",delivery_delay,delivery_delay,delivery_delay,delivery_delay
+27,"Please expedite my parcel delivery, running very late",delivery_delay,delivery_delay,delivery_delay,delivery_delay
+28,Delivery date roz aage kyun badha rahe ho?,delivery_delay,delivery_delay,delivery_delay,delivery_delay
+29,Payment fail ho gaya but bank se paise kat gaye,payment_failed,payment_failed,payment_failed,payment_failed
+30,Money deducted from account but order nahi aaya,payment_failed,payment_failed,order_not_delivered,payment_failed
+31,Transaction failed phir bhi amount debited dikha raha hai,payment_failed,payment_failed,payment_failed,payment_failed
+32,Double payment cut ho gaya single item ke liye,payment_failed,payment_failed,payment_failed,payment_failed
+33,UPI payment timeout hua par account se paise gaye,payment_failed,payment_failed,payment_failed,payment_failed
+34,"Card charged twice for order #482910, please check",payment_failed,payment_failed,payment_failed,payment_failed
+35,Amount deducted from wallet but cart is still full,payment_failed,payment_failed,payment_failed,payment_failed
+36,"Thank you so much team, customer support service bohot acchi thi!",other,other,other,other
+37,Your working hours kya hain?,other,other,other,other
+38,"App bahut accha hai, great experience",other,other,other,other
+39,How do I change my registered phone number?,other,other,other,other
+40,Can I get a discount code for my next shopping?,other,other,other,other

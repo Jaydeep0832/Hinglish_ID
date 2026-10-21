@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "evaluation_timestamp": "2026-10-21 15:46:56",
+    "overlap_file": "data\\intent_overlap_40.csv",
+    "sample_count": 40,
+    "rater_count": 3,
+    "categories": [
+      "cancel_order",
+      "delivery_delay",
+      "order_not_delivered",
+      "other",
+      "payment_failed",
+      "refund"
+    ]
+  },
+  "metrics": {
+    "cohen_kappa_A_vs_B": 0.9398,
+    "cohen_kappa_A_vs_C": 0.9699,
+    "cohen_kappa_B_vs_C": 0.9098,
+    "mean_pairwise_kappa": 0.9399,
+    "fleiss_kappa": 0.9398,
+    "annotator_accuracy_A_vs_gold": 1.0,
+    "annotator_accuracy_B_vs_gold": 0.95,
+    "annotator_accuracy_C_vs_gold": 0.975,
+    "total_disagreements": 3,
+    "agreement_rate": 0.925
+  },
+  "disagreements": [
+    {
+      "overlap_id": 2,
+      "text": "Khana bohot late ho gaya, order cancel karke paise wapas do",
+      "gold_intent": "refund",
+      "annotator_A": "refund",
+      "annotator_B": "cancel_order",
+      "annotator_C": "refund",
+      "disagreement_type": "Primary Intent Rule (Refund vs Action)"
+    },
+    {
+      "overlap_id": 18,
+      "text": "4 din ho gaye parcel gayab hai, delivery boy switch off hai",
+      "gold_intent": "order_not_delivered",
+      "annotator_A": "order_not_delivered",
+      "annotator_B": "order_not_delivered",
+      "annotator_C": "delivery_delay",
+      "disagreement_type": "Delay vs Permanent Loss"
+    },
+    {
+      "overlap_id": 30,
+      "text": "Money deducted from account but order nahi aaya",
+      "gold_intent": "payment_failed",
+      "annotator_A": "payment_failed",
+      "annotator_B": "order_not_delivered",
+      "annotator_C": "payment_failed",
+      "disagreement_type": "Payment Drop vs Missing Order"
+    }
+  ]
+}
