@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "evaluation_timestamp": "2026-10-21 19:23:25",
+    "dataset_size": 360,
+    "folds_evaluated": 15,
+    "classifier": "LogisticRegression(C=2.0)",
+    "execution_time_seconds": 17.16
+  },
+  "setups": {
+    "Setup_A_Raw_Word": {
+      "mean_acc": 0.8982,
+      "std_acc": 0.0281,
+      "mean_macro_f1": 0.8975,
+      "std_macro_f1": 0.028
+    },
+    "Setup_B_Generic_Char": {
+      "mean_acc": 0.9306,
+      "std_acc": 0.0278,
+      "mean_macro_f1": 0.9308,
+      "std_macro_f1": 0.0272
+    },
+    "Setup_C_LIDAware_Char": {
+      "mean_acc": 0.9185,
+      "std_acc": 0.0263,
+      "mean_macro_f1": 0.9185,
+      "std_macro_f1": 0.0258
+    },
+    "Setup_C_Prime_LIDAware_Word": {
+      "mean_acc": 0.8908,
+      "std_acc": 0.0316,
+      "mean_macro_f1": 0.8899,
+      "std_macro_f1": 0.0322
+    }
+  },
+  "statistical_comparisons": {
+    "Setup_Cp_minus_Setup_A": {
+      "description": "C' (LID Word) vs A (Raw Word Baseline)",
+      "mean_delta_f1": -0.0076,
+      "bootstrap_95_ci": [
+        -0.0163,
+        0.0007
+      ],
+      "paired_t_statistic": -1.6682,
+      "p_value": 0.117469,
+      "statistically_significant": false
+    },
+    "Setup_B_minus_Setup_A": {
+      "description": "B (Generic Char) vs A (Raw Word Baseline)",
+      "mean_delta_f1": 0.0333,
+      "bootstrap_95_ci": [
+        0.0184,
+        0.0484
+      ],
+      "statistically_significant": true
+    },
+    "Setup_C_minus_Setup_B": {
+      "description": "C (LID Char) vs B (Generic Char)",
+      "mean_delta_f1": -0.0123,
+      "bootstrap_95_ci": [
+        -0.0179,
+        -0.0067
+      ],
+      "paired_t_statistic": -4.1536,
+      "p_value": 0.000975,
+      "ci_crosses_zero": false
+    }
+  },
+  "per_intent_f1_summary": {
+    "refund": {
+      "Setup_A": 0.8992,
+      "Setup_B": 0.9555,
+      "Setup_C": 0.9606,
+      "Setup_C_Prime": 0.891
+    },
+    "cancel_order": {
+      "Setup_A": 0.956,
+      "Setup_B": 0.9697,
+      "Setup_C": 0.9723,
+      "Setup_C_Prime": 0.9328
+    },
+    "order_not_delivered": {
+      "Setup_A": 0.8814,
+      "Setup_B": 0.9152,
+      "Setup_C": 0.8802,
+      "Setup_C_Prime": 0.8905
+    },
+    "delivery_delay": {
+      "Setup_A": 0.8141,
+      "Setup_B": 0.8775,
+      "Setup_C": 0.8305,
+      "Setup_C_Prime": 0.7978
+    },
+    "payment_failed": {
+      "Setup_A": 0.96,
+      "Setup_B": 0.9639,
+      "Setup_C": 0.9637,
+      "Setup_C_Prime": 0.9378
+    },
+    "other": {
+      "Setup_A": 0.8744,
+      "Setup_B": 0.9033,
+      "Setup_C": 0.9039,
+      "Setup_C_Prime": 0.8897
+    }
+  }
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "cmi_bin": "Monolingual (0%)",
+    "count": 131,
+    "mean_cmi": 0.0,
+    "mean_error": 0.09414758269720101
+  },
+  {
+    "cmi_bin": "Low (1-20%)",
+    "count": 42,
+    "mean_cmi": 15.307619047619047,
+    "mean_error": 0.047619047619047616
+  },
+  {
+    "cmi_bin": "Moderate (20-30%)",
+    "count": 42,
+    "mean_cmi": 27.128333333333337,
+    "mean_error": 0.09523809523809523
+  },
+  {
+    "cmi_bin": "Substantial (30-40%)",
+    "count": 64,
+    "mean_cmi": 36.26890625,
+    "mean_error": 0.078125
+  },
+  {
+    "cmi_bin": "Balanced (40-50%)",
+    "count": 81,
+    "mean_cmi": 46.05518518518518,
+    "mean_error": 0.08230452674897118
+  }
+]
