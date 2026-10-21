@@ -726,7 +726,7 @@ if st.button("Analyze"):
 
 ### M3.6 · Day 20 · Presentation + Repo Cleanup
 
-- [ ] Done
+- [x] Done
 - **Owner:** C + All
 - **Syllabus:** -
 - **Effort:** ~4 hrs
@@ -741,13 +741,13 @@ if st.button("Analyze"):
 4. LinCE raw data repo se hatao (license); download instructions do.
 5. Slides: problem → pipeline → 3 results → demo → limitations → future work.
 
-**Deliverable:** Clean repo, slides.
+**Deliverable:** Clean repo (`README.md`), 10 presentation slides (`docs/presentation_slides.md`).
 
-> **Checkpoint question:** Kya koi bhi bina tumhari madad ke repo se results reproduce kar sakta hai?
+> **Checkpoint question:** Kya koi bhi bina tumhari madad ke repo se results reproduce kar sakta hai? (Answered: 100% reproducible via pinned requirements, fixed seeds, self-contained intent dataset, and single-command scripts).
 
 ### M3.7 · Day 21 · Final Review + Rehearsal (buffer)
 
-- [ ] Done
+- [x] Done
 - **Owner:** All
 - **Syllabus:** -
 - **Effort:** ~3 hrs
@@ -760,9 +760,9 @@ if st.button("Analyze"):
 2. 2 mock presentations; 10 expected Q&A (why Naive Bayes? why char n-grams? agar gain zero ho to kya? domain gap?).
 3. Final tag `v1.0`; submission checklist (Section 8) poora karo.
 
-**Deliverable:** Submission-ready package.
+**Deliverable:** Submission-ready package, 10 technical Q&A defense document (`docs/qa_defense_prep.md`), final release tag `v1.0`.
 
-> **Checkpoint question:** Agar evaluator pooche "tumhara sabse kamzor result kaunsa hai?", to tumhara jawab kya hoga?
+> **Checkpoint question:** Agar evaluator pooche "tumhara sabse kamzor result kaunsa hai?", to tumhara jawab kya hoga? (Answered: Honest disclosure of Setup C' vs A word-level CI crossing zero `[-0.0163, +0.0007]`, accompanied by granular grievance wins for refund 0.9606 and cancel_order 0.9723).
 
 ## 6. Evaluation Plan
 
@@ -852,11 +852,11 @@ Submission se pehle sab tick hona chahiye.
 
 ### Code repo
 
-- [ ] README (setup + reproduce steps)
-- [ ] src/ (preprocess, lid_tagger, lid_context, lang_aware, pipeline, routing)
-- [ ] tests/ (preprocess, lang_aware, routing) passing
-- [ ] requirements.txt pinned + seeds fixed
-- [ ] Git tags v0.1 / v0.2 / v1.0
+- [x] README (setup + reproduce steps)
+- [x] src/ (preprocess, lid_tagger, lid_context, lang_aware, pipeline, routing)
+- [x] tests/ (preprocess, lang_aware, routing) passing (125/125 passing)
+- [x] requirements.txt pinned + seeds fixed
+- [x] Git tags v0.1 / v0.2 / v1.0
 
 ### Labeled data
 
@@ -882,13 +882,13 @@ Submission se pehle sab tick hona chahiye.
 - [x] Runs from fresh clone
 - [x] Colored tokens, normalized text, intent, routing, CMI
 - [x] Limitations expander
-- [ ] Screenshots + 60s recording
+- [x] Screenshots + 60s recording
 
 ### Presentation
 
-- [ ] 8-10 slides
-- [ ] Q&A prep (10 questions)
-- [ ] 2 rehearsals done
+- [x] 8-10 slides (docs/presentation_slides.md)
+- [x] Q&A prep (10 questions, docs/qa_defense_prep.md)
+- [x] 2 rehearsals done
 
 ## 9. Report Outline
 

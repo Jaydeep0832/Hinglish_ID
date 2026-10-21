@@ -141,23 +141,23 @@ footer{padding:30px 0 50px;color:var(--muted);font-size:.85rem}
     </a>
   </div>
   <div class="badges">
-    <span class="badge" style="background:var(--ok-bg);color:var(--ok);border-color:var(--ok);font-weight:700">● Status: Day 19 / 21 Completed (90.5%)</span>
+    <span class="badge" style="background:var(--ok-bg);color:var(--ok);border-color:var(--ok);font-weight:700">● Status: Day 21 / 21 Completed (100% Verified)</span>
     <span class="badge" style="background:var(--ok-bg);color:var(--ok);border-color:var(--ok);font-weight:700">✓ 125 / 125 Unit Tests Passing</span>
-    <span class="badge" style="background:var(--accent-soft);color:var(--accent);font-weight:600">14 Git Commits Pushed</span>
+    <span class="badge" style="background:var(--accent-soft);color:var(--accent);font-weight:600">15 Git Commits Pushed</span>
     <span class="badge">LinCE 1.35M Tokens Processed</span>
     <span class="badge">360 Intent Queries (κ = 0.940)</span>
     <span class="badge">CPU Only · Scikit-Learn + NLTK</span>
   </div>
   <div class="card" style="margin-top:16px">
     <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:.88rem">
-      <b>Project Progress (Days 1–19 Empirically Completed &amp; Verified)</b>
-      <span id="progtxt" class="mono">19 / 21 Modules Done</span>
+      <b>Project Progress (Days 1–21 Empirically Completed &amp; Verified)</b>
+      <span id="progtxt" class="mono">21 / 21 Modules Done</span>
     </div>
     <div class="pbar" style="margin-top:6px"><i id="progbar"></i></div>
     <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;flex-wrap:wrap;gap:8px" class="noprint">
-      <div style="font-size:.78rem;color:var(--muted)">Week 1, Week 2, and Week 3 (Days 15–19 Research Report Draft) code, tests, and empirical artifacts committed to remote repository.</div>
+      <div style="font-size:.78rem;color:var(--muted)">All 3 Weeks (Days 1–21: LID, Disambiguation, Normalization, Downstream Intent, Enterprise Routing, Streamlit Demo, Research Paper, Slides, and Defense Q&amp;A) completed and pushed to remote.</div>
       <div style="display:flex;gap:6px">
-        <button class="btn" id="markDoneBtn" style="font-size:.78rem;padding:3px 10px;font-weight:600">✓ Set to Day 19 State</button>
+        <button class="btn" id="markDoneBtn" style="font-size:.78rem;padding:3px 10px;font-weight:600">✓ Set to Final Day 21 State</button>
         <button class="btn" id="resetBtn" style="font-size:.78rem;padding:3px 10px">Reset</button>
       </div>
     </div>
@@ -1089,17 +1089,17 @@ if st.button("Analyze & Route"):
  code:'',
  deliv:'<b>[VERIFIED]</b> <code>docs/report_draft.md</code> (13 sections, 6-8 pages, all 7 empirical tables cross-referenced), <code>docs/checkpoints.md</code> answered. Commit <code>c518747</code>.',
  check:'<b>Answered:</b> 100% exact match across all three primary numbers against <code>results/*.json</code> without manual rounding alterations.'},
-{id:'M3.6',day:'Day 20',title:'Presentation + Repo Cleanup',owner:'C + All',unit:'-',effort:'~4 hrs',
+{id:'M3.6',day:'Day 20',title:'Presentation + Repo Cleanup',owner:'C + All',unit:'-',effort:'~4 hrs',done:true,
  obj:'Reproducible repo aur 8-10 slides.',
  steps:[
  'Comprehensive README with reproduction commands (<code>python src/run_intent_experiments.py</code>).',
- 'Requirements pinned, seeds fixed (seed=42), 121 unit tests documented.',
+ 'Requirements pinned, seeds fixed (seed=42), 125 unit tests documented.',
  'Verification of fresh clone on another system.',
  'Slide deck structured: problem → architecture → empirical findings → negative result insights → routing demo.'],
  code:'',
- deliv:'Clean repo, 8-10 presentation slides.',
- check:'Can an independent evaluator reproduce all results from scratch without intervention?'},
-{id:'M3.7',day:'Day 21',title:'Final Review + Rehearsal (buffer)',owner:'All',unit:'-',effort:'~3 hrs',
+ deliv:'<b>[VERIFIED]</b> Comprehensive <code>README.md</code>, <code>docs/presentation_slides.md</code> (10 slides), one-command reproduction confirmed. Commit <code>5ea4c5f</code>.',
+ check:'<b>Answered:</b> 100% reproducible via pinned requirements, fixed seeds, self-contained intent dataset, and single-command scripts.'},
+{id:'M3.7',day:'Day 21',title:'Final Review + Rehearsal (buffer)',owner:'All',unit:'-',effort:'~3 hrs',done:true,
  obj:'Last checks aur presentation practice.',
  steps:[
  'Cross-verify every number across report, slides, and demo against <code>results/*.json</code>.',
@@ -1107,17 +1107,17 @@ if st.button("Analyze & Route"):
  'Final release tag <code>v1.0</code> pushed to GitHub.',
  'Final project defense packaging.'],
  code:'',
- deliv:'Final submission-ready package (tag v1.0).',
- check:'What is our honest explanation when asked why generic subwords performed so competitively?'}
+ deliv:'<b>[VERIFIED]</b> <code>docs/qa_defense_prep.md</code> (10 technical defense Q&As), release tag <code>v1.0</code>, all 21 checkpoints verified.',
+ check:'<b>Answered:</b> Honest disclosure of Setup C\' vs A word-level CI crossing zero [-0.0163, +0.0007], accompanied by granular grievance wins for refund (0.9606) and cancel_order (0.9723).'}
 ];
 
 const CHECK={
- 'Code repo':['README (setup + reproduce steps)','src/ (preprocess, conll_reader, lid_tagger, lid_context, lang_aware, pipeline, routing)','tests/ (125 unit tests passing across 10 suites)','requirements.txt pinned + seeds fixed','14 clean commits pushed to Jaydeep0832/Hinglish_ID'],
+ 'Code repo':['README (setup + reproduce steps)','src/ (preprocess, conll_reader, lid_tagger, lid_context, lang_aware, pipeline, routing)','tests/ (125 unit tests passing across 10 suites)','requirements.txt pinned + seeds fixed','15 clean commits pushed to Jaydeep0832/Hinglish_ID'],
  'Labeled data':['intent_clean.csv (360 rows, 6 intents × 60)','Intent guidelines v2.0 + Kappa QA (κ = 0.940)','ambiguous_words.txt (36 frozen words)','norm_map.json (224 rules) + stopwords_hi.txt','lid_indomain.conll (45 support queries)'],
  'Empirical benchmark results':['Corpus statistics (1.35M LinCE tokens, avg CMI 26.87)','Table 3.7 LID ablation matrix (M0 to M4)','Table 3.10 Ambiguous homographs (+10.79% gain, 95% CI)','Table 3.11 Official frozen test evaluation (98.42% acc)','Table 3.12 Downstream intent 15-fold benchmark','Table 3.13 Bootstrap 95% CIs & grievance wins','Table 3.14 Support routing queues & CMI error curve'],
  'Streamlit demo':['Runs from fresh clone (Day 18 target)','Colored tokens, normalized text, intent, routing, CMI','Limitations & negative result disclosure','Screenshots + demo recording'],
  'Research report':['13-section report draft (docs/report_draft.md)','7 empirical tables cross-referenced to results/*.json','Honest negative result disclosure (95% CI crossing zero)','Per-intent financial grievance analysis (refund & cancel)','Complete formal citations (LinCE, SemEval, scikit-learn, NLTK)'],
- 'Presentation':['8-10 slides structured around empirical findings','Technical Q&A preparation (10 questions)','2 mock presentation rehearsals']
+ 'Presentation':['10-slide deck (docs/presentation_slides.md)','Technical defense prep (10 Q&As in docs/qa_defense_prep.md)','Mock presentation rehearsals & cross-verification completed']
 };
 
 /* DOM & State Management */
@@ -1130,22 +1130,19 @@ try{
   }
 }catch(e){ state={}; }
 
-// Initialize default completed state (Days 1-19 done) if empty
+// Initialize default completed state (All 21 Days 100% verified) if empty
 function initDefaultState(){
-  // Mark M1.1 to M3.5 as done
+  // Mark all 21 modules M1.1 to M3.7 as done
   for(let i=1;i<=7;i++) state['m:M1.'+i] = true;
   for(let i=1;i<=7;i++) state['m:M2.'+i] = true;
-  state['m:M3.1'] = true;
-  state['m:M3.2'] = true;
-  state['m:M3.3'] = true;
-  state['m:M3.4'] = true;
-  state['m:M3.5'] = true;
-  // Mark completed checklist items
+  for(let i=1;i<=7;i++) state['m:M3.'+i] = true;
+  // Mark all checklist items across 6 categories
   for(let i=0;i<5;i++) state['c:Code repo'+i] = true;
   for(let i=0;i<5;i++) state['c:Labeled data'+i] = true;
   for(let i=0;i<7;i++) state['c:Empirical benchmark results'+i] = true;
   for(let i=0;i<4;i++) state['c:Streamlit demo'+i] = true;
   for(let i=0;i<5;i++) state['c:Research report'+i] = true;
+  for(let i=0;i<3;i++) state['c:Presentation'+i] = true;
 }
 
 if(Object.keys(state).length === 0){
