@@ -1,0 +1,4 @@
+model_id,model_name,test_accuracy,macro_f1,hi_f1,en_f1,in_vocab_accuracy,oov_accuracy,ambiguous_accuracy,ambiguous_macro_f1,total_errors,inference_seconds
+M0_Lookup,M0: Word Lookup Baseline,0.9796,0.9746,0.9859,0.9633,0.9872,0.7762,0.8308,0.806,2762,0.03
+M1_Char_Only,M1: Char N-Gram LogReg (No Context),0.9723,0.9658,0.9808,0.9507,0.979,0.7936,0.8296,0.8038,3749,1.29
+M3_Final_Context,M3: Final Context Tagger (Production),0.9842,0.9805,0.989,0.972,0.9904,0.8182,0.9461,0.9406,2143,38.24

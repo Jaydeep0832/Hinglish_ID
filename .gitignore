@@ -18,10 +18,8 @@ __pycache__/
 # Data (LinCE raw data NOT committed — license)
 data/raw/
 
-# Models (large intermediate binaries ignored, production models tracked)
+# Models (large binary files — generated via training scripts)
 models/*.joblib
-!models/lid_final.joblib
-!models/intent_classifier_setup_c.joblib
 
 # IDE
 .vscode/

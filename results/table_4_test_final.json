@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "evaluation_timestamp": "2026-10-21 15:20:05",
+    "test_file": "data\\processed\\test.conll",
+    "test_sha256": "a3ce094d776066cafebc9cda2d00a42521b7b838d66af075296af2d3843d8923",
+    "total_sentences": 4446,
+    "total_tokens": 135568,
+    "oov_tokens": 4879,
+    "oov_rate": 0.036,
+    "ambiguous_tokens": 8428,
+    "frozen_model_sha256": "d06ef69987503ef62e6fd3136d482d0e61e441d1bbabd4d3208c35461054853e"
+  },
+  "models": {
+    "M0_Lookup": {
+      "name": "M0: Word Lookup Baseline",
+      "accuracy": 0.9796,
+      "macro_f1": 0.9746,
+      "weighted_f1": 0.9795,
+      "hi_f1": 0.9859,
+      "en_f1": 0.9633,
+      "in_vocab_accuracy": 0.9872,
+      "oov_accuracy": 0.7762,
+      "ambiguous_accuracy": 0.8308,
+      "ambiguous_macro_f1": 0.806,
+      "total_errors": 2762,
+      "confusion_matrix": [
+        [
+          96598,
+          576
+        ],
+        [
+          2186,
+          36208
+        ]
+      ],
+      "labels": [
+        "HI",
+        "EN"
+      ]
+    },
+    "M1_Char_Only": {
+      "name": "M1: Char N-Gram LogReg (No Context)",
+      "accuracy": 0.9723,
+      "macro_f1": 0.9658,
+      "weighted_f1": 0.9723,
+      "hi_f1": 0.9808,
+      "en_f1": 0.9507,
+      "in_vocab_accuracy": 0.979,
+      "oov_accuracy": 0.7936,
+      "ambiguous_accuracy": 0.8296,
+      "ambiguous_macro_f1": 0.8038,
+      "total_errors": 3749,
+      "confusion_matrix": [
+        [
+          95634,
+          1540
+        ],
+        [
+          2209,
+          36185
+        ]
+      ],
+      "labels": [
+        "HI",
+        "EN"
+      ]
+    },
+    "M3_Final_Context": {
+      "name": "M3: Final Context Tagger (Production)",
+      "accuracy": 0.9842,
+      "macro_f1": 0.9805,
+      "weighted_f1": 0.9842,
+      "hi_f1": 0.989,
+      "en_f1": 0.972,
+      "in_vocab_accuracy": 0.9904,
+      "oov_accuracy": 0.8182,
+      "ambiguous_accuracy": 0.9461,
+      "ambiguous_macro_f1": 0.9406,
+      "total_errors": 2143,
+      "confusion_matrix": [
+        [
+          96221,
+          953
+        ],
+        [
+          1190,
+          37204
+        ]
+      ],
+      "labels": [
+        "HI",
+        "EN"
+      ]
+    }
+  }
+}
