@@ -671,7 +671,7 @@ def route(intent, conf, cmi_val, cmi_thr=30, conf_thr=0.5):
 
 ### M3.4 · Day 18 · Streamlit Demo
 
-- [ ] Done
+- [x] Done
 - **Owner:** C (verify: B)
 - **Syllabus:** Unit 1-4
 - **Effort:** ~4 hrs

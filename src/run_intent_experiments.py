@@ -286,8 +286,24 @@ def run_cross_validation_experiments(
         json.dump(summary_json, f, indent=2, ensure_ascii=False)
     print(f"[SAVED] {json_path}")
 
-    # Train and serialize the final production Setup C model on the full 360-query dataset
-    print("Training and serializing production intent classifier on full 360 queries...")
+    # Train and serialize production models for all setups on the full 360-query dataset
+    print("Training and serializing production intent classifiers on full 360 queries...")
+    pipeline_a = Pipeline([
+        ("tfidf", TfidfVectorizer(analyzer="word", ngram_range=(1, 2), sublinear_tf=True)),
+        ("clf", LogisticRegression(C=2.0, max_iter=2000, random_state=42)),
+    ])
+    pipeline_a.fit(df["text_A"].values, df["intent"].values)
+    joblib.dump(pipeline_a, models_dir / "intent_classifier_setup_a.joblib")
+    print(f"[SAVED] Setup A classifier: {models_dir / 'intent_classifier_setup_a.joblib'}")
+
+    pipeline_b = Pipeline([
+        ("tfidf", TfidfVectorizer(analyzer="char_wb", ngram_range=(1, 4), sublinear_tf=True)),
+        ("clf", LogisticRegression(C=2.0, max_iter=2000, random_state=42)),
+    ])
+    pipeline_b.fit(df["text_B"].values, df["intent"].values)
+    joblib.dump(pipeline_b, models_dir / "intent_classifier_setup_b.joblib")
+    print(f"[SAVED] Setup B classifier: {models_dir / 'intent_classifier_setup_b.joblib'}")
+
     final_pipeline = Pipeline([
         ("tfidf", TfidfVectorizer(analyzer="char_wb", ngram_range=(1, 4), sublinear_tf=True)),
         ("clf", LogisticRegression(C=2.0, max_iter=2000, random_state=42)),
@@ -295,7 +311,7 @@ def run_cross_validation_experiments(
     final_pipeline.fit(df["text_C"].values, df["intent"].values)
     model_save_path = models_dir / "intent_classifier_setup_c.joblib"
     joblib.dump(final_pipeline, model_save_path)
-    print(f"[SAVED] Production intent classifier: {model_save_path}")
+    print(f"[SAVED] Setup C classifier: {model_save_path}")
 
     print("\n=================== TABLE 7: DOWNSTREAM INTENT BENCHMARK ===================")
     print(f"Setup A (Raw Word Baseline)        : Macro-F1 = {f1_A.mean():.4f} +/- {f1_A.std():.4f} | Acc = {acc_A.mean()*100:.2f}%")

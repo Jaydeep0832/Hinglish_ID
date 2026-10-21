@@ -425,7 +425,26 @@ A: **1. Basis 100% Empirical Data se hai, Zero Gut Feeling:**
 ## M3.4 — Day 18
 **Q: Demo mein tumhara system galat kab hota hai? Kya demo wo failure bhi dikhata hai?**
 
-A: [Fill after Streamlit demo]
+A: **1. Demo mein system galat kab hota hai? (Known Failure Modes):**
+- **Sparse Context Failure on Ambiguous Homographs:**
+  - Jab user query mein zero neighbouring context hota hai (jaise koi customer sirf ek isolated ambiguous word *"is"* ya *"to"* type kare bina kisi surrounding words ke), to context features ($w_{i-1}, w_{i+1}$) boundary markers `<s>`, `</s>` ban jaate hain. Is case mein system context voting nahi kar pata aur majority word unigram prior par fall back karta hai.
+- **Novel Transliteration Dialects Outside Normalization Lexicon:**
+  - Romanized Hindi mein extreme regional phonetic variations hoti hain. Agar koi user aisa novel slang use kare jo hamari 224-rule normalization lexicon ([`data/norm_map.json`](file:///c:/Users/jayde/OneDrive/Attachments/Documents/Desktop/Projects/Hinglish_ID/data/norm_map.json)) mein exist nahi karta, to wo token raw form mein character n-grams par pass hota hai.
+- **Brand / Named Entity Confusions:**
+  - Obscure product brands (e.g. niche footwear ya electronic gadget names) jo English ya Hindi dictionary mein nahi hain, wo kabhi-kabhi phonetic similarity ki wajah se `HI` ya `EN` tag ho jaate hain instead of `OTHER`.
+- **Keyword Ambiguity Across Multiple Grievances:**
+  - Aise queries jahan customer do alag-alag grievances ek sath mention karta hai (jaise *"Payment deduct hua but parcel bhi deliver nahi hua"* jahan `payment_failed` aur `order_not_delivered` dono ke strong signals hain), classifier ka probability distribution split ho jata hai.
+
+**2. Kya demo wo failure bhi dikhata hai? (Full Academic Transparency):**
+- **HAAN, 100% TRANSPARENTLY:** Humne [`app/demo.py`](file:///c:/Users/jayde/OneDrive/Attachments/Documents/Desktop/Projects/Hinglish_ID/app/demo.py) mein explicit failure visibility build ki hai:
+  1. **Dedicated "Scientific Findings & Limitations" Tab:**
+     - Streamlit demo mein ek alag tab hai jo user ko clearly explain karta hai ki **Setup B (Generic Subwords) overall kyu itna strong hai (93.08%)**, **Setup C' vs Setup A ka 95% CI kyu zero cross karta hai ([-0.0163, +0.0007])**, aur system kin conditions mein break hota hai.
+  2. **Top-3 Intent Probability Distribution:**
+     - Demo sirf single prediction nahi dikhata; wo full probability distribution chart display karta hai. Agar query ambiguous hai, to second and third intent bars visually close dikhte hain, alerting support managers to borderline cases.
+  3. **Low-Confidence Automatic Triage Safeguard:**
+     - Agar top prediction ka confidence $< 0.50$ (50%) hai, to demo query ko automatic queue mein dispatch nahi karta; wo use prominently `"Human agent (low confidence)"` par escalate karta hai with an amber warning card.
+  4. **Live Side-by-Side Comparison (Setup A vs B vs C):**
+     - User query type karke live dekh sakta hai ki kaise Setup A (monolingual pipeline) Hindi words ko blind English stemming se destroy karta hai, aur kahan Setup C grievance categories par Setup B ko beat karta hai.
 
 ---
 
