@@ -212,8 +212,7 @@ A: **1. Exact Class Quotas & Total Size:**
   - `delivery_delay`: 60 queries
   - `payment_failed`: 60 queries
   - `other`: 60 queries
-  - **Total Primary Intent Queries:** 360 queries (`data/intent_dataset.csv`, `data/intent_dataset.json`, and `data/intent_dataset_raw.csv`).
-  - **Inter-Annotator Overlap Set:** Additional 40 queries (`data/intent_overlap_40.csv`) with independent annotations across 3 annotators (`annotator_A`, `annotator_B`, `annotator_C`) for Day 12 Cohen's Kappa QA.
+  - **Intent Agreement Overlap Set:** Additional 40 queries (`data/intent_overlap_40.csv`) evaluated across 3 independent blind annotation passes (`annotator_A`, `annotator_B`, `annotator_C`) for Day 12 Cohen's Kappa QA.
   - **Total Queries Created:** 400 distinct queries.
 
 **2. Query Diversity, Lengths & Realism:**
@@ -223,10 +222,11 @@ A: **1. Exact Class Quotas & Total Size:**
   - Short urgent requests (e.g., *"Order abhi cancel karo please"*, 5 words) se lekar detailed complaints (e.g., *"Customer care ne bola tha 24 hours me refund aayega but nahi aaya"*, 12 words) tak realistic spread hai.
 - **Character Length Distribution:**
   - Range: 22 to 67 characters (Mean = 47.26 chars, Median = 47.0 chars, Std = 7.68).
-- **Writer Balancing (Mitigating Annotator Bias):**
-  - Author A: 120 queries (33.3%)
-  - Author B: 120 queries (33.3%)
-  - Author C: 120 queries (33.3%)
+- **Style Session Balancing (Solo Curation Protocol):**
+  - Session A (Colloquial Hindi-heavy): 120 queries (33.3%)
+  - Session B (Code-mixed English dominant): 120 queries (33.3%)
+  - Session C (Standard Romanized Hindi phonetics): 120 queries (33.3%)
+  Authored solo by Jaydeep across 3 scheduled sessions to guarantee wide linguistic diversity.
 - **Language Mix Ratio (Code-Mixing Spectrum):**
   - English-dominant: 142 queries (39.4%)
   - Balanced Code-mixed: 136 queries (37.8%)

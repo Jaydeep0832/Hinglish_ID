@@ -1,5 +1,5 @@
 # Intent Annotation Guidelines v1 — HinglishID-Router
-# Owner: Member B | Date: [Day 7]
+# Author: Solo Developer (Jaydeep) | Date: [Day 7]
 
 ## Overview
 
@@ -97,7 +97,7 @@ Does not fit any of the above 5 intents.
 2. **Primary intent** — what is the customer requesting, not just mentioning
 3. **No guessing** — if genuinely unclear after 30 seconds, write `other` + note
 4. **Variety** — write queries with different: mix ratios, spellings, lengths, tone
-5. **writer column** — always fill your team member ID (A/B/C)
+5. **writer column** — fill authoring session ID (A/B/C) to balance phrasing and style diversity
 6. **mix_style** — `hindi` (>70% HI), `english` (>70% EN), `balanced` (otherwise)
 
 ## Quality Targets

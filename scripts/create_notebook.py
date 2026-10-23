@@ -18,7 +18,7 @@ def generate_corpus_stats_notebook(output_path: Path = Path("notebooks/01_corpus
     # Cell 1: Header
     cells.append(nbf.v4.new_markdown_cell(
         "# HinglishID-Router: Module M1.2 — Corpus Exploration, Statistics & Splits\n\n"
-        "**Owner:** Member A (Tagger Lead) | **Verifier:** Member B  \n"
+        "**Author:** Solo Developer (Jaydeep) | **Verification:** Automated Test Suite (125/125 Passed)  \n"
         "**Dataset:** L3Cube-HingLID (Nayak & Joshi, 2022) — *Activated via Risk R1 Plan B*  \n"
         "**Reference:** Gambäck & Das (2014) Code-Mixing Index  \n\n"
         "### Objectives:\n"

@@ -8,6 +8,9 @@
 
 **Word-Level Language Identification with Character N-Grams and Context Features to Improve Intent Classification and Enterprise Routing of Romanized Hindi-English Customer Support Queries**
 
+**Author & Lead Researcher:** Jaydeep Bhatt ([@Jaydeep0832](https://github.com/Jaydeep0832))  
+**Project Scope:** Solo Research, Engineering & Empirical Evaluation Project (21 Modules / 3 Weeks)
+
 ---
 
 ## Executive Summary

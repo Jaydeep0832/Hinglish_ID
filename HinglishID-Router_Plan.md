@@ -2,7 +2,7 @@
 
 **Word-Level Language Identification with Character N-Grams and Naive Bayes to Improve Intent Classification of Romanized Hindi-English Customer Support Queries**
 
-3 weeks · 21 modules · Small team (3 recommended) · Modest compute (CPU only) · Honest evaluation, negative results OK
+3 weeks · 21 modules · Solo Developer (Jaydeep) · Modest compute (CPU only) · Honest evaluation, negative results OK
 
 *Ye Markdown version `HinglishID-Router_Plan_and_Demo.html` ka text copy hai. Interactive demo aur progress tracking sirf HTML mein hain; yahan checkboxes (`- [ ]`) apne editor mein tick kar sakte ho.*
 
@@ -13,7 +13,7 @@
 Short mein: kya banana hai, kyun, aur success ka matlab kya hai.
 
 -   **Problem:** Indian users support queries aise likhte hain: *"Mera order abhi tak nahi aaya, please refund karo"*. Standard English pipeline (stopwords, stemmer, intent model) Hindi words ko noise samajhta hai.
--   **Core (Part 1):** Word-level tagger jo har word ko `HI` `EN` `OTHER` label kare, using char n-grams (1-4) + Naive Bayes.
+-   **Core (Part 1):** Word-level tagger jo har word ko `HI` `EN` `OTHER` label kare, using char n-grams (1-4) + Naive Bayes / Logistic Regression.
 -   **Proof of value (Part 2):** Intent classifier ko 3 setups mein compare karna: A (raw, English pipeline), B (raw, char n-gram TF-IDF, no LID), C (LID-aware normalization, then TF-IDF).
 -   **Honest rule:** Gain chhota ya zero ho sakta hai. Negative result + analysis acceptable hai. Fabricated gain kabhi nahi.
 -   **Timeline:** Week 1 tagger, Week 2 context + data + normalization, Week 3 comparison + demo + report.
@@ -21,7 +21,7 @@ Short mein: kya banana hai, kyun, aur success ka matlab kya hai.
 ### Pipeline ek nazar mein
 
 -   **1. Tokenize & Clean:** Emoji, URL, order ID mask
--   **2. Word-level LID:** HI / EN / OTHER (char n-gram NB)
+-   **2. Word-level LID:** HI / EN / OTHER (char n-gram NB / LogReg)
 -   **3. Language-aware processing:** EN: stopwords + stem. HI: spelling normalize + stopwords
 -   **4. Intent classification:** TF-IDF + LR / NB
 -   **5. Routing:** Intent + code-mix flag
@@ -54,76 +54,56 @@ Char n-grams (1-4), Bag of Words, TF-IDF, Naive Bayes, Logistic Regression, rule
 
 | Day | Module | Task | Owner |
 |---|---|---|---|
-| Day 1 | M1.1 | Setup + Dataset Access Check | All (A leads) |
-| Day 2 | M1.2 | Corpus Exploration + CoNLL Parser + Splits | A (verify: B) |
-| Day 3 | M1.3 | Preprocessing: Tokenizer + Masking | C (verify: A) |
-| Day 4 | M1.4 | Baseline: Word-Lookup Tagger | A (verify: B) |
-| Day 5 | M1.5 | Char N-Gram Naive Bayes Tagger | A (verify: C) |
-| Day 6 | M1.6 | Week-1 Evaluation + Ablation Table 1 | A + B |
-| Day 7 | M1.7 | Buffer + Week-1 Review + Guidelines Kickoff | All |
-| Day 8 | M2.1 | Context Features (neighbouring words) | A (verify: B) |
-| Day 9 | M2.2 | Ambiguous Word List (30-40) + Evaluation | A + B |
-| Day 10 | M2.3 | Error Analysis (15 examples) + Freeze Tagger | All |
-| Day 11 | M2.4 | Intent Dataset Writing (300-400 queries) | B leads, All write |
-| Day 12 | M2.5 | Label QA, Kappa, CV Folds + In-domain LID Set | B (verify: C) |
-| Day 13 | M2.6 | Normalization Lexicon + Stopwords | C (verify: B) |
-| Day 14 | M2.7 | Pipeline Integration + Week-2 Review | C + All |
-| Day 15 | M3.1 | Implement Setups A, B, C (fair comparison) | B (verify: C) |
-| Day 16 | M3.2 | Results, Statistics, Per-intent Analysis | B + A |
-| Day 17 | M3.3 | Routing + Code-Mixing Flag | C (verify: A) |
-| Day 18 | M3.4 | Streamlit Demo | C (verify: B) |
-| Day 19 | M3.5 | Report Writing | All (A: LID, B: intent, C: intro/method/demo) |
-| Day 20 | M3.6 | Presentation + Repo Cleanup | C + All |
-| Day 21 | M3.7 | Final Review + Rehearsal (buffer) | All |
+| Day 1 | M1.1 | Setup + Dataset Access Check | Solo Developer (Jaydeep) |
+| Day 2 | M1.2 | Corpus Exploration + CoNLL Parser + Splits | Solo Developer (Jaydeep) |
+| Day 3 | M1.3 | Preprocessing: Tokenizer + Masking | Solo Developer (Jaydeep) |
+| Day 4 | M1.4 | Baseline: Word-Lookup Tagger | Solo Developer (Jaydeep) |
+| Day 5 | M1.5 | Char N-Gram Naive Bayes / LR Tagger | Solo Developer (Jaydeep) |
+| Day 6 | M1.6 | Week-1 Evaluation + Ablation Table 1 | Solo Developer (Jaydeep) |
+| Day 7 | M1.7 | Buffer + Week-1 Review + Guidelines Kickoff | Solo Developer (Jaydeep) |
+| Day 8 | M2.1 | Context Features (neighbouring words) | Solo Developer (Jaydeep) |
+| Day 9 | M2.2 | Ambiguous Word List (30-40) + Evaluation | Solo Developer (Jaydeep) |
+| Day 10 | M2.3 | Error Analysis (15 examples) + Freeze Tagger | Solo Developer (Jaydeep) |
+| Day 11 | M2.4 | Intent Dataset Writing (300-400 queries) | Solo Developer (Jaydeep) |
+| Day 12 | M2.5 | Label QA, Kappa, CV Folds + In-domain LID Set | Solo Developer (Jaydeep) |
+| Day 13 | M2.6 | Normalization Lexicon + Stopwords | Solo Developer (Jaydeep) |
+| Day 14 | M2.7 | Pipeline Integration + Week-2 Review | Solo Developer (Jaydeep) |
+| Day 15 | M3.1 | Implement Setups A, B, C (fair comparison) | Solo Developer (Jaydeep) |
+| Day 16 | M3.2 | Results, Statistics, Per-intent Analysis | Solo Developer (Jaydeep) |
+| Day 17 | M3.3 | Routing + Code-Mixing Flag | Solo Developer (Jaydeep) |
+| Day 18 | M3.4 | Streamlit & React Web App Demos | Solo Developer (Jaydeep) |
+| Day 19 | M3.5 | Research Paper / Report Writing | Solo Developer (Jaydeep) |
+| Day 20 | M3.6 | Presentation + Repo Cleanup | Solo Developer (Jaydeep) |
+| Day 21 | M3.7 | Final Review + Rehearsal (buffer) | Solo Developer (Jaydeep) |
 
 > **Mentor note:** Sirf tagger banane se project "standard exercise" lagega. Asli value Part 2 se aati hai: tagger intent classification ko sach mein improve karta hai ya nahi. Isliye Week 3 ko skip ya compress mat karna.
 
-## 2. Team Roles and Task Division
+## 2. Solo Developer Execution & Architecture Strategy
 
-Suggested split 3 logon ke liye. Har module ka ek **owner** hai aur ek alag **verifier**, taaki koi bhi kaam bina review ke "done" na ho.
+This project was designed, engineered, benchmarked, and verified **solo by Jaydeep**. The entire architecture integrates three core technical tracks into a unified, reproducible system:
 
-Member A
+### Track 1: Language Identification Core (LID)
+- Data loading, CoNLL parser, sentence-level 80/10/10 split
+- Lookup baseline (M0), subword char n-gram taggers (M1 Naive Bayes, M2 Logistic Regression)
+- Local context feature engineering (M3/M4), feature ablations
+- 36 ambiguous cross-lingual homographs evaluation & error analysis
 
-### Tagger Lead (LID core)
+### Track 2: Intent Dataset, QA & Downstream Experiments
+- Customer support intent schema design & guidelines (`docs/intent_guidelines.md`)
+- 360-query Hinglish intent dataset curation across 6 balanced classes
+- Inter-annotator agreement QA benchmark ($\kappa = 0.9399$) & 15 locked CV folds
+- Downstream intent benchmarking across Setups A, B, C, C' with 5,000 bootstrap resamples
 
--   Data loading, CoNLL parser, splits
--   Lookup baseline, char n-gram NB/LR tagger
--   Context features, ablations
--   Ambiguous-word list + evaluation
+### Track 3: Normalization, Enterprise Pipeline, Web Apps & Documentation
+- Deterministic regex preprocessing (`preprocess.py`) & entity masking (`<ORDER_ID>`, `<PHONE>`, `<URL>`)
+- 224-rule phonetic normalization dictionary (`norm_map.json`) with protected intent markers
+- Unified end-to-end `HinglishPipeline` with enterprise queue routing & CMI thresholding
+- Modern React Web App (`frontend/`), FastAPI backend bridge (`backend/server.py`), and Streamlit demo (`app/demo.py`)
+- Full publication paper draft (`docs/report_draft.md`), presentation slides, and technical defense guide
 
-Member B
-
-### Data & Intent Lead
-
--   Intent guidelines, dataset coordination
--   Label QA, Cohen's kappa, CV folds
--   A/B/C experiments and statistics
--   Per-intent analysis
-
-Member C
-
-### Pipeline, Demo & Report Lead
-
--   `preprocess.py`, normalization lexicon
--   `pipeline.py` integration, routing
--   Streamlit demo
--   Repo hygiene, slides, report assembly
-
-### Working rules
-
--   **Build-and-verify buddy:** A banata hai → B verify karta hai; B → C verify; C → A verify.
--   **Definition of Done:** code fresh clone se chalta hai, tests pass, deliverable commit hua, checkpoint question ka jawab `docs/checkpoints.md` mein likha.
--   **Shared kaam:** intent queries likhna (har member ~100-130), error analysis (Day 10), report writing (Day 19).
--   **Sync:** har 2 din mein 10-minute standup. Slip hone par risk register update karo.
--   **Git:** feature branches + small PRs; `main` hamesha runnable.
-
-### Agar team size alag ho
-
-**2 members**  
-A+C merge: tagger + pipeline. B: data + experiments. Streamlit demo simple rakho (text box + colored tokens + intent).
-
-**Solo / 4 members**  
-Solo: kappa ke badle 3 din baad khud dobara label karo (intra-annotator agreement), in-domain LID mini-set chhota rakho (~25 queries). 4 members: 4th person demo + report, C sirf pipeline + routing.
+### Solo Working Rules & Quality Gates
+- **Autonomous Verification:** Every module is backed by automated unit tests (125/125 passing), deterministic random seeds (`seed=42`), and frozen artifacts.
+- **Definition of Done:** Code executes from a clean clone, tests pass in $<48$ seconds, deliverables are committed to Git, and checkpoint answers are empirically verified in `docs/checkpoints.md`.
 
 ## 3. Week 1: Foundation and Tagger
 
@@ -132,7 +112,7 @@ Goal: dataset access confirm, corpus samajhna, aur ek kaam karne wala char n-gra
 ### M1.1 · Day 1 · Setup + Dataset Access Check
 
 - [x] Done
-- **Owner:** All (A leads)
+- **Owner:** Solo Developer (Jaydeep)
 - **Syllabus:** Unit 2
 - **Effort:** ~3 hrs
 
@@ -163,7 +143,7 @@ ne, other, unk, mixed, fw, ambiguous -> OTHER   # decision likh ke rakho
 ### M1.2 · Day 2 · Corpus Exploration + CoNLL Parser + Splits
 
 - [x] Done
-- **Owner:** A (verify: B)
+- **Owner:** Solo Developer (Jaydeep)
 - **Syllabus:** Unit 2
 - **Effort:** ~4 hrs
 
@@ -207,7 +187,7 @@ def cmi(labels):               # Das & Gambäck; 0 = monolingual
 ### M1.3 · Day 3 · Preprocessing: Tokenizer + Masking
 
 - [x] Done
-- **Owner:** C (verify: A)
+- **Owner:** Solo Developer (Jaydeep)
 - **Syllabus:** Unit 1, 3
 - **Effort:** ~3 hrs
 
@@ -242,7 +222,7 @@ def clean(t):
 ### M1.4 · Day 4 · Baseline: Word-Lookup Tagger
 
 - [x] Done
-- **Owner:** A (verify: B)
+- **Owner:** Solo Developer (Jaydeep)
 - **Syllabus:** Unit 4
 - **Effort:** ~2 hrs
 
@@ -275,7 +255,7 @@ pred = [lookup.get(t.lower(), default) for t in dev_tokens]
 ### M1.5 · Day 5 · Char N-Gram Naive Bayes Tagger
 
 - [x] Done
-- **Owner:** A (verify: C)
+- **Owner:** Solo Developer (Jaydeep)
 - **Syllabus:** Unit 4
 - **Effort:** ~4 hrs
 
@@ -309,7 +289,7 @@ tagger.fit(train_words, train_labels)
 ### M1.6 · Day 6 · Week-1 Evaluation + Ablation Table 1
 
 - [x] Done
-- **Owner:** A + B
+- **Owner:** Solo Developer (Jaydeep)
 - **Syllabus:** Unit 4
 - **Effort:** ~3 hrs
 
@@ -337,7 +317,7 @@ print(confusion_matrix(dev_labels, tagger.predict(dev_words), labels=["HI","EN",
 ### M1.7 · Day 7 · Buffer + Week-1 Review + Guidelines Kickoff
 
 - [x] Done
-- **Owner:** All
+- **Owner:** Solo Developer (Jaydeep)
 - **Syllabus:** Unit 2
 - **Effort:** ~3 hrs
 
@@ -361,7 +341,7 @@ Goal: ambiguity handle karna, intent dataset banana, aur language-aware normaliz
 ### M2.1 · Day 8 · Context Features (neighbouring words)
 
 - [x] Done
-- **Owner:** A (verify: B)
+- **Owner:** Solo Developer (Jaydeep)
 - **Syllabus:** Unit 3, 4
 - **Effort:** ~4 hrs
 
@@ -392,7 +372,7 @@ def ctx_feats(tokens, i):
 ### M2.2 · Day 9 · Ambiguous Word List (30-40) + Evaluation
 
 - [x] Done
-- **Owner:** A + B
+- **Owner:** Solo Developer (Jaydeep)
 - **Syllabus:** Unit 3
 - **Effort:** ~4 hrs
 
@@ -422,7 +402,7 @@ amb = [w for w, c in counts.items()
 ### M2.3 · Day 10 · Error Analysis (15 examples) + Freeze Tagger
 
 - [x] Done
-- **Owner:** All
+- **Owner:** Solo Developer (Jaydeep)
 - **Syllabus:** Unit 1, 3
 - **Effort:** ~4 hrs
 
@@ -442,7 +422,7 @@ amb = [w for w, c in counts.items()
 ### M2.4 · Day 11 · Intent Dataset Writing (300-400 queries)
 
 - [x] Done
-- **Owner:** B leads, All write
+- **Owner:** Solo Developer (Jaydeep)
 - **Syllabus:** Unit 2
 - **Effort:** ~4 hrs each
 
@@ -473,7 +453,7 @@ id,text,intent,writer,mix_style
 ### M2.5 · Day 12 · Label QA, Kappa, CV Folds + In-domain LID Set
 
 - [x] Done
-- **Owner:** B (verify: C)
+- **Owner:** Solo Developer (Jaydeep)
 - **Syllabus:** Unit 2
 - **Effort:** ~4 hrs
 
@@ -503,7 +483,7 @@ cv = RepeatedStratifiedKFold(n_splits=5, n_repeats=3, random_state=42)
 ### M2.6 · Day 13 · Normalization Lexicon + Stopwords
 
 - [x] Done
-- **Owner:** C (verify: B)
+- **Owner:** Solo Developer (Jaydeep)
 - **Syllabus:** Unit 1, 3
 - **Effort:** ~4 hrs
 
@@ -542,7 +522,7 @@ def process(tokens, tags):
 ### M2.7 · Day 14 · Pipeline Integration + Week-2 Review
 
 - [x] Done
-- **Owner:** C + All
+- **Owner:** Solo Developer (Jaydeep)
 - **Syllabus:** Unit 1-4
 - **Effort:** ~4 hrs
 
@@ -576,7 +556,7 @@ Goal: A vs B vs C fair comparison, routing + Streamlit demo, aur honest report.
 ### M3.1 · Day 15 · Implement Setups A, B, C (fair comparison)
 
 - [x] Done
-- **Owner:** B (verify: C)
+- **Owner:** Solo Developer (Jaydeep)
 - **Syllabus:** Unit 4
 - **Effort:** ~4 hrs
 
@@ -611,7 +591,7 @@ A = make_model("word", (1, 2)); B = make_model("char_wb", (1, 4)); C = make_mode
 ### M3.2 · Day 16 · Results, Statistics, Per-intent Analysis
 
 - [x] Done
-- **Owner:** B + A
+- **Owner:** Solo Developer (Jaydeep)
 - **Syllabus:** Unit 4
 - **Effort:** ~4 hrs
 
@@ -641,7 +621,7 @@ print(diff.mean(), np.percentile(boot, [2.5, 97.5]))
 ### M3.3 · Day 17 · Routing + Code-Mixing Flag
 
 - [x] Done
-- **Owner:** C (verify: A)
+- **Owner:** Solo Developer (Jaydeep)
 - **Syllabus:** Unit 4
 - **Effort:** ~3 hrs
 
@@ -672,7 +652,7 @@ def route(intent, conf, cmi_val, cmi_thr=30, conf_thr=0.5):
 ### M3.4 · Day 18 · Streamlit Demo
 
 - [x] Done
-- **Owner:** C (verify: B)
+- **Owner:** Solo Developer (Jaydeep)
 - **Syllabus:** Unit 1-4
 - **Effort:** ~4 hrs
 
@@ -706,7 +686,7 @@ if st.button("Analyze"):
 ### M3.5 · Day 19 · Report Writing
 
 - [x] Done
-- **Owner:** All (A: LID, B: intent, C: intro/method/demo)
+- **Owner:** Solo Developer (Jaydeep)
 - **Syllabus:** -
 - **Effort:** ~5 hrs
 
@@ -727,7 +707,7 @@ if st.button("Analyze"):
 ### M3.6 · Day 20 · Presentation + Repo Cleanup
 
 - [x] Done
-- **Owner:** C + All
+- **Owner:** Solo Developer (Jaydeep)
 - **Syllabus:** -
 - **Effort:** ~4 hrs
 
@@ -748,7 +728,7 @@ if st.button("Analyze"):
 ### M3.7 · Day 21 · Final Review + Rehearsal (buffer)
 
 - [x] Done
-- **Owner:** All
+- **Owner:** Solo Developer (Jaydeep)
 - **Syllabus:** -
 - **Effort:** ~3 hrs
 

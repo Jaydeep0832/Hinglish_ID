@@ -40,7 +40,7 @@ alternative for this project because:
 
 - **Date:** Day 1 — 2026-10-21
 - **Trigger:** LinCE inaccessible (site down — Risk R1 activated)
-- **Decision owner:** All
+- **Decision owner:** Solo Developer (Jaydeep)
 - **Plan B activated by:** Antigravity agent
 - **Report note:** "We use L3Cube-HingLID (Nayak & Joshi, 2022) as our primary LID training 
   corpus, as the LinCE portal was inaccessible at project start time. L3Cube-HingLID 

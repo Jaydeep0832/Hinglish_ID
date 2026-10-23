@@ -9,7 +9,7 @@
 
 ## 1. Executive Summary
 
-Week 2 successfully bridged the project from word-level Language Identification (LID) into **Part 2: Downstream Customer Support Intent Routing**. Over the course of 7 modules (M2.1 through M2.7), the team:
+Week 2 successfully bridged the project from word-level Language Identification (LID) into **Part 2: Downstream Customer Support Intent Routing**. Over the course of 7 modules (M2.1 through M2.7), the author (Jaydeep):
 1. Enhanced the subword sequence tagger with neighboring context features ($w_{i-1}, w_{i+1}$), officially proving Hypothesis H2 on unseen test tokens with statistical significance (+11.53% gain on cross-lingual homographs).
 2. Deep-dived into 2,149 dev set errors across 7 linguistic categories, cataloging 15 concrete case studies in [`docs/error_analysis.md`](file:///c:/Users/jayde/OneDrive/Attachments/Documents/Desktop/Projects/Hinglish_ID/docs/error_analysis.md).
 3. Locked and frozen the production LID model ([`models/lid_final.joblib`](file:///c:/Users/jayde/OneDrive/Attachments/Documents/Desktop/Projects/Hinglish_ID/models/lid_final.joblib)) with SHA-256 verification and completed the single official test set evaluation.
@@ -28,7 +28,7 @@ Week 2 successfully bridged the project from word-level Language Identification 
 | **M2.1** | Day 8 | Context Features ($w_{i-1}, w_{i+1}$) | `src/lid_context.py`, `table_2_context.csv` | **DONE** (Macro-F1 0.9806, beats lookup baseline) |
 | **M2.2** | Day 9 | Ambiguous Word Mining & Evaluation | `data/ambiguous_words.txt`, `table_3_ambiguous.csv` | **DONE** (37 frozen homographs, +10.79% dev gain) |
 | **M2.3** | Day 10 | Error Analysis & Single Test Evaluation | `docs/error_analysis.md`, `models/lid_final.joblib`, `table_4_test_final.csv` | **DONE** (98.42% test acc, 94.61% ambiguous acc) |
-| **M2.4** | Day 11 | Intent Dataset Authoring (360 queries) | `data/intent_dataset.csv`, `data/intent_overlap_40.csv` | **DONE** (60/intent, 3 writers, 3 mix styles) |
+| **M2.4** | Day 11 | Intent Dataset Authoring (360 queries) | `data/intent_dataset.csv`, `data/intent_overlap_40.csv` | **DONE** (60/intent, 3 style sessions, 3 mix styles) |
 | **M2.5** | Day 12 | Label QA, Kappa & CV Folds Protocol | `results/intent_kappa_qa.json`, `data/intent_splits_5fold.json`, `lid_indomain.conll` | **DONE** (Kappa: 0.9399, 15 locked CV folds) |
 | **M2.6** | Day 13 | Normalization Lexicon & Stopwords | `data/norm_map.json`, `src/normalize.py` | **DONE** (224 rules, protected negations) |
 | **M2.7** | Day 14 | Pipeline Integration & Week-2 Review | `src/pipeline.py`, `table_6_pipeline_samples.csv`, `docs/week2_review.md` | **DONE** (Single call `analyze_query()`, sub-15ms) |

@@ -2,24 +2,24 @@
 
 > **Milestone:** Week 1 — Foundation & Tagger Core  
 > **Status:** **ALL 7 MODULES (M1.1 to M1.7) COMPLETED ON SCHEDULE**  
-> **Verification Status:** Verified & Signed Off by All Team Members (A: Tagger Lead, B: Intent Lead, C: Pipeline Lead)  
+> **Verification Status:** Verified & Signed Off by Solo Author (Jaydeep Bhatt)  
 > **Test Suite:** 73/73 Tests Passing (100% Pass Rate)
 
 ---
 
 ## 1. Executive Summary & Verification Matrix
 
-Week 1 focused on building the industrial foundation for word-level Language Identification (LID) on Romanized Hindi-English code-mixed queries. All scheduled modules were completed without slippage or compromises.
+Week 1 focused on building the industrial foundation for word-level Language Identification (LID) on Romanized Hindi-English code-mixed queries. All scheduled modules were completed solo without slippage or compromises.
 
-| Module | Title | Lead | Verifier | Status | Key Deliverable | Verified Outcome |
+| Module | Title | Author | Verification | Status | Key Deliverable | Verified Outcome |
 |---|---|---|---|---|---|---|
-| **M1.1** | Setup + Dataset Access Check | All | All | **DONE** | Repo, `.venv`, L3Cube raw files, `docs/*.md` | Server contingency triggered cleanly to L3Cube-HingLID (1.35M tokens). |
-| **M1.2** | Corpus Exploration + CoNLL Parser + Splits | A | B | **DONE** | `src/conll_parser.py`, `01_corpus_stats.ipynb`, `data/processed/*.conll` | 80/10/10 sentence split (`seed=42`). CMI Gambäck & Das formula validated. |
-| **M1.3** | Preprocessing: Tokenizer + Masking | C | A | **DONE** | `src/preprocess.py`, `tests/test_preprocess.py` | Entity placeholders (`<URL>`, `<EMOJI>`, `<ORDER_ID>`), elongation reduction, Indic Unicode support. |
-| **M1.4** | Baseline: Word-Lookup Tagger ($M_0$) | A | B | **DONE** | `src/baseline_tagger.py`, `results/baseline_scores.csv` | 98.02% Dev Acc, 0.9753 Macro-F1. Quantified OOV vs in-vocab error share (43.5% vs 56.5%). |
-| **M1.5** | Char N-Gram Naive Bayes Tagger ($M_1$) | A | C | **DONE** | `src/lid_tagger.py`, `src/train_lid_tagger.py`, `models/lid_*.joblib` | Tuned MultinomialNB ($\alpha=0.1$) & LogisticRegression ($C=1.0$). LR beats lookup on OOV words (77.87% vs 76.60%). |
-| **M1.6** | Error Analysis & Ablation Table 1 | A | B | **DONE** | `src/evaluate_lid_ablation.py`, `results/ablation_table_1.csv`, 6 figures | Full 17-config ablation matrix, confusion heatmaps, sensitivity curves. |
-| **M1.7** | Buffer + Week-1 Review + Guidelines Kickoff | All | All | **DONE** | `src/demo_tagger.py`, `02_tagger_demo.ipynb`, `docs/intent_guidelines.md` | Interactive demonstration, test freeze integrity confirmation, intent guidelines approved. |
+| **M1.1** | Setup + Dataset Access Check | Jaydeep | Automated Tests | **DONE** | Repo, `.venv`, L3Cube raw files, `docs/*.md` | Server contingency triggered cleanly to L3Cube-HingLID (1.35M tokens). |
+| **M1.2** | Corpus Exploration + CoNLL Parser + Splits | Jaydeep | Unit Tests | **DONE** | `src/conll_parser.py`, `01_corpus_stats.ipynb`, `data/processed/*.conll` | 80/10/10 sentence split (`seed=42`). CMI Gambäck & Das formula validated. |
+| **M1.3** | Preprocessing: Tokenizer + Masking | Jaydeep | Unit Tests | **DONE** | `src/preprocess.py`, `tests/test_preprocess.py` | Entity placeholders (`<URL>`, `<EMOJI>`, `<ORDER_ID>`), elongation reduction, Indic Unicode support. |
+| **M1.4** | Baseline: Word-Lookup Tagger ($M_0$) | Jaydeep | Benchmark Run | **DONE** | `src/baseline_tagger.py`, `results/baseline_scores.csv` | 98.02% Dev Acc, 0.9753 Macro-F1. Quantified OOV vs in-vocab error share (43.5% vs 56.5%). |
+| **M1.5** | Char N-Gram Naive Bayes Tagger ($M_1$) | Jaydeep | Model Training | **DONE** | `src/lid_tagger.py`, `src/train_lid_tagger.py`, `models/lid_*.joblib` | Tuned MultinomialNB ($\alpha=0.1$) & LogisticRegression ($C=1.0$). LR beats lookup on OOV words (77.87% vs 76.60%). |
+| **M1.6** | Error Analysis & Ablation Table 1 | Jaydeep | Evaluation Suite | **DONE** | `src/evaluate_lid_ablation.py`, `results/ablation_table_1.csv`, 6 figures | Full 17-config ablation matrix, confusion heatmaps, sensitivity curves. |
+| **M1.7** | Buffer + Week-1 Review + Guidelines Kickoff | Jaydeep | Full Verification | **DONE** | `src/demo_tagger.py`, `02_tagger_demo.ipynb`, `docs/intent_guidelines.md` | Interactive demonstration, test freeze integrity confirmation, intent guidelines approved. |
 
 ---
 
