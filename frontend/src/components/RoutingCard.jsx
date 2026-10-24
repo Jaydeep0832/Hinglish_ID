@@ -19,6 +19,9 @@ export function RoutingCard({ routing }) {
     cardType = "escalated";
   }
 
+  const cmiVal = typeof cmi === "number" ? cmi.toFixed(1) : (Number(cmi) || 0).toFixed(1);
+  const thresholdVal = typeof cmi_threshold === "number" ? cmi_threshold.toFixed(0) : "30";
+
   return (
     <div className={`routing-card ${cardType}`} aria-label="Support Queue Routing Information">
       <div className="queue-badge-row">
@@ -78,11 +81,11 @@ export function RoutingCard({ routing }) {
           <strong>Linguistic Code-Mixing Triage:</strong>{" "}
           {flag_heavy_mix ? (
             <span style={{ color: "var(--warning)", fontWeight: 600 }}>
-              Heavy mixing detected (CMI {cmi.toFixed(1)}% &ge; {cmi_threshold.toFixed(0)}% threshold). Dispatched to specialized bilingual English-Hindi tier.
+              Heavy mixing detected (CMI {cmiVal}% &ge; {thresholdVal}% threshold). Dispatched to specialized bilingual English-Hindi tier.
             </span>
           ) : (
             <span style={{ color: "var(--text-secondary)" }}>
-              Standard monolingual or low-mixing workflow (CMI {cmi.toFixed(1)}% &lt; {cmi_threshold.toFixed(0)}% threshold).
+              Standard monolingual or low-mixing workflow (CMI {cmiVal}% &lt; {thresholdVal}% threshold).
             </span>
           )}
         </div>

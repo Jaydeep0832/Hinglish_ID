@@ -106,22 +106,27 @@ def analyze_query_endpoint(req: AnalyzeRequest):
         for i in sorted_indices
     ]
 
+    sorted_probs = [
+        {"intent": str(classes[i]), "prob": round(float(probabilities[i]), 4)}
+        for i in sorted_indices
+    ]
+
     # Format intent results for all setups
     intent_results = {
         "Setup_A": {
             "intent": top_intent,
             "confidence": round(top_conf, 4),
-            "probabilities": {str(c): round(float(p), 4) for c, p in zip(classes, probabilities)},
+            "probabilities": sorted_probs,
         },
         "Setup_B": {
             "intent": top_intent,
             "confidence": round(top_conf, 4),
-            "probabilities": {str(c): round(float(p), 4) for c, p in zip(classes, probabilities)},
+            "probabilities": sorted_probs,
         },
         "Setup_C": {
             "intent": top_intent,
             "confidence": round(top_conf, 4),
-            "probabilities": {str(c): round(float(p), 4) for c, p in zip(classes, probabilities)},
+            "probabilities": sorted_probs,
         },
     }
 
@@ -133,6 +138,8 @@ def analyze_query_endpoint(req: AnalyzeRequest):
         conf_threshold=req.conf_threshold,
         cmi_threshold=req.cmi_threshold,
     )
+    routing["cmi_threshold"] = req.cmi_threshold
+    routing["conf_threshold"] = req.conf_threshold
 
     # Build token audit rows
     audit_rows = []

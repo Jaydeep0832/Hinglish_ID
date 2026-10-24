@@ -10,11 +10,23 @@ const INTENT_ICONS = {
 };
 
 export function IntentProbabilityBar({ probabilities, topIntent }) {
-  if (!probabilities || probabilities.length === 0) return null;
+  if (!probabilities) return null;
+
+  // Normalize: handle both array of {intent, prob} and dictionary {refund: 0.9}
+  let probList = [];
+  if (Array.isArray(probabilities)) {
+    probList = probabilities;
+  } else if (typeof probabilities === "object") {
+    probList = Object.entries(probabilities)
+      .map(([intent, prob]) => ({ intent, prob }))
+      .sort((a, b) => b.prob - a.prob);
+  }
+
+  if (probList.length === 0) return null;
 
   return (
     <div className="prob-list" aria-label="Support Intent Probability Distribution">
-      {probabilities.map(({ intent, prob }) => {
+      {probList.map(({ intent, prob }) => {
         const isTop = intent === topIntent;
         const percentage = Math.round(prob * 100);
 
