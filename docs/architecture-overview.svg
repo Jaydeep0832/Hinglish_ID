@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-labelledby="title description">
+  <title id="title">HinglishID-Router system architecture</title>
+  <desc id="description">The React and Vite interface tries the optional FastAPI service and falls back to a JavaScript demo engine when the API is unavailable.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101820"/>
+      <stop offset="1" stop-color="#17232d"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#82929d"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="500" rx="26" fill="url(#bg)"/>
+  <text x="54" y="52" fill="#ffbf69" font-family="Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="2">SYSTEM ARCHITECTURE</text>
+  <text x="54" y="88" fill="#f5f1e9" font-family="Georgia, serif" font-size="28" font-weight="700">One interface, two execution paths</text>
+  <text x="54" y="114" fill="#aebbc5" font-family="Arial, sans-serif" font-size="14">The UI tries the local model API first and uses its browser demo engine when the API is unavailable.</text>
+
+  <g font-family="Arial, sans-serif">
+    <rect x="50" y="193" width="190" height="112" rx="17" fill="#202c36" stroke="#40515d"/>
+    <circle cx="82" cy="226" r="15" fill="#51402a"/>
+    <path d="M75 226h14M82 219v14" stroke="#ffbf69" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="75" y="267" fill="#f5f1e9" font-size="18" font-weight="700">Customer query</text>
+    <text x="75" y="288" fill="#aebbc5" font-size="12">Romanized Hindi + English</text>
+
+    <rect x="300" y="193" width="210" height="112" rx="17" fill="#202c36" stroke="#40515d"/>
+    <rect x="324" y="211" width="30" height="30" rx="9" fill="#2a4054"/>
+    <text x="339" y="232" text-anchor="middle" fill="#91baff" font-size="12" font-weight="700">UI</text>
+    <text x="324" y="267" fill="#f5f1e9" font-size="18" font-weight="700">React + Vite</text>
+    <text x="324" y="288" fill="#aebbc5" font-size="12">Input, analysis, audit views</text>
+
+    <rect x="585" y="135" width="315" height="140" rx="18" fill="#1b3032" stroke="#4b8076" stroke-width="1.5"/>
+    <rect x="609" y="155" width="36" height="28" rx="8" fill="#254742"/>
+    <text x="627" y="174" text-anchor="middle" fill="#73cfb4" font-size="12" font-weight="700">API</text>
+    <text x="659" y="174" fill="#e8f4ee" font-size="18" font-weight="700">FastAPI + Python models</text>
+    <text x="609" y="211" fill="#c6d4d2" font-size="13">Preprocess → context LID → normalize</text>
+    <text x="609" y="233" fill="#c6d4d2" font-size="13">TF-IDF intent model → rule-based routing</text>
+    <text x="609" y="255" fill="#8fb2aa" font-size="11">Requires locally generated .joblib artifacts</text>
+
+    <rect x="585" y="323" width="315" height="126" rx="18" fill="#2d2938" stroke="#685879" stroke-width="1.5"/>
+    <rect x="609" y="343" width="36" height="28" rx="8" fill="#493852"/>
+    <text x="627" y="362" text-anchor="middle" fill="#d5a5e8" font-size="12" font-weight="700">JS</text>
+    <text x="659" y="362" fill="#f0eaf4" font-size="18" font-weight="700">Browser demo engine</text>
+    <text x="609" y="400" fill="#d0c8d6" font-size="13">Lexical LID cues · normalization map</text>
+    <text x="609" y="422" fill="#d0c8d6" font-size="13">Demo intent scoring · routing thresholds</text>
+
+    <rect x="960" y="205" width="195" height="124" rx="17" fill="#202c36" stroke="#40515d"/>
+    <circle cx="991" cy="237" r="15" fill="#254742"/>
+    <path d="m984 237 5 5 9-11" fill="none" stroke="#73cfb4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="985" y="278" fill="#f5f1e9" font-size="18" font-weight="700">Analysis view</text>
+    <text x="985" y="301" fill="#aebbc5" font-size="12">Tags · scores · route</text>
+    <text x="985" y="318" fill="#aebbc5" font-size="12">CMI · human escalation</text>
+  </g>
+
+  <g fill="none" stroke="#82929d" stroke-width="2" marker-end="url(#arrow)">
+    <path d="M240 249h52"/>
+    <path d="M510 249h34v-44h35"/>
+    <path d="M510 249h34v137h35"/>
+    <path d="M900 205h27q33 0 33 33v29"/>
+    <path d="M900 386h27q33 0 33-33v-33"/>
+  </g>
+
+  <rect x="50" y="463" width="1105" height="1" fill="#34434e"/>
+  <text x="52" y="485" fill="#83939e" font-family="Arial, sans-serif" font-size="11">Both paths feed the same UI workflow, but the browser demo is a heuristic fallback—not a substitute for the trained Python models.</text>
+</svg>

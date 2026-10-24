@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 510" role="img" aria-labelledby="title description">
+  <title id="title">Progression from baseline M0 to context-aware M3 language identification</title>
+  <desc id="description">M0 is a word lookup baseline, M1 adds character n-grams, and M3 adds neighboring word context. Metrics are from the same 135568-token held-out test.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101820"/>
+      <stop offset="1" stop-color="#17232d"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#82929d"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="510" rx="26" fill="url(#bg)"/>
+  <text x="52" y="48" fill="#ffbf69" font-family="Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="2">MODEL LINEAGE · TOKEN-LEVEL LID</text>
+  <text x="52" y="80" fill="#f5f1e9" font-family="Georgia, serif" font-size="27" font-weight="700">From memorized words to contextual evidence</text>
+  <text x="52" y="105" fill="#aebbc5" font-family="Arial, sans-serif" font-size="13">All three results use the same frozen held-out partition: 135,568 tokens.</text>
+
+  <g font-family="Arial, sans-serif">
+    <rect x="45" y="130" width="340" height="310" rx="18" fill="#202b34" stroke="#61503c"/>
+    <rect x="68" y="152" width="48" height="27" rx="9" fill="#563e2a"/>
+    <text x="92" y="170" text-anchor="middle" fill="#ffbf69" font-size="12" font-weight="700">M0</text>
+    <text x="68" y="210" fill="#f5f1e9" font-size="20" font-weight="700">Word lookup</text>
+    <text x="68" y="238" fill="#b9c3cc" font-size="13">Token → most frequent training label</text>
+    <text x="68" y="260" fill="#8e9ca7" font-size="12">Unseen word → corpus-majority label</text>
+    <path d="M68 280h294" stroke="#3c4851"/>
+    <text x="68" y="310" fill="#8e9ca7" font-size="11" font-weight="700" letter-spacing=".7">OVERALL ACCURACY</text>
+    <text x="68" y="342" fill="#f5f1e9" font-family="Georgia, serif" font-size="25" font-weight="700">97.96%</text>
+    <text x="220" y="310" fill="#8e9ca7" font-size="11" font-weight="700" letter-spacing=".7">MACRO-F1</text>
+    <text x="220" y="342" fill="#f5f1e9" font-family="Georgia, serif" font-size="25" font-weight="700">0.9746</text>
+    <rect x="68" y="370" width="132" height="47" rx="10" fill="#2c3740"/>
+    <text x="81" y="389" fill="#8e9ca7" font-size="10" font-weight="700">OOV ACCURACY</text>
+    <text x="81" y="408" fill="#f5f1e9" font-size="14" font-weight="700">77.62%</text>
+    <rect x="214" y="370" width="148" height="47" rx="10" fill="#2c3740"/>
+    <text x="227" y="389" fill="#8e9ca7" font-size="10" font-weight="700">AMBIGUOUS ACC.</text>
+    <text x="227" y="408" fill="#f5f1e9" font-size="14" font-weight="700">83.08%</text>
+
+    <rect x="430" y="130" width="340" height="310" rx="18" fill="#202b34" stroke="#574967"/>
+    <rect x="453" y="152" width="48" height="27" rx="9" fill="#493852"/>
+    <text x="477" y="170" text-anchor="middle" fill="#d5a5e8" font-size="12" font-weight="700">M1</text>
+    <text x="453" y="210" fill="#f5f1e9" font-size="20" font-weight="700">Character n-grams</text>
+    <text x="453" y="238" fill="#b9c3cc" font-size="13">char_wb 1–4 + Logistic Regression</text>
+    <text x="453" y="260" fill="#8e9ca7" font-size="12">Learns subword spelling patterns</text>
+    <path d="M453 280h294" stroke="#3c4851"/>
+    <text x="453" y="310" fill="#8e9ca7" font-size="11" font-weight="700" letter-spacing=".7">OVERALL ACCURACY</text>
+    <text x="453" y="342" fill="#f5f1e9" font-family="Georgia, serif" font-size="25" font-weight="700">97.23%</text>
+    <text x="605" y="310" fill="#8e9ca7" font-size="11" font-weight="700" letter-spacing=".7">MACRO-F1</text>
+    <text x="605" y="342" fill="#f5f1e9" font-family="Georgia, serif" font-size="25" font-weight="700">0.9658</text>
+    <rect x="453" y="370" width="132" height="47" rx="10" fill="#2c3740"/>
+    <text x="466" y="389" fill="#8e9ca7" font-size="10" font-weight="700">OOV ACCURACY</text>
+    <text x="466" y="408" fill="#f5f1e9" font-size="14" font-weight="700">79.36%</text>
+    <rect x="599" y="370" width="148" height="47" rx="10" fill="#2c3740"/>
+    <text x="612" y="389" fill="#8e9ca7" font-size="10" font-weight="700">AMBIGUOUS ACC.</text>
+    <text x="612" y="408" fill="#f5f1e9" font-size="14" font-weight="700">82.96%</text>
+
+    <rect x="815" y="130" width="340" height="310" rx="18" fill="#1b3032" stroke="#5c9a8d" stroke-width="1.6"/>
+    <rect x="838" y="152" width="48" height="27" rx="9" fill="#254742"/>
+    <text x="862" y="170" text-anchor="middle" fill="#73cfb4" font-size="12" font-weight="700">M3</text>
+    <text x="838" y="210" fill="#f5f1e9" font-size="20" font-weight="700">Context-aware LID</text>
+    <text x="838" y="238" fill="#c6d4d2" font-size="13">Character n-grams + previous/next words</text>
+    <text x="838" y="260" fill="#8fb2aa" font-size="12">Adds neighboring word bigrams</text>
+    <path d="M838 280h294" stroke="#3d5b57"/>
+    <text x="838" y="310" fill="#8fb2aa" font-size="11" font-weight="700" letter-spacing=".7">OVERALL ACCURACY</text>
+    <text x="838" y="342" fill="#f5f1e9" font-family="Georgia, serif" font-size="25" font-weight="700">98.42%</text>
+    <text x="990" y="310" fill="#8fb2aa" font-size="11" font-weight="700" letter-spacing=".7">MACRO-F1</text>
+    <text x="990" y="342" fill="#f5f1e9" font-family="Georgia, serif" font-size="25" font-weight="700">0.9805</text>
+    <rect x="838" y="370" width="132" height="47" rx="10" fill="#254742"/>
+    <text x="851" y="389" fill="#8fb2aa" font-size="10" font-weight="700">OOV ACCURACY</text>
+    <text x="851" y="408" fill="#e8f4ee" font-size="14" font-weight="700">81.82%</text>
+    <rect x="984" y="370" width="148" height="47" rx="10" fill="#254742"/>
+    <text x="997" y="389" fill="#8fb2aa" font-size="10" font-weight="700">AMBIGUOUS ACC.</text>
+    <text x="997" y="408" fill="#e8f4ee" font-size="14" font-weight="700">94.61%</text>
+  </g>
+
+  <g fill="none" stroke="#82929d" stroke-width="2" marker-end="url(#arrow)">
+    <path d="M389 285h34"/>
+    <path d="M774 285h34"/>
+  </g>
+  <text x="52" y="466" fill="#84939e" font-family="Arial, sans-serif" font-size="11">Experimental M4 adds predicted neighbor labels; it is not included in this frozen-test comparison.</text>
+  <text x="52" y="488" fill="#84939e" font-family="Arial, sans-serif" font-size="11">M3 is best among the evaluated project variants; this is not a claim of global state of the art.</text>
+</svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 410" role="img" aria-labelledby="title description">
+  <title id="title">Intent classification mean macro-F1 by feature setup</title>
+  <desc id="description">Across 15 locked folds and 360 labeled queries, generic character features reach 0.9308 macro-F1, LID-aware character features 0.9185, raw word features 0.8975, and LID-aware word features 0.8899.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101820"/>
+      <stop offset="1" stop-color="#17232d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="410" rx="26" fill="url(#bg)"/>
+  <text x="54" y="49" fill="#ffbf69" font-family="Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="2">DOWNSTREAM INTENT CLASSIFICATION</text>
+  <text x="54" y="83" fill="#f5f1e9" font-family="Georgia, serif" font-size="27" font-weight="700">Character features lead overall in this evaluation</text>
+  <text x="54" y="108" fill="#aebbc5" font-family="Arial, sans-serif" font-size="13">Mean Macro-F1 · 360 labeled queries · 15 locked folds · axis shown from 0.85 to 0.95</text>
+
+  <g font-family="Arial, sans-serif">
+    <text x="58" y="157" fill="#dce3e8" font-size="14" font-weight="700">A · Raw word</text>
+    <text x="58" y="207" fill="#dce3e8" font-size="14" font-weight="700">B · Generic character</text>
+    <text x="58" y="257" fill="#dce3e8" font-size="14" font-weight="700">C · LID-aware character</text>
+    <text x="58" y="307" fill="#dce3e8" font-size="14" font-weight="700">C′ · LID-aware word</text>
+
+    <rect x="390" y="137" width="690" height="24" rx="8" fill="#29343d"/>
+    <rect x="390" y="187" width="690" height="24" rx="8" fill="#29343d"/>
+    <rect x="390" y="237" width="690" height="24" rx="8" fill="#29343d"/>
+    <rect x="390" y="287" width="690" height="24" rx="8" fill="#29343d"/>
+
+    <rect x="390" y="137" width="328" height="24" rx="8" fill="#778998"/>
+    <rect x="390" y="187" width="558" height="24" rx="8" fill="#ffb75e"/>
+    <rect x="390" y="237" width="472" height="24" rx="8" fill="#73cfb4"/>
+    <rect x="390" y="287" width="275" height="24" rx="8" fill="#9c89d6"/>
+
+    <text x="730" y="155" fill="#dce3e8" font-size="15" font-weight="700">0.8975</text>
+    <text x="965" y="205" fill="#ffcf8b" font-size="15" font-weight="700">0.9308</text>
+    <text x="879" y="255" fill="#9be1cc" font-size="15" font-weight="700">0.9185</text>
+    <text x="682" y="305" fill="#c3b7e8" font-size="15" font-weight="700">0.8899</text>
+
+    <path d="M390 327h690" stroke="#53616b"/>
+    <path d="M390 323v9M735 323v9M1080 323v9" stroke="#8796a0"/>
+    <text x="390" y="350" text-anchor="middle" fill="#84939e" font-size="11">0.85</text>
+    <text x="735" y="350" text-anchor="middle" fill="#84939e" font-size="11">0.90</text>
+    <text x="1080" y="350" text-anchor="middle" fill="#84939e" font-size="11">0.95</text>
+  </g>
+  <text x="54" y="385" fill="#84939e" font-family="Arial, sans-serif" font-size="12">Setup B is best overall; Setup C has higher F1 than B for refund and cancel_order. See the table and notes below.</text>
+</svg>

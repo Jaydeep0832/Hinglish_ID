@@ -9,6 +9,8 @@
 <p align="center">
   <a href="#problem-statement">Problem</a> ·
   <a href="#proposed-solution">Solution</a> ·
+  <a href="#technical-architecture">Architecture</a> ·
+  <a href="#from-baseline-to-best-performing-lid-model">Model lineage</a> ·
   <a href="#evaluation-results">Results</a> ·
   <a href="#quick-start-web-interface">Quick start</a> ·
   <a href="#limitations-and-operational-notes">Limitations</a>
@@ -118,16 +120,29 @@ The browser-side engine is a lightweight demonstration implementation. Use the P
 | Intent model | Scikit-learn TF-IDF and Logistic Regression; the offline study compares word and character features |
 | Data and evaluation | CoNLL LID splits, a 360-query intent dataset, locked cross-validation splits, pytest, and JSON/CSV result artifacts |
 
-### Analysis stages
-
-    Customer message
-        -> deterministic preprocessing and entity masking
-        -> tokenization and HI / EN / OTHER tagging
-        -> language-aware normalization and comparison transforms
-        -> six-class intent scoring
-        -> queue mapping, CMI flag, and low-confidence escalation
+<p align="center">
+  <img src="docs/architecture-overview.svg" alt="Architecture showing the React interface using either the FastAPI machine-learning path or browser-side demo fallback" width="100%" />
+</p>
 
 The application exposes per-token tags, normalized text, language-specific audit information, intent scores, and the routing rationale so a reviewer can inspect the intermediate decisions.
+
+## From baseline to best-performing LID model
+
+The language-identification experiments progress from a word lookup baseline to character features and then sentence context. The three models below were evaluated on the same frozen 135,568-token test split.
+
+<p align="center">
+  <img src="docs/model-evolution.svg" alt="Comparison of M0 word lookup, M1 character n-gram, and M3 context-aware LID models" width="100%" />
+</p>
+
+| Model | What it learns | Accuracy | Macro-F1 | OOV accuracy | Ambiguous-token accuracy |
+| --- | --- | ---: | ---: | ---: | ---: |
+| M0: Word lookup | Maps each seen token to its most frequent language label; unseen tokens use the corpus-majority label | 97.96% | 0.9746 | 77.62% | 83.08% |
+| M1: Character n-grams | Logistic Regression over character-boundary n-grams (1–4); generalizes over subword spelling patterns but does not use neighboring words | 97.23% | 0.9658 | 79.36% | 82.96% |
+| M3: Context-aware | Combines character n-grams with previous/next-word features and word bigrams to resolve context-dependent forms | **98.42%** | **0.9805** | **81.82%** | **94.61%** |
+
+The code also implements an experimental M4 two-pass variant that adds predicted neighboring language labels as features. M4 is not included in the frozen held-out test comparison above; the checked-in final test report evaluates M3.
+
+M3 is the strongest of these project-tested LID variants on the held-out evaluation. “Best-performing” here is scoped to this repository’s experiments; it is **not** a claim of state of the art against all published systems.
 
 ## Evaluation results
 
@@ -148,6 +163,10 @@ On the evaluated ambiguous-token set, the context model scores 94.96% pooled acc
 ### Downstream intent classification
 
 Results are means over 15 locked folds on 360 labeled queries.
+
+<p align="center">
+  <img src="docs/intent-benchmark.svg" alt="Mean macro-F1 comparison of four intent-classification setups across 15 locked folds" width="100%" />
+</p>
 
 | Setup | Text features | Accuracy | Macro-F1 |
 | --- | --- | ---: | ---: |
