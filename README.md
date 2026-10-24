@@ -1,240 +1,289 @@
-# HinglishID-Router: Word-Level Language Identification & Normalization for Customer Support Routing
+# HinglishID-Router
 
-[![CI Tests](https://img.shields.io/badge/Unit%20Tests-125%20%2F%20125%20Passing-brightgreen)](tests/)
-[![Python](https://img.shields.io/badge/Python-3.11-blue.svg)](https://www.python.org/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Streamlit Demo](https://img.shields.io/badge/Demo-Streamlit%20Enterprise%20App-red.svg)](app/demo.py)
-[![LinCE Benchmark](https://img.shields.io/badge/Benchmark-LinCE%201.35M%20Tokens-orange.svg)](https://ritual.uh.edu/lince/)
+**Word-level Hindi–English language identification, spelling normalization, intent classification, and support-queue triage for Romanized Hinglish messages.**
 
-**Word-Level Language Identification with Character N-Grams and Context Features to Improve Intent Classification and Enterprise Routing of Romanized Hindi-English Customer Support Queries**
+<p align="center">
+  <img src="docs/readme-hero.svg" alt="HinglishID-Router pipeline: preprocess, identify language, normalize, classify intent, and route for support" width="100%" />
+</p>
 
-**Author & Lead Researcher:** Jaydeep Bhatt ([@Jaydeep0832](https://github.com/Jaydeep0832))  
-**Project Scope:** Solo Research, Engineering & Empirical Evaluation Project (21 Modules / 3 Weeks)
+<p align="center">
+  <a href="#problem-statement">Problem</a> ·
+  <a href="#proposed-solution">Solution</a> ·
+  <a href="#evaluation-results">Results</a> ·
+  <a href="#quick-start-web-interface">Quick start</a> ·
+  <a href="#limitations-and-operational-notes">Limitations</a>
+</p>
 
----
+<p align="center">
+  <img alt="Python 3.11" src="https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white" />
+  <img alt="React 19" src="https://img.shields.io/badge/React-19-149ECA?logo=react&logoColor=white" />
+  <img alt="FastAPI" src="https://img.shields.io/badge/API-FastAPI-009688?logo=fastapi&logoColor=white" />
+  <img alt="Research prototype" src="https://img.shields.io/badge/Status-Research%20prototype-8A6D3B" />
+</p>
 
-## Executive Summary
+HinglishID-Router is a research prototype and interactive demo for customer-support workflows. The current web UI runs as a React/Vite application. It can analyze messages with a browser-side demo engine and can use an optional local FastAPI service backed by serialized scikit-learn models.
 
-Customer support interactions across Indian e-commerce, banking, and on-demand platforms predominantly occur in Romanized Hindi-English ("Hinglish") code-mixed text. Standard monolingual NLP pipelines fail catastrophically on these queries:
-1. **Stopword Collisions:** English stopword lists drop *"do"*, destroying the operative Hindi imperative verb *"do"* ($दो$, meaning *"give"*), e.g., *"refund do"* $\to$ *"refund"*.
-2. **Morphological Destruction:** Porter stemmers mutilate Romanized Hindi root words (e.g., *"bhai"* $\to$ *"bhai"*, *"gaya"* $\to$ *"gaya"*).
-3. **Phonetic Spelling Variants:** Informal transliteration (*nahi, nahin, nhi, nai*) scatters statistical support across independent out-of-vocabulary (OOV) tokens.
+> **Status:** Research prototype. Reported scores are offline evaluation results, not a service-level or production deployment guarantee.
 
-**HinglishID-Router** solves this through an end-to-end modular pipeline:
-- **LID Tagger:** Character $n$-gram Logistic Regression with local context windows ($w_{i-1}, w_{i+1}$) achieving **98.42% accuracy** on the frozen LinCE test set ($N=135,568$ tokens) and **+10.79% net disambiguation gain** across 36 pre-frozen cross-lingual homographs.
-- **LID-Aware Normalization:** 224-rule phonetic standardizer with protected intent carriers (negations, question markers) preventing stopword collisions.
-- **Enterprise Routing Layer:** Maps customer queries to operational departments, using a data-derived Code-Mixing Index threshold ($\text{CMI} \ge 30.0\%$) to automatically dispatch 37.8% of queries to specialized bilingual support queues.
-- **Empirical Rigor & Scientific Honesty:** Evaluated across 15 locked CV folds on 360 customer queries ($\kappa = 0.9399$) with 5,000 bootstrap resamples. We openly disclose that generic subwords (`char_wb` 1–4) naturally absorb transliteration noise (**93.08% Macro-F1** vs **89.75%** monolingual baseline), while LID-aware normalization delivers top performance on primary financial grievance categories (`refund`: **0.9606**, `cancel_order`: **0.9723**).
+## Why this project
 
----
+<table>
+  <tbody>
+    <tr>
+      <td width="33%" valign="top">
+        <h3>🧠 Context-aware language ID</h3>
+        <p>Tag Romanized Hindi and English at the token level, including words whose language depends on neighboring context.</p>
+      </td>
+      <td width="33%" valign="top">
+        <h3>🛡️ Keep intent signals</h3>
+        <p>Language-aware normalization protects negations and question words that generic stopword handling can discard.</p>
+      </td>
+      <td width="33%" valign="top">
+        <h3>🔎 Inspect every stage</h3>
+        <p>Review tokens, transformations, intent scores, and the reason behind a routing decision.</p>
+      </td>
+    </tr>
+    <tr>
+      <td width="33%" valign="top">
+        <h3>🧭 Triage code-mixing</h3>
+        <p>Use a Code-Mixing Index threshold to flag messages for a bilingual support workflow.</p>
+      </td>
+      <td width="33%" valign="top">
+        <h3>🙋 Escalate uncertainty</h3>
+        <p>Send low-confidence predictions to a human-review queue instead of relying on an uncertain route.</p>
+      </td>
+      <td width="33%" valign="top">
+        <h3>📊 Report mixed results</h3>
+        <p>Compare the LID-aware approach with generic character n-grams and disclose where each performs best.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-## System Architecture
+## Get started in a minute
 
-```
-[Customer Support Query]
-           │
-           ▼
-[Stage 1: Deterministic Preprocessing & Regex Masking]
-  • Mask URLs (<URL>), Order IDs (<ORDER_ID>), Emojis (<EMOJI>)
-  • Compress repeated characters: "plzzzz" -> "plzz", "bahutttt" -> "bahutt"
-           │
-           ▼
-[Stage 2: Word-Level LID with Context Disambiguation]
-  • Subword character n-grams (char_wb 1-4)
-  • Local context windows: [w_{i-1}, w_{i+1}] with boundary tokens <s>, </s>
-           │
-           ▼
-[Stage 3: Language-Aware Normalization]
-  • HI Tokens: 224-rule phonetic map (data/norm_map.json)
-  • Preserve critical intent carriers: Negations ("nahi", "mat"), Interrogatives ("kab", "kya")
-  • EN Tokens: Protected stopwords + Porter stemming
-           │
-           ▼
-[Stage 4: Downstream Intent Classification (Setups A, B, C, C')]
-  • 6 Support Intents: refund, cancel_order, order_not_delivered, delivery_delay, payment_failed, other
-           │
-           ▼
-[Stage 5: Enterprise Routing & Bilingual Triage]
-  • Intent -> Department Queue
-  • CMI >= 30.0% -> Bilingual Agent Queue Flag
-  • Confidence < 0.50 -> Human Supervisor Escalation
-```
+<table>
+  <tbody>
+    <tr>
+      <td width="50%" valign="top">
+        <h3>🌐 Explore the web interface</h3>
+        <p>Start the Vite app and try the browser-side demo. It can run without trained Python model files.</p>
+        <a href="#quick-start-web-interface">Run the interface →</a>
+      </td>
+      <td width="50%" valign="top">
+        <h3>🧪 Run the trained-model path</h3>
+        <p>Generate local model artifacts, then start the optional FastAPI service for backend analysis.</p>
+        <a href="#optional-python-api-and-trained-models">Set up the API →</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
----
+## Problem statement
 
-## Empirical Benchmark Results
+Customer messages in Indian support channels often mix Hindi and English in Latin script. For example: “Mera order abhi tak nahi aaya, please refund karo.” A pipeline built for English-only text can mishandle Hindi function words, informal transliteration variants, and homographs whose language depends on surrounding words. Those errors can alter intent signals such as negation, make intent classification less reliable, and send a query to the wrong support queue.
 
-### 1. Official LinCE Held-Out Test Evaluation ($N=135,568$ tokens)
-*Source: `results/table_4_test_final.json`*
+The project studies how token-level language identification and language-aware normalization affect this workflow, and how a routing layer can make uncertainty and substantial code-mixing visible to support operations.
 
-| Architecture | Model Configuration | Test Accuracy | Macro-F1 | HI F1 | EN F1 | Ambiguous Acc | Errors |
-| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **M0 Baseline** | Majority Word Lookup | 97.96% | 0.9746 | 0.9859 | 0.9633 | 83.08% | 2,762 |
-| **M1 Subword** | `char_wb` (1,4) LogReg (No Context) | 97.23% | 0.9658 | 0.9808 | 0.9507 | 82.96% | 3,749 |
-| **M3 Production** | `char_wb` (1,4) + Context $[w_{i-1}, w_{i+1}]$ | **98.42%** | **0.9805** | **0.9890** | **0.9720** | **94.61%** | **2,143** |
+## Proposed solution
 
-### 2. Disambiguation on 36 Pre-Frozen Cross-Lingual Homographs
-*Source: `results/table_3_ambiguous.json` (5,000 Bootstrap Resamples)*
+The system processes each query through an explainable, five-stage pipeline:
 
-- **Unigram Baseline Accuracy (M1):** 77.83%
-- **Context-Aware Accuracy (M3):** **88.62%**
-- **Net Disambiguation Gain:** **+10.79%**
-- **95% Bootstrap Confidence Interval:** **$[+6.84\%, +14.86\%]$** ($p < 0.001$)
+1. **Preprocessing:** Normalize whitespace and repeated characters; the Python path masks URLs, order identifiers, and emoji. The browser demo also masks phone-like numeric patterns.
+2. **Token-level language identification (LID):** Assign tokens one of three labels: <code>HI</code>, <code>EN</code>, or <code>OTHER</code>. The production research model uses character-boundary n-grams and neighboring-word context to help disambiguate shared Hindi–English forms.
+3. **Language-aware normalization:** Apply a phonetic normalization map to Hindi tokens while protecting intent-bearing negations and question words. Apply language-specific stopword handling.
+4. **Intent classification:** Estimate one of six support intents: <code>refund</code>, <code>cancel_order</code>, <code>order_not_delivered</code>, <code>delivery_delay</code>, <code>payment_failed</code>, or <code>other</code>.
+5. **Triage and routing:** Map the predicted intent to a support queue, flag queries at or above the configurable Code-Mixing Index (CMI) threshold, and send low-confidence predictions to human review.
 
-### 3. Downstream Intent Classification (15 Locked CV Folds)
-*Source: `results/table_7_intent_experiments.json`*
+The default routing thresholds are confidence below <code>0.50</code> for human escalation and CMI at or above <code>30%</code> for the bilingual-support flag. They are configurable in the UI and API.
 
-| Setup | Description | Accuracy | Macro-F1 (Mean $\pm$ Std) | 95% Bootstrap CI vs Setup A |
-| :--- | :--- | :---: | :---: | :---: |
-| **Setup A** | Monolingual English Baseline (Word TF-IDF 1–2) | 89.82% | 0.8975 ($\pm 0.0280$) | Baseline |
-| **Setup B** | Generic Subwords (`char_wb` 1–4, NO LID) | **93.06%** | **0.9308** ($\pm 0.0272$) | **$[+0.0184, +0.0484]$** ($p < 0.001$) |
-| **Setup C** | LID-Aware Normalization (`char_wb` 1–4) | 91.85% | 0.9185 ($\pm 0.0258$) | $[+0.0062, +0.0358]$ ($p < 0.005$) |
-| **Setup C'** | LID-Aware Normalization (Word TF-IDF 1–2) | 89.08% | 0.8899 ($\pm 0.0322$) | **$[-0.0163, +0.0007]$** ($p = 0.117$) |
+## Intended use
 
-### 4. Per-Intent Performance on High-Stakes Grievances
-*Source: `results/table_7_intent_experiments.json`*
+- Inspect token-level language tags, normalization decisions, and intent probabilities.
+- Compare raw-text, generic character n-gram, and LID-aware text-processing setups.
+- Demonstrate intent-based support queue mapping and confidence/CMI-based triage.
+- Reproduce the research evaluations from the included scripts and result artifacts.
 
-| Intent Category | Setup A (Monolingual) | Setup B (Generic Subwords) | Setup C (LID-Aware - Ours) | Operational Advantage |
-| :--- | :---: | :---: | :---: | :--- |
-| **`refund`** | 0.8992 | 0.9555 | **0.9606** | **Setup C (+0.0051)** — Prevents customer churn |
-| **`cancel_order`** | 0.9560 | 0.9697 | **0.9723** | **Setup C (+0.0026)** — Saves logistics transit costs |
-| **`payment_failed`**| 0.9600 | **0.9639** | 0.9637 | Near-identical subword accuracy |
-| **`other` (FAQ)** | 0.8744 | 0.9033 | **0.9039** | **Setup C (+0.0006)** |
+The browser-side engine is a lightweight demonstration implementation. Use the Python service and generated model artifacts when evaluating the trained-model path.
 
----
+## Technical architecture
 
-## Scientific Findings & Negative Results Disclosure
+| Layer | Implementation |
+| --- | --- |
+| Web interface | React 19 and Vite; interactive pipeline views, examples, thresholds, comparison, and audit drawer |
+| Browser demo | JavaScript preprocessing, token-level language heuristics, normalization map, intent scoring, and routing; used when the API is unavailable |
+| API | FastAPI with Uvicorn; <code>GET /api/health</code> and <code>POST /api/analyze</code> |
+| LID model | Scikit-learn character <code>char_wb</code> n-gram Logistic Regression with neighboring-token context |
+| Normalization | Rule-based transliteration map in <code>data/norm_map.json</code>, with protected negation and question signals |
+| Intent model | Scikit-learn TF-IDF and Logistic Regression; the offline study compares word and character features |
+| Data and evaluation | CoNLL LID splits, a 360-query intent dataset, locked cross-validation splits, pytest, and JSON/CSV result artifacts |
 
-In the spirit of open scientific inquiry, we report key findings that challenge conventional assumptions:
+### Analysis stages
 
-1. **Word-Level Phonetic Normalization Yields Zero Statistically Significant Gain:**
-   Comparing Setup C' against Setup A yields a 95% Bootstrap Confidence Interval of **$[-0.0163, +0.0007]$** ($p = 0.117$). Because this interval crosses zero, manual phonetic standardization alone cannot be claimed to outperform raw text on moderately sized corpora.
-2. **Subwords Naturally Absorb Transliteration Variations:**
-   Setup B (`char_wb` 1–4) outperforms all setups overall (93.08% Macro-F1). Character boundary n-grams naturally decompose words into shared subwords (e.g., *kro* and *karo* share `[' k', 'ro ']`), absorbing spelling noise without requiring explicit lexicon engineering.
-3. **The Value of LID in Enterprise Production:**
-   While subwords absorb noise blindly, LID-aware normalization provides:
-   - Top precision on high-impact grievance categories (`refund` and `cancel_order`).
-   - Token-level auditability (inspecting tags and applied rules).
-   - The Code-Mixing Index (CMI) calculation required for automated bilingual call-center routing.
+    Customer message
+        -> deterministic preprocessing and entity masking
+        -> tokenization and HI / EN / OTHER tagging
+        -> language-aware normalization and comparison transforms
+        -> six-class intent scoring
+        -> queue mapping, CMI flag, and low-confidence escalation
 
----
+The application exposes per-token tags, normalized text, language-specific audit information, intent scores, and the routing rationale so a reviewer can inspect the intermediate decisions.
 
-## Installation & Quickstart
+## Evaluation results
 
-### Prerequisites
-- Python 3.11+
-- Git
+The following values are read from the checked-in artifacts under <code>results/</code>. They describe the supplied research datasets and evaluation protocols.
 
-### 1. Clone and Environment Setup
-```bash
-# Clone the repository
-git clone https://github.com/Jaydeep0832/Hinglish_ID.git
-cd Hinglish_ID
+### Held-out language identification
 
-# Create and activate virtual environment
-python -m venv .venv
+The frozen test partition contains 135,568 tokens.
 
-# Windows:
-.venv\Scripts\activate
-# Linux/macOS:
-# source .venv/bin/activate
+| Model | Accuracy | Macro-F1 |
+| --- | ---: | ---: |
+| Word-lookup baseline | 97.96% | 0.9746 |
+| Character n-gram Logistic Regression, no context | 97.23% | 0.9658 |
+| Context-aware character n-gram model | **98.42%** | **0.9805** |
 
-# Install pinned dependencies
-pip install -r requirements.txt
+On the evaluated ambiguous-token set, the context model scores 94.96% pooled accuracy versus 84.18% for the majority/lookup baseline, a gain of 10.79 percentage points.
 
-# Download required NLTK corpora
-python -c "import nltk; nltk.download('stopwords'); nltk.download('punkt'); nltk.download('punkt_tab')"
-```
+### Downstream intent classification
 
-### 2. Run the Full Unit Test Suite (125 Tests)
-All 125 unit tests execute deterministically in $< 48$ seconds on standard CPU:
-```bash
-pytest
-```
+Results are means over 15 locked folds on 360 labeled queries.
 
-### 3. Reproduce Downstream Intent Benchmarks (15 Folds)
-To retrain and benchmark Setups A, B, C, and C' across 15 locked CV folds and regenerate `results/table_7_intent_experiments.json`:
-```bash
-python src/run_intent_experiments.py
-```
+| Setup | Text features | Accuracy | Macro-F1 |
+| --- | --- | ---: | ---: |
+| A: Raw word baseline | Word-level features | 89.82% | 0.8975 |
+| B: Generic character model | Character n-grams, no LID normalization | **93.06%** | **0.9308** |
+| C: LID-aware character model | Character n-grams with language-aware normalization | 91.85% | 0.9185 |
+| C′: LID-aware word model | Word-level features with normalization | 89.08% | 0.8899 |
 
-### 4. Launch the Interactive Streamlit Demo
-Launch the interactive web application featuring colored token spans, CMI gauge, 3-way live setup comparison, and limitation disclosures:
-```bash
-streamlit run app/demo.py
-```
+Setup B has the strongest overall macro-F1 in this experiment. Setup C is not the overall winner, but has higher F1 than Setup B for the evaluated <code>refund</code> and <code>cancel_order</code> categories (0.9606 vs. 0.9555 and 0.9723 vs. 0.9697, respectively). The reported comparison between Setup C′ and Setup A is not statistically significant (95% bootstrap interval crosses zero; p = 0.117). These results are included to show both gains and limits of LID-aware normalization.
 
----
+The separate three-rater annotation check reports Fleiss’ kappa of 0.9398 over 40 overlapping examples. This is an annotation-agreement result, not a model accuracy score.
 
-## Repository Structure
+## Quick start: web interface
 
-```
-Hinglish_ID/
-├── app/
-│   └── demo.py                       # Interactive Streamlit support demo
-├── data/
-│   ├── ambiguous_words.txt           # 36 pre-frozen ambiguous homographs
-│   ├── norm_map.json                 # 224-rule phonetic normalization dictionary
-│   ├── stopwords_hi.txt              # Hindi stopwords with protected intent carriers
-│   └── processed/
-│       ├── intent_clean.csv          # 360 double-annotated queries (kappa = 0.9399)
-│       ├── dev.conll                 # LinCE dev split (135,568 tokens)
-│       └── test.conll                # LinCE held-out test split (135,568 tokens)
-├── docs/
-│   ├── checkpoints.md                # 21-day checkpoint questions and verified answers
-│   ├── error_analysis.md             # Categorized qualitative error taxonomy
-│   ├── hypotheses.md                 # Pre-registered hypotheses (H1-H3)
-│   ├── intent_guidelines.md          # Formal annotation guidelines (v2.0)
-│   ├── presentation_slides.md        # 10-slide presentation deck
-│   └── report_draft.md               # 13-section publication-grade research paper
-├── models/                           # Serialized models (.joblib, ignored from git)
-├── results/                          # Complete empirical result artifacts (.json, .csv)
-│   ├── table_3_ambiguous.json        # Ambiguous word disambiguation results
-│   ├── table_4_test_final.json       # Official test set evaluation
-│   ├── table_7_intent_experiments.json # 15-fold cross-validation downstream results
-│   └── cmi_vs_error.json             # Code-mixing error curve
-├── src/
-│   ├── conll_reader.py               # CoNLL parser and sentence-level splitter
-│   ├── lang_aware.py                 # Language-aware phonetic normalizer
-│   ├── lid_context.py                # Context feature generator [w_{i-1}, w_{i+1}]
-│   ├── lid_tagger.py                 # Character n-gram Naive Bayes & Logistic Regression
-│   ├── pipeline.py                   # Unified end-to-end HinglishPipeline
-│   ├── preprocess.py                 # Regex masking and character collapse
-│   ├── routing.py                    # Support queue router and CMI threshold logic
-│   └── run_intent_experiments.py     # Downstream 15-fold benchmark script
-├── tests/                            # 125 pytest unit tests across 10 modules
-├── HinglishID-Router_Plan.md         # 21-day project execution plan
-├── HinglishID-Router_Plan_and_Demo.html # Interactive HTML tracker and live toy demo
-└── requirements.txt                  # Pinned dependencies
-```
+Requirements: Node.js 20.19+ or 22.12+ and npm. These versions satisfy the Vite 8 engine requirement in <code>frontend/package.json</code>.
 
----
+    git clone &lt;repository-url&gt;
+    cd Hinglish_ID/frontend
+    npm ci
+    npm run dev
 
-## Citation & References
+Open the local URL printed by Vite (normally <code>http://localhost:5173/</code>). If port 5173 is occupied, Vite may select another port.
 
-```bibtex
-@inproceedings{aguilar2020lince,
-  title={{LinCE}: A Centralized Benchmark for Linguistic Code-switching Evaluation},
-  author={Aguilar, Gustavo and Kar, Pranay and Solorio, Thamar},
-  booktitle={Proceedings of the 12th Language Resources and Evaluation Conference (LREC 2020)},
-  pages={1805--1813},
-  year={2020}
-}
+The UI attempts to call the local API at <code>http://localhost:8000/api/analyze</code>. If the service is unavailable, it falls back to the browser-side demo engine and labels the source accordingly.
 
-@inproceedings{patwa2020semeval,
-  title={{SemEval-2020 Task 9}: Overview of Sentiment Analysis of Code-Mixed Social Media Text},
-  author={Patwa, Parth and Aguilar, Gustavo and Kar, Pranay and Pandey, Suraj and PYKL, Srinivas and Gamb{\"a}ck, Bj{\"o}rn and Chakraborty, Tanmoy and Solorio, Thamar},
-  booktitle={Proceedings of the 14th International Workshop on Semantic Evaluation (SemEval 2020)},
-  pages={774--790},
-  year={2020}
-}
+## Optional: Python API and trained models
 
-@article{pedregosa2011scikit,
-  title={Scikit-learn: Machine Learning in Python},
-  author={Pedregosa, Fabian and Varoquaux, Ga{\"e}l and Gramfort, Alexandre and Michel, Vincent and Thirion, Bertrand and Grisel, Olivier and Blondel, Mathieu and Prettenhofer, Peter and Weiss, Ron and Dubourg, Vincent and others},
-  journal={Journal of Machine Learning Research},
-  volume={12},
-  pages={2825--2830},
-  year={2011}
-}
-```
+Requirements: Python 3.11 is the project’s documented baseline. The API additionally requires FastAPI and Uvicorn, which are not listed in the current <code>requirements.txt</code>.
+
+Create an environment and install the project dependencies:
+
+    python -m venv .venv
+
+On Windows PowerShell:
+
+    .venv\Scripts\Activate.ps1
+
+On macOS or Linux:
+
+    source .venv/bin/activate
+
+Then install packages and NLTK data:
+
+    python -m pip install --upgrade pip
+    python -m pip install -r requirements.txt
+    python -m pip install fastapi uvicorn
+    python -m nltk.downloader stopwords punkt punkt_tab
+
+Serialized model files are excluded from version control. Generate them locally before starting the trained-model API:
+
+    python src/train_lid_tagger.py
+    python src/train_context_tagger.py
+    python src/evaluate_final_test.py
+    python src/run_intent_experiments.py
+
+These scripts write model files under <code>models/</code> and may update evaluation artifacts under <code>results/</code>. The final LID evaluation intentionally uses the frozen test split; avoid rerunning it when you only need to inspect the checked-in results.
+
+Start the API from the repository root:
+
+    python -m uvicorn backend.server:app --host 127.0.0.1 --port 8000
+
+The API expects <code>models/lid_final.joblib</code> and <code>models/intent_classifier_setup_c.joblib</code>.
+
+### API reference
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| <code>GET</code> | <code>/api/health</code> | Reports service health and whether model objects loaded |
+| <code>POST</code> | <code>/api/analyze</code> | Analyzes a query and returns tokens, tags, CMI, transformed text, intent scores, and routing metadata |
+
+The analysis request accepts a JSON object with a required <code>query</code> string and optional <code>conf_threshold</code> and <code>cmi_threshold</code> numeric values. Defaults are <code>0.50</code> and <code>30.0</code>, respectively.
+
+## Alternative demo: Streamlit
+
+The repository also contains a Streamlit interface. It uses the same local model artifacts:
+
+    streamlit run app/demo.py
+
+## Tests and frontend build
+
+Run the Python test suite from the repository root:
+
+    pytest
+
+Build or lint the web interface from <code>frontend/</code>:
+
+    npm run build
+    npm run lint
+
+## Data and reproducibility
+
+- <code>data/processed/</code> contains the committed train, development, and held-out CoNLL partitions used by the LID experiments.
+- <code>data/intent_dataset.csv</code> and <code>data/intent_splits_5fold.json</code> support the downstream intent experiment.
+- The raw upstream LID corpus is not included under <code>data/raw/</code>. Obtain and use the source data according to its own access and redistribution terms.
+- Check <code>results/</code> for the recorded JSON/CSV metrics and figures. The experiment scripts document the model configurations and evaluation protocol.
+- Generated scikit-learn model files are ignored by Git and must be built locally for the Python API and Streamlit app.
+
+## Limitations and operational notes
+
+- Evaluation of downstream intents uses 360 labeled queries. Broader, time-based, and live-traffic validation is needed before operational use.
+- The JavaScript fallback is a demo engine and is not the serialized Python model. Its predictions should not be treated as equivalent to the offline scikit-learn benchmark.
+- The current FastAPI response populates its Setup A, B, and C result slots from the same prediction. Use the checked-in cross-validation artifacts for the independent setup comparison.
+- The service currently has no authentication and configures permissive CORS. Keep it on a trusted local network; restrict origins and add authentication before exposing it to other users.
+- Pattern-based masking is not a complete PII-removal guarantee. Do not submit production customer data to the demo without an approved data-handling and privacy review.
+- The 30% CMI and 0.50 confidence thresholds are configurable research defaults, not universally validated operating thresholds. Keep a human review path for uncertain or high-impact cases.
+
+## Repository layout
+
+    app/                 Streamlit demo
+    backend/             FastAPI service
+    data/                Intent data, normalization resources, and processed LID splits
+    docs/                Research notes, annotation guidance, and evaluation analysis
+    frontend/             React/Vite interface and browser-side analysis engine
+    models/               Locally generated, Git-ignored serialized models
+    notebooks/           Exploratory analysis and demonstration notebooks
+    results/              Evaluation tables, error analyses, and figures
+    scripts/              Dataset and analysis helper scripts
+    src/                  Python preprocessing, LID, normalization, evaluation, and routing
+    tests/                Pytest suite
+
+## Contributing
+
+Keep changes reproducible and scoped. For changes to the Python pipeline, run <code>pytest</code>; for frontend changes, run <code>npm run build</code> from <code>frontend/</code>. Update the relevant result notes when changing an evaluation protocol or metric.
+
+## License
+
+No <code>LICENSE</code> file is currently present in the repository. Add an explicit license before redistributing this project or its data.
+
+## Citation
+
+The LID benchmark uses the LinCE code-switching evaluation work. Cite the source when using the benchmark or comparing results:
+
+    @inproceedings{aguilar2020lince,
+      title = {{LinCE}: A Centralized Benchmark for Linguistic Code-switching Evaluation},
+      author = {Aguilar, Gustavo and Kar, Pranay and Solorio, Thamar},
+      booktitle = {Proceedings of the 12th Language Resources and Evaluation Conference},
+      pages = {1805--1813},
+      year = {2020}
+    }

@@ -1,16 +1,19 @@
-# React + Vite
+# HinglishID-Router web interface
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+This directory contains the React 19 and Vite interface for exploring the Hinglish customer-support analysis pipeline. The UI includes sample messages, routing thresholds, token-level language tags, normalization details, intent scores, comparison views, and an audit drawer.
 
-Currently, two official plugins are available:
+## Run locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Requirements: Node.js 20.19+ or 22.12+ and npm, matching the Vite 8 engine requirement declared in <code>package.json</code>.
 
-## React Compiler
+    npm ci
+    npm run dev
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Open the URL reported by Vite, normally <code>http://localhost:5173/</code>. The interface tries the optional API at <code>http://localhost:8000/api/analyze</code>; when it cannot connect, it runs the browser-side demo engine.
 
-## Expanding the Oxlint configuration
+## Build and lint
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+    npm run build
+    npm run lint
+
+The Python pipeline, API setup, model generation, research results, and data notes are documented in the repository-root README.

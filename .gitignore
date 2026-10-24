@@ -1,4 +1,4 @@
-# Virtual environment
+# Python environments
 .venv/
 venv/
 env/
@@ -11,24 +11,29 @@ __pycache__/
 .Python
 .pytest_cache/
 
-# Jupyter
+# Jupyter checkpoints
 .ipynb_checkpoints/
 *.ipynb_checkpoints
 
-# Data (LinCE raw data NOT committed — license)
+# Raw source corpus is not distributed with this repository
 data/raw/
 
-# Models (large binary files — generated via training scripts)
+# Serialized models are generated locally and excluded from version control
 models/*.joblib
 
-# IDE
+# Results CSVs and JSON artifacts are committed for reproducibility
+
+# IDE and OS files
 .vscode/
 .idea/
 *.sublime-project
-
-# OS
 .DS_Store
 Thumbs.db
 
-# Results CSVs are committed (small, needed for reproducibility)
-# models/lid_final.joblib committed AFTER Day 10 freeze
+# Local-only planning artifacts and unused frontend starter assets
+/HinglishID-Router_Plan.md
+/HinglishID-Router_Plan_and_Demo.html
+/frontend/src/assets/hero.png
+/frontend/src/assets/react.svg
+/frontend/src/assets/vite.svg
+/frontend/public/icons.svg
